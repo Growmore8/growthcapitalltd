@@ -1,53 +1,122 @@
-<!-- Hero -->
-<section class="hero">
-    <div class="container hero__inner">
-        <div class="hero__content">
-            <span class="eyebrow fade-in-up">Global Online Trading</span>
-            <h1 class="fade-in-up delay-1">Enter the World of <span class="text-accent">Limitless</span> Possibilities</h1>
-            <p class="hero__lead fade-in-up delay-2">
-                Trade Forex, Metals, Indices and Cryptocurrencies with tight spreads,
-                fast execution and powerful platforms — anytime, anywhere.
-            </p>
-            <div class="hero__actions fade-in-up delay-2">
-                <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
-                <a class="btn btn--ghost btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
+<!-- ===================== Hero carousel ===================== -->
+<section class="carousel" id="heroCarousel" aria-label="Featured highlights">
+    <div class="carousel__track" id="carouselTrack">
+
+        <article class="slide slide--active" style="--img:url('<?= asset('images/slide-bonus.jpg') ?>')">
+            <div class="container slide__inner slide__inner--center">
+                <span class="eyebrow">Limited-time offer</span>
+                <h1>100% Bonus on Your <span class="text-accent">First Deposit</span></h1>
+                <p>Plus 50% extra every time you top up.*</p>
+                <div class="slide__actions">
+                    <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Learn More</a>
+                </div>
+                <p class="slide__tnc">*Terms and Conditions apply.</p>
             </div>
-            <ul class="hero__badges fade-in-up delay-3">
-                <li><strong>1:500</strong> Leverage</li>
-                <li><strong>0.0</strong> Raw Spreads</li>
-                <li><strong>24/7</strong> Support</li>
-            </ul>
+        </article>
+
+        <article class="slide" style="--img:url('<?= asset('images/athlete-football.jpg') ?>')">
+            <div class="container slide__inner">
+                <span class="eyebrow">Official Trading Partners</span>
+                <h1>Different Arenas.<br>The Same Pursuit of <span class="text-accent">Excellence</span>.</h1>
+                <p>We bring the discipline and precision of elite sport to every trade.</p>
+                <div class="slide__actions">
+                    <a class="btn btn--primary btn--lg" href="<?= url('about') ?>">Discover More</a>
+                    <a class="btn btn--ghost btn--lg" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="slide" style="--img:url('<?= asset('images/slide-podcast.jpg') ?>')">
+            <div class="container slide__inner">
+                <span class="eyebrow">GrowthCapital Talks</span>
+                <h1>Insights From the <span class="text-accent">People Who Move Markets</span></h1>
+                <p>A new episode every fortnight — uncut conversations with industry leaders.</p>
+                <div class="slide__actions">
+                    <a class="btn btn--primary btn--lg" href="#">Watch Now</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="slide" style="--img:url('<?= asset('images/slide-trading.jpg') ?>')">
+            <div class="container slide__inner">
+                <span class="eyebrow">Global Online Trading</span>
+                <h1>Enter the World of <span class="text-accent">Limitless</span> Possibilities</h1>
+                <p>Trade Forex, Metals, Indices and Cryptocurrencies on professional platforms.</p>
+                <div class="slide__actions">
+                    <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
+                    <a class="btn btn--ghost btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <button class="carousel__arrow carousel__arrow--prev" id="carouselPrev" aria-label="Previous slide">&#8249;</button>
+    <button class="carousel__arrow carousel__arrow--next" id="carouselNext" aria-label="Next slide">&#8250;</button>
+    <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Choose slide"></div>
+</section>
+
+<!-- ===================== Trust bar ===================== -->
+<section class="trustbar">
+    <div class="container trustbar__inner">
+        <div class="trustbar__rating">
+            <strong>Excellent</strong>
+            <span class="stars" aria-label="4.8 out of 5">★★★★★</span>
+            <span class="trustbar__meta">4.8 / 5 based on 54,477 reviews</span>
         </div>
-        <div class="hero__card fade-in-up delay-2">
-            <div class="quote-card float-img">
-                <h3>Start trading in minutes</h3>
-                <ol class="quote-card__steps">
-                    <li><span>1</span> Register your account</li>
-                    <li><span>2</span> Verify &amp; fund</li>
-                    <li><span>3</span> Trade global markets</li>
-                </ol>
-                <a class="btn btn--primary btn--block" href="<?= url(config('links.register', '/register')) ?>">Get Started</a>
-                <p class="quote-card__note">Already a client? <a href="<?= url(config('links.login', '/login')) ?>">Login</a></p>
-            </div>
+        <div class="trustbar__cta">
+            <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
+            <a class="btn btn--outline" href="<?= url('contact') ?>">24/7 Support</a>
         </div>
     </div>
 </section>
 
-<!-- Live market strip -->
-<section class="ticker" aria-label="Live market prices (sample)">
-    <div class="ticker__track" id="tickerTrack">
-        <span class="ticker__item">EUR/USD <b>1.0842</b> <i class="up">+0.12%</i></span>
-        <span class="ticker__item">GBP/USD <b>1.2671</b> <i class="down">-0.08%</i></span>
-        <span class="ticker__item">XAU/USD <b>2,318.40</b> <i class="up">+0.45%</i></span>
-        <span class="ticker__item">BTC/USD <b>67,940</b> <i class="up">+1.20%</i></span>
-        <span class="ticker__item">US30 <b>38,790</b> <i class="down">-0.21%</i></span>
-        <span class="ticker__item">USD/JPY <b>156.18</b> <i class="up">+0.10%</i></span>
-        <span class="ticker__item">ETH/USD <b>3,512</b> <i class="up">+0.85%</i></span>
-    </div>
-</section>
-
-<!-- Markets (image cards) -->
+<!-- ===================== Live markets (TradingView) ===================== -->
 <section class="section">
+    <div class="container">
+        <div class="section__head" data-reveal>
+            <span class="eyebrow">Live markets</span>
+            <h2>Real-Time Market Data</h2>
+            <p>Track the instruments that matter — powered by live market feeds.</p>
+        </div>
+        <div class="tv-overview" data-reveal>
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12M",
+                "showChart": true,
+                "locale": "en",
+                "width": "100%",
+                "height": 460,
+                "largeChartUrl": "",
+                "isTransparent": false,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": true,
+                "tabs": [
+                    {"title": "Forex", "symbols": [
+                        {"s": "FX:EURUSD"}, {"s": "FX:GBPUSD"}, {"s": "FX:USDJPY"}, {"s": "FX:AUDUSD"}, {"s": "FX:USDCAD"}
+                    ]},
+                    {"title": "Metals", "symbols": [
+                        {"s": "OANDA:XAUUSD", "d": "Gold"}, {"s": "OANDA:XAGUSD", "d": "Silver"}, {"s": "TVC:PLATINUM"}
+                    ]},
+                    {"title": "Indices", "symbols": [
+                        {"s": "FOREXCOM:SPXUSD", "d": "S&P 500"}, {"s": "FOREXCOM:DJI", "d": "Dow 30"}, {"s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100"}
+                    ]},
+                    {"title": "Crypto", "symbols": [
+                        {"s": "BITSTAMP:BTCUSD", "d": "Bitcoin"}, {"s": "BITSTAMP:ETHUSD", "d": "Ethereum"}, {"s": "BINANCE:SOLUSD", "d": "Solana"}
+                    ]}
+                ]
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== Markets image cards ===================== -->
+<section class="section section--alt">
     <div class="container">
         <div class="section__head" data-reveal>
             <span class="eyebrow">What you can trade</span>
@@ -75,7 +144,7 @@
     </div>
 </section>
 
-<!-- Sponsorship / athlete band -->
+<!-- ===================== Sponsorship band ===================== -->
 <section class="sponsor">
     <div class="container">
         <div class="sponsor__inner" data-reveal="left">
@@ -95,7 +164,38 @@
     </div>
 </section>
 
-<!-- Platforms split -->
+<!-- ===================== Advanced chart (TradingView) ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="section__head" data-reveal>
+            <span class="eyebrow">Professional charting</span>
+            <h2>Analyse Like a Pro</h2>
+            <p>Full-featured, real-time charts with the tools serious traders rely on.</p>
+        </div>
+        <div class="tv-chart" data-reveal>
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                {
+                "autosize": true,
+                "symbol": "OANDA:XAUUSD",
+                "interval": "60",
+                "timezone": "Etc/UTC",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "hide_side_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "support_host": "https://www.tradingview.com"
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== Platforms split ===================== -->
 <section class="section section--alt">
     <div class="container">
         <div class="split">
@@ -119,7 +219,7 @@
     </div>
 </section>
 
-<!-- Why choose us -->
+<!-- ===================== Why choose us ===================== -->
 <section class="section">
     <div class="container">
         <div class="section__head" data-reveal>
@@ -134,7 +234,7 @@
     </div>
 </section>
 
-<!-- Stats -->
+<!-- ===================== Stats ===================== -->
 <section class="stats">
     <div class="container grid grid--4">
         <div class="stat" data-reveal><span class="stat__num" data-count="180">0</span><span class="stat__label">Tradable Instruments</span></div>
@@ -144,7 +244,25 @@
     </div>
 </section>
 
-<!-- CTA with photo -->
+<!-- ===================== Payment methods marquee ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="section__head" data-reveal>
+            <span class="eyebrow">Fast &amp; secure</span>
+            <h2>Flexible Funding Options</h2>
+        </div>
+        <div class="logo-marquee" data-reveal>
+            <div class="logo-marquee__track">
+                <span>VISA</span><span>Mastercard</span><span>Skrill</span><span>Neteller</span>
+                <span>Bank Wire</span><span>Crypto</span><span>PayPal</span><span>Apple Pay</span>
+                <span>VISA</span><span>Mastercard</span><span>Skrill</span><span>Neteller</span>
+                <span>Bank Wire</span><span>Crypto</span><span>PayPal</span><span>Apple Pay</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CTA with photo ===================== -->
 <section class="cta-photo">
     <div class="container" data-reveal="zoom">
         <h2>Ready to Start Trading?</h2>

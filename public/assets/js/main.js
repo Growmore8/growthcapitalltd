@@ -20,6 +20,84 @@
         });
     }
 
+    /* Mobile dropdown accordions (only active in the mobile nav layout) */
+    var dropParents = document.querySelectorAll('.has-dropdown > a');
+    dropParents.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            // Only intercept on mobile (when the hamburger is visible).
+            if (window.matchMedia('(max-width: 760px)').matches) {
+                var li = link.parentNode;
+                // Allow real navigation if it has a meaningful href and is already open.
+                if (!li.classList.contains('open')) {
+                    e.preventDefault();
+                    document.querySelectorAll('.has-dropdown.open').forEach(function (o) {
+                        if (o !== li) o.classList.remove('open');
+                    });
+                    li.classList.add('open');
+                }
+            }
+        });
+    });
+
+    /* Hero carousel */
+    var carousel = document.getElementById('heroCarousel');
+    if (carousel) {
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll('.slide'));
+        var dotsWrap = document.getElementById('carouselDots');
+        var prevBtn = document.getElementById('carouselPrev');
+        var nextBtn = document.getElementById('carouselNext');
+        var current = 0;
+        var timer = null;
+        var INTERVAL = 6000;
+
+        var dots = slides.map(function (_, i) {
+            var b = document.createElement('button');
+            b.setAttribute('role', 'tab');
+            b.setAttribute('aria-label', 'Slide ' + (i + 1));
+            if (i === 0) b.classList.add('active');
+            b.addEventListener('click', function () { go(i); restart(); });
+            dotsWrap.appendChild(b);
+            return b;
+        });
+
+        function go(n) {
+            slides[current].classList.remove('slide--active');
+            dots[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            slides[current].classList.add('slide--active');
+            dots[current].classList.add('active');
+        }
+        function next() { go(current + 1); }
+        function prev() { go(current - 1); }
+        function start() { timer = window.setInterval(next, INTERVAL); }
+        function stop() { window.clearInterval(timer); }
+        function restart() { stop(); start(); }
+
+        if (nextBtn) nextBtn.addEventListener('click', function () { next(); restart(); });
+        if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restart(); });
+
+        carousel.addEventListener('mouseenter', stop);
+        carousel.addEventListener('mouseleave', start);
+
+        /* Touch / swipe support */
+        var startX = 0;
+        carousel.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+        carousel.addEventListener('touchend', function (e) {
+            var dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+            start();
+        }, { passive: true });
+
+        /* Pause when tab not visible */
+        document.addEventListener('visibilitychange', function () {
+            document.hidden ? stop() : restart();
+        });
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            start();
+        }
+    }
+
     /* Sticky header shadow on scroll */
     var header = document.getElementById('siteHeader');
     if (header) {

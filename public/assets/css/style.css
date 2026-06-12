@@ -311,6 +311,135 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-legal__links a:hover { color: #fff; }
 
 /* ==========================================================================
+   Header extras: sponsor badge, dropdowns, TradingView ticker
+   ========================================================================== */
+.site-header__left { display: flex; align-items: center; gap: 20px; }
+
+.sponsor-badge {
+    display: flex; flex-direction: column; gap: 2px; padding-left: 20px;
+    border-left: 1px solid rgba(255,255,255,.15); line-height: 1.1;
+}
+.sponsor-badge__label { font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: #93a5bd; display: flex; align-items: center; gap: 6px; }
+.sponsor-badge__label i { background: var(--accent); color: #04231a; font-style: normal; font-weight: 800; font-size: .55rem; padding: 1px 5px; border-radius: 4px; }
+.sponsor-badge__logo { font-weight: 900; color: #fff; font-size: .92rem; letter-spacing: .02em; }
+
+.topbar__lang { color: #cdd9e9; }
+
+/* Dropdown menus */
+.has-dropdown { position: relative; }
+.caret {
+    display: inline-block; width: 0; height: 0; margin-left: 5px; vertical-align: middle;
+    border-left: 4px solid transparent; border-right: 4px solid transparent;
+    border-top: 5px solid currentColor; transition: transform .25s; opacity: .8;
+}
+.dropdown {
+    position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(10px);
+    background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+    min-width: 260px; padding: 10px; opacity: 0; visibility: hidden; transition: opacity .22s, transform .22s; z-index: 60;
+}
+.dropdown::before { content: ""; position: absolute; top: -16px; left: 0; right: 0; height: 16px; }
+.has-dropdown:hover > .dropdown,
+.has-dropdown:focus-within > .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.has-dropdown:hover > a .caret { transform: rotate(180deg); }
+.dropdown a {
+    display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: var(--radius-sm);
+    color: var(--navy-800) !important; transition: background .15s;
+}
+.dropdown a strong { font-weight: 700; font-size: .95rem; }
+.dropdown a span { color: var(--muted); font-size: .8rem; }
+.dropdown a:hover { background: var(--bg-alt); }
+.dropdown a:hover::after { display: none; }
+
+/* TradingView ticker tape strip */
+.tv-ticker { background: var(--navy-900); border-bottom: 1px solid rgba(255,255,255,.06); }
+.tv-ticker .tradingview-widget-container { min-height: 46px; }
+
+/* ==========================================================================
+   Hero carousel
+   ========================================================================== */
+.carousel { position: relative; overflow: hidden; background: var(--navy-900); }
+.carousel__track { position: relative; height: clamp(460px, 64vh, 660px); }
+.slide {
+    position: absolute; inset: 0; display: flex; align-items: center; color: #fff;
+    opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility .8s ease; z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(8,21,46,.94) 0%, rgba(8,21,46,.72) 45%, rgba(8,21,46,.35) 100%),
+        var(--img, none) center/cover no-repeat;
+}
+.slide--active { opacity: 1; visibility: visible; z-index: 2; }
+.slide__inner { max-width: 640px; }
+.slide__inner--center { max-width: 760px; margin: 0 auto; text-align: center; }
+.slide h1 { color: #fff; font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 800; margin-bottom: 16px; }
+.slide p { color: #d3def0; font-size: clamp(1rem, 1.6vw, 1.25rem); max-width: 560px; }
+.slide__inner--center p { margin-left: auto; margin-right: auto; }
+.slide__actions { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
+.slide__inner--center .slide__actions { justify-content: center; }
+.slide__tnc { font-size: .78rem; color: #aebfd4; margin-top: 16px; }
+
+/* Animate active slide content in */
+.slide--active .eyebrow,
+.slide--active h1,
+.slide--active p,
+.slide--active .slide__actions,
+.slide--active .slide__tnc { animation: slideUp .8s cubic-bezier(.22,.61,.36,1) both; }
+.slide--active h1 { animation-delay: .1s; }
+.slide--active p { animation-delay: .22s; }
+.slide--active .slide__actions { animation-delay: .34s; }
+.slide--active .slide__tnc { animation-delay: .44s; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+.carousel__arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+    width: 48px; height: 48px; border-radius: 50%; border: 0; cursor: pointer;
+    background: rgba(255,255,255,.14); color: #fff; font-size: 1.8rem; line-height: 1;
+    display: grid; place-items: center; backdrop-filter: blur(4px); transition: background .2s;
+}
+.carousel__arrow:hover { background: var(--accent); color: #04231a; }
+.carousel__arrow--prev { left: 22px; }
+.carousel__arrow--next { right: 22px; }
+
+.carousel__dots { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 9px; }
+.carousel__dots button {
+    width: 28px; height: 5px; border-radius: 99px; border: 0; cursor: pointer;
+    background: rgba(255,255,255,.4); transition: background .25s, width .25s;
+}
+.carousel__dots button.active { background: var(--accent); width: 40px; }
+
+/* ==========================================================================
+   Trust bar
+   ========================================================================== */
+.trustbar { background: #fff; border-bottom: 1px solid var(--line); }
+.trustbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+.trustbar__rating { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.trustbar__rating strong { font-size: 1.05rem; color: var(--navy-900); }
+.trustbar .stars { color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
+.trustbar__meta { color: var(--muted); font-size: .9rem; }
+.trustbar__cta { display: flex; gap: 12px; }
+
+/* ==========================================================================
+   TradingView widget containers
+   ========================================================================== */
+.tv-overview, .tv-chart {
+    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--navy-900);
+}
+.tv-chart { height: 520px; }
+.tv-chart .tradingview-widget-container,
+.tv-chart .tradingview-widget-container__widget { height: 100%; }
+
+/* ==========================================================================
+   Logo / payment marquee
+   ========================================================================== */
+.logo-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logo-marquee__track { display: flex; gap: 56px; align-items: center; width: max-content; animation: marquee 26s linear infinite; }
+.logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
+.logo-marquee__track span {
+    font-weight: 800; font-size: 1.3rem; color: var(--muted); opacity: .7; white-space: nowrap;
+    letter-spacing: .02em; transition: opacity .2s, color .2s;
+}
+.logo-marquee__track span:hover { opacity: 1; color: var(--navy-800); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ==========================================================================
    Scroll-reveal animations
    ========================================================================== */
 [data-reveal] {
@@ -327,7 +456,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 [data-reveal] { transition-delay: var(--reveal-delay, 0s); }
 @media (prefers-reduced-motion: reduce) {
     [data-reveal] { opacity: 1 !important; transform: none !important; }
-    .hero::after, .float-img, .ticker__track { animation: none !important; }
+    .hero::after, .float-img, .ticker__track, .logo-marquee__track { animation: none !important; }
+    .slide--active .eyebrow, .slide--active h1, .slide--active p,
+    .slide--active .slide__actions, .slide--active .slide__tnc { animation: none !important; }
 }
 
 /* Fade-up keyframe used by hero content on load */
@@ -427,6 +558,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     .split--reverse .split__media { order: 0; }
     /* fixed backgrounds are janky on mobile/touch */
     .sponsor, .cta-photo { background-attachment: scroll; }
+    .sponsor-badge { display: none; }
 }
 
 @media (max-width: 760px) {
@@ -448,4 +580,29 @@ ul { margin: 0; padding: 0; list-style: none; }
     .section { padding: 56px 0; }
     .sponsor__inner { padding: 64px 0; }
     .cta-photo { padding: 72px 0; }
+
+    /* Mobile nav dropdowns become inline accordions */
+    .dropdown {
+        position: static; transform: none; opacity: 1; visibility: visible;
+        box-shadow: none; min-width: 0; padding: 0 0 8px 12px; display: none;
+        background: transparent;
+    }
+    .has-dropdown.open > .dropdown { display: block; }
+    .has-dropdown.open > a .caret { transform: rotate(180deg); }
+    .dropdown a { color: #d7e1ee !important; padding: 10px 0; }
+    .dropdown a span { color: #93a5bd; }
+    .dropdown a:hover { background: transparent; }
+    .main-nav__list a { border-bottom: 1px solid rgba(255,255,255,.08); }
+
+    /* Carousel tweaks */
+    .carousel__track { height: clamp(420px, 80vh, 560px); }
+    .slide { background-position: 70% center; }
+    .slide__inner, .slide__inner--center { text-align: center; max-width: 100%; margin: 0 auto; }
+    .slide__actions { justify-content: center; }
+    .carousel__arrow { width: 38px; height: 38px; font-size: 1.3rem; }
+    .carousel__arrow--prev { left: 8px; }
+    .carousel__arrow--next { right: 8px; }
+
+    .trustbar__inner { justify-content: center; text-align: center; }
+    .tv-chart { height: 420px; }
 }

@@ -11,7 +11,7 @@ $pageTitle = $title ?? 'GrowthCapital';
     <title><?= e($pageTitle) ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
 <body>
@@ -21,8 +21,10 @@ $pageTitle = $title ?? 'GrowthCapital';
     <div class="container topbar__inner">
         <span class="topbar__risk">Risk warning: CFDs are complex instruments and carry a high risk of losing money rapidly due to leverage.</span>
         <div class="topbar__links">
-            <a href="<?= url('contact') ?>">Contact</a>
+            <a href="<?= url('about') ?>">Partners</a>
             <a href="<?= url(config('links.platform', '/platform')) ?>">WebTrader</a>
+            <a href="<?= url('contact') ?>">Contact Us</a>
+            <span class="topbar__lang">🌐 EN</span>
         </div>
     </div>
 </div>
@@ -30,10 +32,16 @@ $pageTitle = $title ?? 'GrowthCapital';
 <!-- Main header -->
 <header class="site-header" id="siteHeader">
     <div class="container site-header__inner">
-        <a class="brand" href="<?= url('/') ?>">
-            <span class="brand__mark">G</span>
-            <span class="brand__name">Growth<strong>Capital</strong></span>
-        </a>
+        <div class="site-header__left">
+            <a class="brand" href="<?= url('/') ?>">
+                <span class="brand__mark">G</span>
+                <span class="brand__name">Growth<strong>Capital</strong></span>
+            </a>
+            <div class="sponsor-badge" title="Official Sponsorship">
+                <span class="sponsor-badge__label">Sponsorship <i>NEW</i></span>
+                <span class="sponsor-badge__logo">GC RACING</span>
+            </div>
+        </div>
 
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -42,18 +50,70 @@ $pageTitle = $title ?? 'GrowthCapital';
         <nav class="main-nav" id="mainNav">
             <ul class="main-nav__list">
                 <li><a class="<?= is_active('/') ?>" href="<?= url('/') ?>">Home</a></li>
-                <li><a class="<?= is_active('/markets') ?>" href="<?= url('markets') ?>">Markets</a></li>
-                <li><a class="<?= is_active('/platforms') ?>" href="<?= url('platforms') ?>">Platforms</a></li>
+
+                <li class="has-dropdown">
+                    <a class="<?= is_active('/markets') ?>" href="<?= url('markets') ?>">Trading <span class="caret"></span></a>
+                    <div class="dropdown">
+                        <a href="<?= url('markets') ?>"><strong>Forex</strong><span>Major, minor &amp; exotic pairs</span></a>
+                        <a href="<?= url('markets') ?>"><strong>Metals</strong><span>Gold, silver, platinum</span></a>
+                        <a href="<?= url('markets') ?>"><strong>Indices</strong><span>Global stock indices</span></a>
+                        <a href="<?= url('markets') ?>"><strong>Cryptocurrencies</strong><span>Digital assets, 24/7</span></a>
+                    </div>
+                </li>
+
+                <li class="has-dropdown">
+                    <a class="<?= is_active('/platforms') ?>" href="<?= url('platforms') ?>">Platforms <span class="caret"></span></a>
+                    <div class="dropdown">
+                        <a href="<?= url('platforms') ?>"><strong>Desktop</strong><span>Advanced terminal</span></a>
+                        <a href="<?= url('platforms') ?>"><strong>WebTrader</strong><span>Trade in your browser</span></a>
+                        <a href="<?= url('platforms') ?>"><strong>Mobile</strong><span>iOS &amp; Android apps</span></a>
+                        <a href="<?= url(config('links.platform', '/platform')) ?>"><strong>Platform Login</strong><span>Sign in to trade</span></a>
+                    </div>
+                </li>
+
                 <li><a class="<?= is_active('/accounts') ?>" href="<?= url('accounts') ?>">Accounts</a></li>
-                <li><a class="<?= is_active('/about') ?>" href="<?= url('about') ?>">About</a></li>
-                <li><a class="<?= is_active('/contact') ?>" href="<?= url('contact') ?>">Contact</a></li>
+
+                <li class="has-dropdown">
+                    <a href="#">More <span class="caret"></span></a>
+                    <div class="dropdown">
+                        <a href="<?= url('about') ?>"><strong>About Us</strong><span>Who we are</span></a>
+                        <a href="<?= url('contact') ?>"><strong>Contact</strong><span>Get in touch 24/7</span></a>
+                        <a href="<?= url('accounts') ?>"><strong>Account Types</strong><span>Compare plans</span></a>
+                    </div>
+                </li>
             </ul>
             <div class="main-nav__auth">
-                <a class="btn btn--ghost" href="<?= url(config('links.login', '/login')) ?>">Login</a>
-                <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>">Register</a>
+                <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
+                <a class="btn btn--ghost" href="<?= url(config('links.login', '/login')) ?>">Client Login</a>
             </div>
         </nav>
     </div>
 </header>
+
+<!-- TradingView ticker tape (live) -->
+<div class="tv-ticker">
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            {"proName": "FX:EURUSD", "title": "EUR/USD"},
+            {"proName": "FX:GBPUSD", "title": "GBP/USD"},
+            {"proName": "OANDA:XAUUSD", "title": "Gold"},
+            {"proName": "FX:USDJPY", "title": "USD/JPY"},
+            {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+            {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
+            {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+            {"proName": "FOREXCOM:DJI", "title": "Dow 30"}
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "en"
+        }
+        </script>
+    </div>
+</div>
 
 <main class="site-main">
