@@ -47,7 +47,7 @@
                     <span class="float-card__chg up" data-chg>+0.12%</span>
                 </div>
                 <div class="float-card glass float-card--2" data-float="2">
-                    <span class="float-card__pair"><i class="fa-solid fa-coins"></i> Gold</span>
+                    <span class="float-card__pair"><i class="fa-solid fa-coins"></i> XAU/USD</span>
                     <span class="float-card__val" data-tick="2318.4" data-dec="1">2,318.4</span>
                     <span class="float-card__chg up" data-chg>+0.45%</span>
                 </div>

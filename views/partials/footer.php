@@ -64,9 +64,9 @@
             <div class="footer-col">
                 <h4>Account</h4>
                 <ul>
-                    <li><a href="<?= url(config('links.login', '/login')) ?>">Client Login</a></li>
-                    <li><a href="<?= url(config('links.register', '/register')) ?>">Open an Account</a></li>
-                    <li><a href="<?= url(config('links.platform', '/platform')) ?>">Platform Login</a></li>
+                    <li><a href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener">Client Login</a></li>
+                    <li><a href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Open an Account</a></li>
+                    <li><a href="<?= url(config('links.platform', '/platform')) ?>" target="_blank" rel="noopener">Platform Login</a></li>
                 </ul>
             </div>
         </div>

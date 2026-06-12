@@ -13,6 +13,13 @@
         });
     }
 
+    /* External trading-platform links always open in a new tab,
+       so the website stays open behind them (a way back is always kept). */
+    document.querySelectorAll('a[href*="trade.growthcapitalltd.com"]').forEach(function (a) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+    });
+
     /* Live "running" prices (hero chart value + floating cards) */
     var ticks = document.querySelectorAll('[data-tick]');
     if (ticks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
