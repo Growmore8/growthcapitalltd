@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($title ?? 'Platform Login — GrowthCapital') ?></title>
+    <link rel="icon" type="image/svg+xml" href="<?= url('favicon.svg') ?>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
@@ -11,7 +12,7 @@
     <main class="platform">
         <div class="platform__panel">
             <a class="brand brand--platform" href="<?= url('/') ?>">
-                <span class="brand__mark">G</span>
+                <span class="brand__mark"><img src="<?= asset('images/logo-mark.svg') ?>" alt="GrowthCapital logo" width="36" height="36"></span>
                 <span class="brand__name">Growth<strong>Capital</strong></span>
             </a>
             <h1>Platform Login</h1>

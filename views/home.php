@@ -301,6 +301,67 @@
     </div>
 </section>
 
+<!-- ===================== Client reviews ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">Client reviews</span>
+            <h2>Trusted by Traders Across the Region</h2>
+            <p>Real feedback from our clients in India, the UAE and the Maldives.</p>
+        </div>
+        <div class="grid grid--3">
+            <figure class="review" data-aos="fade-up">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote>Spreads are genuinely tight and withdrawals hit my account fast. The mobile app makes it easy to manage trades between meetings.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r1.svg') ?>" alt="Rohan Mehta" loading="lazy">
+                    <span class="review__id"><b>Rohan Mehta</b><small><i class="fa-solid fa-location-dot"></i> Mumbai, India 🇮🇳</small></span>
+                </figcaption>
+            </figure>
+            <figure class="review" data-aos="fade-up" data-aos-delay="100">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote>I started with a small Lite account and upgraded as I grew. Support answered every question patiently — highly recommended.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r2.svg') ?>" alt="Priya Nair" loading="lazy">
+                    <span class="review__id"><b>Priya Nair</b><small><i class="fa-solid fa-location-dot"></i> Bengaluru, India 🇮🇳</small></span>
+                </figcaption>
+            </figure>
+            <figure class="review" data-aos="fade-up" data-aos-delay="200">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote>Execution speed is excellent even during news. As someone trading gold daily, that reliability matters a lot.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r3.svg') ?>" alt="Ahmed Al Mansoori" loading="lazy">
+                    <span class="review__id"><b>Ahmed Al Mansoori</b><small><i class="fa-solid fa-location-dot"></i> Dubai, UAE 🇦🇪</small></span>
+                </figcaption>
+            </figure>
+            <figure class="review" data-aos="fade-up">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <blockquote>Clean platform, clear pricing, no hidden surprises. The managed fund plans helped me diversify beyond my own trades.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r4.svg') ?>" alt="Layla Hassan" loading="lazy">
+                    <span class="review__id"><b>Layla Hassan</b><small><i class="fa-solid fa-location-dot"></i> Dubai, UAE 🇦🇪</small></span>
+                </figcaption>
+            </figure>
+            <figure class="review" data-aos="fade-up" data-aos-delay="100">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote>24/7 support is real — I got help at 2am during a volatile session. Deposits and withdrawals have always been smooth.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r5.svg') ?>" alt="Ibrahim Naseer" loading="lazy">
+                    <span class="review__id"><b>Ibrahim Naseer</b><small><i class="fa-solid fa-location-dot"></i> Malé, Maldives 🇲🇻</small></span>
+                </figcaption>
+            </figure>
+            <figure class="review" data-aos="fade-up" data-aos-delay="200">
+                <div class="review__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <blockquote>The SIP calculator and managed funds made investing approachable for me. Transparent and genuinely trustworthy.</blockquote>
+                <figcaption class="review__person">
+                    <img src="<?= asset('images/avatars/r6.svg') ?>" alt="Aishath Reema" loading="lazy">
+                    <span class="review__id"><b>Aishath Reema</b><small><i class="fa-solid fa-location-dot"></i> Malé, Maldives 🇲🇻</small></span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== Stats ===================== -->
 <section class="stats">
     <div class="container grid grid--4">

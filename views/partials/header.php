@@ -9,6 +9,9 @@ $pageTitle = $title ?? 'GrowthCapital';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GrowthCapital — global online trading in Forex, Metals, Indices and Cryptocurrencies. Trade with tight spreads on professional platforms.">
     <title><?= e($pageTitle) ?></title>
+    <link rel="icon" type="image/svg+xml" href="<?= url('favicon.svg') ?>">
+    <link rel="apple-touch-icon" href="<?= asset('images/logo-mark.svg') ?>">
+    <meta name="theme-color" content="#0a1730">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,7 +41,7 @@ $pageTitle = $title ?? 'GrowthCapital';
     <div class="container site-header__inner">
         <div class="site-header__left">
             <a class="brand" href="<?= url('/') ?>">
-                <span class="brand__mark">G</span>
+                <span class="brand__mark"><img src="<?= asset('images/logo-mark.svg') ?>" alt="GrowthCapital logo" width="36" height="36"></span>
                 <span class="brand__name">Growth<strong>Capital</strong></span>
             </a>
             <div class="sponsor-badge" title="Official Sponsorship">
