@@ -226,6 +226,70 @@
     </div>
 </section>
 
+<!-- ===================== Mobile app showcase (animated) ===================== -->
+<section class="appshow" id="appShow">
+    <div class="appshow__aurora" aria-hidden="true">
+        <span class="blob blob--green"></span>
+        <span class="blob blob--red"></span>
+    </div>
+    <div class="container appshow__inner">
+        <div class="appshow__text">
+            <span class="eyebrow eyebrow--light" data-app="eyebrow">Mobile App</span>
+            <h2 class="appshow__title">
+                <span data-app="l1">Crypto</span>
+                <span class="text-accent" data-app="l2">Trading</span>
+                <span data-app="l3">Wallet</span>
+            </h2>
+            <p data-app="sub">Cutting-edge UI/UX — trade, fund and manage your entire portfolio from anywhere, in seconds.</p>
+            <div class="appshow__badges" data-app="badges">
+                <a class="store-badge" href="<?= url(config('links.platform', '/platform')) ?>" target="_blank" rel="noopener"><i class="fa-brands fa-apple"></i><span><small>Download on the</small>App Store</span></a>
+                <a class="store-badge" href="<?= url(config('links.platform', '/platform')) ?>" target="_blank" rel="noopener"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small>Google Play</span></a>
+            </div>
+        </div>
+
+        <div class="appshow__phones">
+            <!-- Back phone: wallet -->
+            <div class="phone phone--back" data-app="phoneBack">
+                <div class="phone__screen">
+                    <div class="phone__bar"><span>Wallet</span><i class="fa-solid fa-wallet"></i></div>
+                    <div class="phone__balance">
+                        <small>Total balance</small>
+                        <b>$24,860.50</b>
+                        <span class="up"><i class="fa-solid fa-caret-up"></i> +5.2% today</span>
+                    </div>
+                    <div class="phone__rows">
+                        <div class="ph-row"><span><i class="fa-brands fa-bitcoin"></i> BTC</span><span>0.62</span></div>
+                        <div class="ph-row"><span><i class="fa-brands fa-ethereum"></i> ETH</span><span>4.10</span></div>
+                        <div class="ph-row"><span><i class="fa-solid fa-coins"></i> USDT</span><span>5,000</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Front phone: trading -->
+            <div class="phone phone--front" data-app="phoneFront">
+                <div class="phone__screen">
+                    <div class="phone__bar"><span><i class="fa-brands fa-bitcoin"></i> BTC/USD</span><span class="up">+2.4%</span></div>
+                    <div class="phone__price">$67,940</div>
+                    <div class="phone__chart">
+                        <svg viewBox="0 0 220 90" preserveAspectRatio="none">
+                            <defs><linearGradient id="phFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(22,199,132,.5)"/><stop offset="1" stop-color="rgba(22,199,132,0)"/></linearGradient></defs>
+                            <path d="M0,70 L30,60 L60,66 L90,40 L120,52 L150,28 L180,36 L220,14 L220,90 L0,90 Z" fill="url(#phFill)"/>
+                            <path d="M0,70 L30,60 L60,66 L90,40 L120,52 L150,28 L180,36 L220,14" fill="none" stroke="#25ef8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="phone__btns">
+                        <button class="ph-buy" type="button">Buy</button>
+                        <button class="ph-sell" type="button">Sell</button>
+                    </div>
+                    <div class="phone__rows">
+                        <div class="ph-row"><span><i class="fa-brands fa-ethereum"></i> ETH</span><span>3,512</span><span class="up">+0.9%</span></div>
+                        <div class="ph-row"><span>SOL</span><span>168.2</span><span class="up">+3.1%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== Trading accounts ===================== -->
 <section class="section">
     <div class="container">

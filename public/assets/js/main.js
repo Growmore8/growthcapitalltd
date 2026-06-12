@@ -46,6 +46,23 @@
             }
         }
 
+        // Mobile-app showcase: staggered reveal when scrolled into view.
+        var appShow = document.getElementById('appShow');
+        if (appShow && window.ScrollTrigger) {
+            var atl = gsap.timeline({
+                scrollTrigger: { trigger: appShow, start: 'top 72%', once: true },
+                defaults: { ease: 'power3.out', duration: 0.7 }
+            });
+            atl.from('[data-app="phoneBack"]',  { y: 60, opacity: 0, scale: 0.9, clearProps: 'all' })
+               .from('[data-app="phoneFront"]', { y: 60, opacity: 0, scale: 0.9, clearProps: 'all' }, '-=0.5')
+               .from('[data-app="eyebrow"]',    { y: 20, opacity: 0 }, '-=0.4')
+               .from('[data-app="l1"]',         { y: 26, opacity: 0 }, '-=0.4')
+               .from('[data-app="l2"]',         { y: 26, opacity: 0 }, '-=0.5')
+               .from('[data-app="l3"]',         { y: 26, opacity: 0 }, '-=0.5')
+               .from('[data-app="sub"]',        { y: 20, opacity: 0 }, '-=0.4')
+               .from('[data-app="badges"]',     { y: 20, opacity: 0 }, '-=0.4');
+        }
+
         // Subtle mouse parallax on the hero visual.
         var visual = document.querySelector('.hero2__visual');
         if (visual && window.matchMedia('(pointer:fine)').matches) {
@@ -80,8 +97,8 @@
     var dropParents = document.querySelectorAll('.has-dropdown > a');
     dropParents.forEach(function (link) {
         link.addEventListener('click', function (e) {
-            // Only intercept on mobile (when the hamburger is visible).
-            if (window.matchMedia('(max-width: 760px)').matches) {
+            // Only intercept when the hamburger nav is active.
+            if (window.matchMedia('(max-width: 1080px)').matches) {
                 var li = link.parentNode;
                 // Allow real navigation if it has a meaningful href and is already open.
                 if (!li.classList.contains('open')) {
