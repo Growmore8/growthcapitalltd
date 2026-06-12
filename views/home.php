@@ -2,7 +2,9 @@
 <section class="carousel" id="heroCarousel" aria-label="Featured highlights">
     <div class="carousel__track" id="carouselTrack">
 
-        <article class="slide slide--active" style="--img:url('<?= asset('images/slide-bonus.jpg') ?>')">
+        <!-- Slide 1: Bonus (centered) -->
+        <article class="slide slide--center slide--active">
+            <div class="slide__media" style="--img:url('<?= asset('images/slide-bonus.jpg') ?>'); --pos:center"></div>
             <div class="container slide__inner slide__inner--center">
                 <span class="eyebrow">Limited-time offer</span>
                 <h1>100% Bonus on Your <span class="text-accent">First Deposit</span></h1>
@@ -14,19 +16,23 @@
             </div>
         </article>
 
-        <article class="slide" style="--img:url('<?= asset('images/athlete-football.jpg') ?>')">
-            <div class="container slide__inner">
+        <!-- Slide 2: Sponsorship (athlete left, text right) -->
+        <article class="slide slide--right">
+            <div class="slide__media" style="--img:url('<?= asset('images/athlete-football.jpg') ?>'); --pos:24% 12%"></div>
+            <div class="container slide__inner slide__inner--right">
                 <span class="eyebrow">Official Trading Partners</span>
                 <h1>Different Arenas.<br>The Same Pursuit of <span class="text-accent">Excellence</span>.</h1>
                 <p>We bring the discipline and precision of elite sport to every trade.</p>
                 <div class="slide__actions">
                     <a class="btn btn--primary btn--lg" href="<?= url('about') ?>">Discover More</a>
-                    <a class="btn btn--ghost btn--lg" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
+                    <a class="btn btn--glass btn--lg" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
                 </div>
             </div>
         </article>
 
-        <article class="slide" style="--img:url('<?= asset('images/slide-podcast.jpg') ?>')">
+        <!-- Slide 3: Podcast (text left) -->
+        <article class="slide slide--left">
+            <div class="slide__media" style="--img:url('<?= asset('images/slide-podcast.jpg') ?>'); --pos:center"></div>
             <div class="container slide__inner">
                 <span class="eyebrow">GrowthCapital Talks</span>
                 <h1>Insights From the <span class="text-accent">People Who Move Markets</span></h1>
@@ -37,14 +43,16 @@
             </div>
         </article>
 
-        <article class="slide" style="--img:url('<?= asset('images/slide-trading.jpg') ?>')">
+        <!-- Slide 4: Markets (text left) -->
+        <article class="slide slide--left">
+            <div class="slide__media" style="--img:url('<?= asset('images/slide-trading.jpg') ?>'); --pos:center"></div>
             <div class="container slide__inner">
                 <span class="eyebrow">Global Online Trading</span>
                 <h1>Enter the World of <span class="text-accent">Limitless</span> Possibilities</h1>
                 <p>Trade Forex, Metals, Indices and Cryptocurrencies on professional platforms.</p>
                 <div class="slide__actions">
                     <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
-                    <a class="btn btn--ghost btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
+                    <a class="btn btn--glass btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
                 </div>
             </div>
         </article>
