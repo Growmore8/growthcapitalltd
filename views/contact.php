@@ -13,10 +13,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h2>Get in touch</h2>
                 <p>Have a question about your account, our platforms or the markets? Reach out and we'll respond promptly.</p>
                 <ul class="contact-list">
-                    <li><span>Email</span><a href="mailto:<?= e(config('contact.email')) ?>"><?= e(config('contact.email')) ?></a></li>
-                    <li><span>Phone</span><a href="tel:<?= e(str_replace(' ', '', (string) config('contact.phone'))) ?>"><?= e(config('contact.phone')) ?></a></li>
-                    <li><span>Address</span><?= e(config('contact.address')) ?></li>
-                    <li><span>License</span><?= e(config('app.license')) ?></li>
+                    <li><span><i class="fa-regular fa-envelope"></i> Email</span><a href="mailto:<?= e(config('contact.email')) ?>"><?= e(config('contact.email')) ?></a></li>
+                    <li><span><i class="fa-solid fa-phone"></i> Phone</span><a href="tel:<?= e(str_replace(' ', '', (string) config('contact.phone'))) ?>"><?= e(config('contact.phone')) ?></a></li>
+                    <li><span><i class="fa-solid fa-location-dot"></i> Address</span><?= e(config('contact.address')) ?></li>
+                    <li><span><i class="fa-solid fa-id-card"></i> License</span><?= e(config('app.license')) ?></li>
                 </ul>
             </div>
 

@@ -12,6 +12,10 @@ $pageTitle = $title ?? 'GrowthCapital';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome (icons + payment/brand logos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- AOS — Animate On Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 </head>
 <body>
@@ -21,10 +25,10 @@ $pageTitle = $title ?? 'GrowthCapital';
     <div class="container topbar__inner">
         <span class="topbar__risk">Risk warning: CFDs are complex instruments and carry a high risk of losing money rapidly due to leverage.</span>
         <div class="topbar__links">
-            <a href="<?= url('about') ?>">Partners</a>
-            <a href="<?= url(config('links.platform', '/platform')) ?>">WebTrader</a>
-            <a href="<?= url('contact') ?>">Contact Us</a>
-            <span class="topbar__lang">🌐 EN</span>
+            <a href="<?= url('about') ?>"><i class="fa-solid fa-handshake"></i> Partners</a>
+            <a href="<?= url(config('links.platform', '/platform')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-chart-line"></i> WebTrader</a>
+            <a href="<?= url('contact') ?>"><i class="fa-regular fa-envelope"></i> Contact Us</a>
+            <span class="topbar__lang"><i class="fa-solid fa-globe"></i> EN</span>
         </div>
     </div>
 </div>
@@ -83,37 +87,11 @@ $pageTitle = $title ?? 'GrowthCapital';
                 </li>
             </ul>
             <div class="main-nav__auth">
-                <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
-                <a class="btn btn--ghost" href="<?= url(config('links.login', '/login')) ?>">Client Login</a>
+                <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Trading <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a class="btn btn--ghost" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-regular fa-user"></i> Client Login</a>
             </div>
         </nav>
     </div>
 </header>
-
-<!-- TradingView ticker tape (live) -->
-<div class="tv-ticker">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-        "symbols": [
-            {"proName": "FX:EURUSD", "title": "EUR/USD"},
-            {"proName": "FX:GBPUSD", "title": "GBP/USD"},
-            {"proName": "OANDA:XAUUSD", "title": "Gold"},
-            {"proName": "FX:USDJPY", "title": "USD/JPY"},
-            {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
-            {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
-            {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
-            {"proName": "FOREXCOM:DJI", "title": "Dow 30"}
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": false,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
-        }
-        </script>
-    </div>
-</div>
 
 <main class="site-main">

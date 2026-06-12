@@ -36,11 +36,11 @@ return [
         'address' => 'London, United Kingdom',
     ],
 
-    // External auth/platform links — to be provided later by the business.
+    // External auth/platform links (trading platform client area).
     'links' => [
-        'login'         => '/login',
-        'register'      => '/register',
-        'platform'      => '/platform',
-        'webtrader_url' => '#',
+        'login'         => 'https://trade.growthcapitalltd.com/login',
+        'register'      => 'https://trade.growthcapitalltd.com/register?type=LIVE',
+        'platform'      => 'https://trade.growthcapitalltd.com/login',
+        'webtrader_url' => 'https://trade.growthcapitalltd.com/login',
     ],
 ];

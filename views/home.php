@@ -69,12 +69,14 @@
     <div class="container trustbar__inner">
         <div class="trustbar__rating">
             <strong>Excellent</strong>
-            <span class="stars" aria-label="4.8 out of 5">★★★★★</span>
+            <span class="stars" aria-label="4.8 out of 5">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </span>
             <span class="trustbar__meta">4.8 / 5 based on 54,477 reviews</span>
         </div>
         <div class="trustbar__cta">
-            <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
-            <a class="btn btn--outline" href="<?= url('contact') ?>">24/7 Support</a>
+            <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-rocket"></i> Open an Account</a>
+            <a class="btn btn--outline" href="<?= url('contact') ?>"><i class="fa-regular fa-comments"></i> 24/7 Support</a>
         </div>
     </div>
 </section>
@@ -82,12 +84,12 @@
 <!-- ===================== Live markets (TradingView) ===================== -->
 <section class="section">
     <div class="container">
-        <div class="section__head" data-reveal>
+        <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">Live markets</span>
             <h2>Real-Time Market Data</h2>
             <p>Track the instruments that matter — powered by live market feeds.</p>
         </div>
-        <div class="tv-overview" data-reveal>
+        <div class="tv-overview" data-aos="fade-up">
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
@@ -126,27 +128,27 @@
 <!-- ===================== Markets image cards ===================== -->
 <section class="section section--alt">
     <div class="container">
-        <div class="section__head" data-reveal>
+        <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">What you can trade</span>
             <h2>Access World-Class Markets</h2>
             <p>Diversify across the most liquid asset classes from a single account.</p>
         </div>
         <div class="grid grid--4">
-            <a class="market-card" href="<?= url('markets') ?>" data-reveal>
+            <a class="market-card" href="<?= url('markets') ?>" data-aos="fade-up">
                 <img src="<?= asset('images/market-forex.jpg') ?>" alt="Forex trading" loading="lazy">
-                <div class="market-card__body"><h3>Forex</h3><p>Major, minor &amp; exotic pairs, 24/5.</p></div>
+                <div class="market-card__body"><span class="market-card__icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></span><h3>Forex</h3><p>Major, minor &amp; exotic pairs, 24/5.</p></div>
             </a>
-            <a class="market-card" href="<?= url('markets') ?>" data-reveal>
+            <a class="market-card" href="<?= url('markets') ?>" data-aos="fade-up" data-aos-delay="100">
                 <img src="<?= asset('images/market-gold.jpg') ?>" alt="Gold and precious metals" loading="lazy">
-                <div class="market-card__body"><h3>Metals</h3><p>Gold, silver, platinum &amp; palladium.</p></div>
+                <div class="market-card__body"><span class="market-card__icon"><i class="fa-solid fa-coins"></i></span><h3>Metals</h3><p>Gold, silver, platinum &amp; palladium.</p></div>
             </a>
-            <a class="market-card" href="<?= url('markets') ?>" data-reveal>
+            <a class="market-card" href="<?= url('markets') ?>" data-aos="fade-up" data-aos-delay="200">
                 <img src="<?= asset('images/market-indices.jpg') ?>" alt="Stock market indices" loading="lazy">
-                <div class="market-card__body"><h3>Indices</h3><p>Exposure to global economies.</p></div>
+                <div class="market-card__body"><span class="market-card__icon"><i class="fa-solid fa-chart-column"></i></span><h3>Indices</h3><p>Exposure to global economies.</p></div>
             </a>
-            <a class="market-card" href="<?= url('markets') ?>" data-reveal>
+            <a class="market-card" href="<?= url('markets') ?>" data-aos="fade-up" data-aos-delay="300">
                 <img src="<?= asset('images/market-crypto.jpg') ?>" alt="Cryptocurrency trading" loading="lazy">
-                <div class="market-card__body"><h3>Crypto</h3><p>Digital assets, around the clock.</p></div>
+                <div class="market-card__body"><span class="market-card__icon"><i class="fa-brands fa-bitcoin"></i></span><h3>Crypto</h3><p>Digital assets, around the clock.</p></div>
             </a>
         </div>
     </div>
@@ -155,7 +157,7 @@
 <!-- ===================== Sponsorship band ===================== -->
 <section class="sponsor">
     <div class="container">
-        <div class="sponsor__inner" data-reveal="left">
+        <div class="sponsor__inner" data-aos="fade-right">
             <span class="eyebrow">Official Trading Partners</span>
             <h2>Different Arenas. The Same Pursuit of Excellence.</h2>
             <p>
@@ -175,12 +177,12 @@
 <!-- ===================== Advanced chart (TradingView) ===================== -->
 <section class="section">
     <div class="container">
-        <div class="section__head" data-reveal>
+        <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">Professional charting</span>
             <h2>Analyse Like a Pro</h2>
             <p>Full-featured, real-time charts with the tools serious traders rely on.</p>
         </div>
-        <div class="tv-chart" data-reveal>
+        <div class="tv-chart" data-aos="fade-up">
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
@@ -207,21 +209,21 @@
 <section class="section section--alt">
     <div class="container">
         <div class="split">
-            <div class="split__media" data-reveal="left">
+            <div class="split__media" data-aos="fade-right">
                 <img src="<?= asset('images/platform-devices.jpg') ?>" alt="GrowthCapital trading platform on laptop and mobile" loading="lazy">
-                <span class="badge-float">Desktop · Web · Mobile</span>
+                <span class="badge-float"><i class="fa-solid fa-laptop"></i> Desktop · Web · Mobile</span>
             </div>
-            <div class="split__content" data-reveal="right">
+            <div class="split__content" data-aos="fade-left">
                 <span class="eyebrow">Powerful platforms</span>
                 <h2>Trade Anywhere, On Any Device</h2>
                 <p>Professional-grade tools with advanced charting, fast execution and automated trading — synced across all your devices.</p>
                 <ul class="split__list">
-                    <li>Low-latency order execution</li>
-                    <li>Advanced charts &amp; indicators</li>
-                    <li>Automated &amp; algorithmic trading</li>
-                    <li>Secure, encrypted connections</li>
+                    <li><i class="fa-solid fa-bolt"></i> Low-latency order execution</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Advanced charts &amp; indicators</li>
+                    <li><i class="fa-solid fa-robot"></i> Automated &amp; algorithmic trading</li>
+                    <li><i class="fa-solid fa-lock"></i> Secure, encrypted connections</li>
                 </ul>
-                <a class="btn btn--primary btn--lg" href="<?= url('platforms') ?>">Discover Platforms</a>
+                <a class="btn btn--primary btn--lg" href="<?= url('platforms') ?>">Discover Platforms <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
     </div>
@@ -230,14 +232,14 @@
 <!-- ===================== Why choose us ===================== -->
 <section class="section">
     <div class="container">
-        <div class="section__head" data-reveal>
+        <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">Why GrowthCapital</span>
             <h2>Built for Serious Traders</h2>
         </div>
         <div class="grid grid--3">
-            <div class="value" data-reveal><h3>Tight Raw Spreads</h3><p>Institutional-grade pricing from 0.0 pips with fast order execution.</p></div>
-            <div class="value" data-reveal><h3>24/7 Support</h3><p>An experienced team available around the clock to help you trade with confidence.</p></div>
-            <div class="value" data-reveal><h3>Safety &amp; Compliance</h3><p>A firm commitment to safety, compliance and ethical practices.</p></div>
+            <div class="value" data-aos="fade-up"><div class="value__icon"><i class="fa-solid fa-bolt"></i></div><h3>Tight Raw Spreads</h3><p>Institutional-grade pricing from 0.0 pips with fast order execution.</p></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="100"><div class="value__icon"><i class="fa-solid fa-headset"></i></div><h3>24/7 Support</h3><p>An experienced team available around the clock to help you trade with confidence.</p></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="200"><div class="value__icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Safety &amp; Compliance</h3><p>A firm commitment to safety, compliance and ethical practices.</p></div>
         </div>
     </div>
 </section>
@@ -245,36 +247,42 @@
 <!-- ===================== Stats ===================== -->
 <section class="stats">
     <div class="container grid grid--4">
-        <div class="stat" data-reveal><span class="stat__num" data-count="180">0</span><span class="stat__label">Tradable Instruments</span></div>
-        <div class="stat" data-reveal><span class="stat__num" data-count="500">0</span><span class="stat__label">Max Leverage (1:x)</span></div>
-        <div class="stat" data-reveal><span class="stat__num" data-count="24">0</span><span class="stat__label">Hours Support</span></div>
-        <div class="stat" data-reveal><span class="stat__num" data-count="60">0</span><span class="stat__label">Payment Methods</span></div>
+        <div class="stat" data-aos="zoom-in"><i class="fa-solid fa-layer-group stat__ico"></i><span class="stat__num" data-count="180">0</span><span class="stat__label">Tradable Instruments</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="100"><i class="fa-solid fa-gauge-high stat__ico"></i><span class="stat__num" data-count="500">0</span><span class="stat__label">Max Leverage (1:x)</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-clock stat__ico"></i><span class="stat__num" data-count="24">0</span><span class="stat__label">Hours Support</span></div>
+        <div class="stat" data-aos="zoom-in" data-aos-delay="300"><i class="fa-solid fa-credit-card stat__ico"></i><span class="stat__num" data-count="60">0</span><span class="stat__label">Payment Methods</span></div>
     </div>
 </section>
 
 <!-- ===================== Payment methods marquee ===================== -->
 <section class="section">
     <div class="container">
-        <div class="section__head" data-reveal>
+        <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">Fast &amp; secure</span>
             <h2>Flexible Funding Options</h2>
         </div>
-        <div class="logo-marquee" data-reveal>
-            <div class="logo-marquee__track">
-                <span>VISA</span><span>Mastercard</span><span>Skrill</span><span>Neteller</span>
-                <span>Bank Wire</span><span>Crypto</span><span>PayPal</span><span>Apple Pay</span>
-                <span>VISA</span><span>Mastercard</span><span>Skrill</span><span>Neteller</span>
-                <span>Bank Wire</span><span>Crypto</span><span>PayPal</span><span>Apple Pay</span>
-            </div>
+        <div class="pay-grid" data-aos="fade-up">
+            <div class="pay-logo" title="Visa"><i class="fa-brands fa-cc-visa"></i><span>Visa</span></div>
+            <div class="pay-logo" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i><span>Mastercard</span></div>
+            <div class="pay-logo" title="American Express"><i class="fa-brands fa-cc-amex"></i><span>Amex</span></div>
+            <div class="pay-logo" title="PayPal"><i class="fa-brands fa-cc-paypal"></i><span>PayPal</span></div>
+            <div class="pay-logo" title="Apple Pay"><i class="fa-brands fa-cc-apple-pay"></i><span>Apple Pay</span></div>
+            <div class="pay-logo" title="Google Pay"><i class="fa-brands fa-google-pay"></i><span>Google Pay</span></div>
+            <div class="pay-logo" title="Skrill / Stripe"><i class="fa-brands fa-cc-stripe"></i><span>Stripe</span></div>
+            <div class="pay-logo" title="Bank Wire"><i class="fa-solid fa-building-columns"></i><span>Bank Wire</span></div>
+            <div class="pay-logo" title="Bitcoin"><i class="fa-brands fa-bitcoin"></i><span>Bitcoin</span></div>
+            <div class="pay-logo" title="Ethereum"><i class="fa-brands fa-ethereum"></i><span>Ethereum</span></div>
+            <div class="pay-logo" title="USDT / Tether"><i class="fa-solid fa-coins"></i><span>USDT</span></div>
+            <div class="pay-logo" title="Wallet"><i class="fa-solid fa-wallet"></i><span>e-Wallets</span></div>
         </div>
     </div>
 </section>
 
 <!-- ===================== CTA with photo ===================== -->
 <section class="cta-photo">
-    <div class="container" data-reveal="zoom">
+    <div class="container" data-aos="zoom-in">
         <h2>Ready to Start Trading?</h2>
         <p>Open your GrowthCapital account today and access global markets in minutes.</p>
-        <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
+        <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-rocket"></i> Open an Account</a>
     </div>
 </section>

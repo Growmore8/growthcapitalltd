@@ -2,6 +2,17 @@
 (function () {
     'use strict';
 
+    /* Animate On Scroll */
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 70,
+            disable: function () { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+        });
+    }
+
     /* Mobile navigation toggle */
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('mainNav');

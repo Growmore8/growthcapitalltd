@@ -29,18 +29,18 @@ require BASE_PATH . '/views/partials/page-header.php';
             <h2>Choose Your Platform</h2>
         </div>
         <div class="grid grid--3">
-            <article class="feature-card" data-reveal>
-                <div class="feature-card__icon">▣</div>
+            <article class="feature-card" data-aos="fade-up">
+                <div class="feature-card__icon"><i class="fa-solid fa-desktop"></i></div>
                 <h3>Desktop</h3>
                 <p>Full-featured desktop terminals with advanced charting, indicators and automated trading.</p>
             </article>
-            <article class="feature-card" data-reveal>
-                <div class="feature-card__icon">◐</div>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card__icon"><i class="fa-solid fa-globe"></i></div>
                 <h3>WebTrader</h3>
                 <p>Trade directly from your browser — no download required, with a clean and fast interface.</p>
             </article>
-            <article class="feature-card" data-reveal>
-                <div class="feature-card__icon">▢</div>
+            <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card__icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                 <h3>Mobile</h3>
                 <p>Manage positions and trade on the go with intuitive iOS and Android apps.</p>
             </article>

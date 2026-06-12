@@ -14,10 +14,12 @@
                     professional trading platforms.
                 </p>
                 <div class="footer-social" aria-label="Social media">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="X">X</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                    <a href="#" aria-label="Instagram">ig</a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -74,6 +76,8 @@
     </div>
 </footer>
 
+<!-- AOS — Animate On Scroll -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="<?= asset('js/main.js') ?>" defer></script>
 </body>
 </html>

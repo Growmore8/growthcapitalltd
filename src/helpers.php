@@ -48,6 +48,11 @@ if (!function_exists('url')) {
      */
     function url(string $path = '/'): string
     {
+        // Absolute URLs (external links, mailto, tel) are returned untouched.
+        if (preg_match('#^(https?:)?//#i', $path) || str_contains($path, ':')) {
+            return $path;
+        }
+
         $base = rtrim((string) config('app.base_url', ''), '/');
 
         return $base . '/' . ltrim($path, '/');
