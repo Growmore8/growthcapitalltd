@@ -24,10 +24,10 @@
         <div class="hero2__visual" data-hero="visual">
             <div class="hero-chart glass" data-hero="chart">
                 <div class="hero-chart__head">
-                    <span class="hero-chart__pair"><i class="fa-brands fa-bitcoin"></i> BTC/USD</span>
-                    <span class="hero-chart__chg up"><i class="fa-solid fa-caret-up"></i> 2.41%</span>
+                    <span class="hero-chart__pair"><span class="live-dot"></span><i class="fa-brands fa-bitcoin"></i> BTC/USD</span>
+                    <span class="hero-chart__chg up" data-chg>+2.41%</span>
                 </div>
-                <div class="hero-chart__val">$<span data-count="67940">0</span></div>
+                <div class="hero-chart__val"><span data-tick="67940" data-dec="0" data-prefix="$">$67,940</span></div>
                 <svg class="hero-chart__svg" viewBox="0 0 420 180" preserveAspectRatio="none">
                     <defs>
                         <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
@@ -43,18 +43,18 @@
             <div class="hero2__cards">
                 <div class="float-card glass float-card--1" data-float="1">
                     <span class="float-card__pair">EUR/USD</span>
-                    <span class="float-card__val">1.0842</span>
-                    <span class="float-card__chg up">+0.12%</span>
+                    <span class="float-card__val" data-tick="1.0842" data-dec="4">1.0842</span>
+                    <span class="float-card__chg up" data-chg>+0.12%</span>
                 </div>
                 <div class="float-card glass float-card--2" data-float="2">
                     <span class="float-card__pair"><i class="fa-solid fa-coins"></i> Gold</span>
-                    <span class="float-card__val">2,318.4</span>
-                    <span class="float-card__chg up">+0.45%</span>
+                    <span class="float-card__val" data-tick="2318.4" data-dec="1">2,318.4</span>
+                    <span class="float-card__chg up" data-chg>+0.45%</span>
                 </div>
                 <div class="float-card glass float-card--3" data-float="3">
                     <span class="float-card__pair"><i class="fa-brands fa-ethereum"></i> ETH</span>
-                    <span class="float-card__val">3,512</span>
-                    <span class="float-card__chg up">+0.9%</span>
+                    <span class="float-card__val" data-tick="3512" data-dec="0">3,512</span>
+                    <span class="float-card__chg up" data-chg>+0.9%</span>
                 </div>
             </div>
         </div>

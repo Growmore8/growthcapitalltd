@@ -13,6 +13,43 @@
         });
     }
 
+    /* Live "running" prices (hero chart value + floating cards) */
+    var ticks = document.querySelectorAll('[data-tick]');
+    if (ticks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        ticks.forEach(function (el) {
+            var base = parseFloat(el.getAttribute('data-tick')) || 0;
+            var dec = parseInt(el.getAttribute('data-dec'), 10) || 0;
+            var prefix = el.getAttribute('data-prefix') || '';
+            var chg = el.closest('.hero-chart, .float-card');
+            chg = chg ? chg.querySelector('[data-chg]') : null;
+            var cur = base;
+
+            var fmt = function (n) {
+                return prefix + n.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+            };
+            var step = function () {
+                // small random walk, gently mean-reverting around the base
+                var drift = (Math.random() - 0.5) * base * 0.0025;
+                var pull = (base - cur) * 0.05;
+                cur = cur + drift + pull;
+                var pct = ((cur - base) / base) * 100;
+                el.textContent = fmt(cur);
+                var up = drift >= 0;
+                el.classList.remove('flash-up', 'flash-down');
+                void el.offsetWidth; // restart animation
+                el.classList.add(up ? 'flash-up' : 'flash-down');
+                if (chg) {
+                    var pos = pct >= 0;
+                    chg.textContent = (pos ? '+' : '') + pct.toFixed(2) + '%';
+                    chg.classList.toggle('up', pos);
+                    chg.classList.toggle('down', !pos);
+                }
+            };
+            // stagger each ticker so they don't all update together
+            window.setInterval(step, 1500 + Math.random() * 1800);
+        });
+    }
+
     /* Animated hero (GSAP) + self-drawing chart */
     var heroChart = document.querySelector('.hero-chart');
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
