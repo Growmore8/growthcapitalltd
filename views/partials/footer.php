@@ -40,6 +40,7 @@
                     <li><a href="<?= url('markets') ?>">Metals</a></li>
                     <li><a href="<?= url('markets') ?>">Indices</a></li>
                     <li><a href="<?= url('markets') ?>">Cryptocurrencies</a></li>
+                    <li><a href="<?= url('mutual-funds') ?>">Mutual Funds</a></li>
                 </ul>
             </div>
 

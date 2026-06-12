@@ -174,6 +174,84 @@
         reveals.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
+    /* SIP / Lumpsum calculator */
+    var sipCalc = document.getElementById('sipCalc');
+    if (sipCalc) {
+        var CURRENCY = '₹'; // ₹ — change to '$' if preferred
+        var mode = 'sip';
+
+        var amount = document.getElementById('sipAmount');
+        var amountRange = document.getElementById('sipAmountRange');
+        var rate = document.getElementById('sipRate');
+        var rateRange = document.getElementById('sipRateRange');
+        var years = document.getElementById('sipYears');
+        var yearsRange = document.getElementById('sipYearsRange');
+        var amountLabel = document.getElementById('amountLabel');
+
+        var elInvested = document.getElementById('sipInvested');
+        var elReturns = document.getElementById('sipReturns');
+        var elTotal = document.getElementById('sipTotal');
+        var donut = document.getElementById('sipDonut');
+        var donutTotal = document.getElementById('sipDonutTotal');
+
+        var fmt = function (n) {
+            return CURRENCY + Math.round(n).toLocaleString('en-IN');
+        };
+
+        // Keep a number input and its range slider in sync.
+        var link = function (num, range) {
+            num.addEventListener('input', function () {
+                if (+num.value > +range.max) range.value = range.max; else range.value = num.value;
+                compute();
+            });
+            range.addEventListener('input', function () { num.value = range.value; compute(); });
+        };
+
+        function compute() {
+            var P = Math.max(0, parseFloat(amount.value) || 0);
+            var annual = Math.max(0, parseFloat(rate.value) || 0);
+            var yrs = Math.max(0, parseFloat(years.value) || 0);
+
+            var invested, future;
+            if (mode === 'sip') {
+                var n = yrs * 12;
+                var i = annual / 100 / 12;
+                invested = P * n;
+                future = i === 0 ? invested : P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+            } else {
+                invested = P;
+                future = P * Math.pow(1 + annual / 100, yrs);
+            }
+            var gains = Math.max(0, future - invested);
+
+            elInvested.textContent = fmt(invested);
+            elReturns.textContent = fmt(gains);
+            elTotal.textContent = fmt(future);
+            donutTotal.textContent = fmt(future);
+
+            var investedPct = future > 0 ? (invested / future) * 100 : 100;
+            donut.style.background =
+                'conic-gradient(var(--navy-700) 0 ' + investedPct + '%, var(--accent) ' + investedPct + '% 100%)';
+        }
+
+        link(amount, amountRange);
+        link(rate, rateRange);
+        link(years, yearsRange);
+
+        // Tab toggle (SIP / Lumpsum)
+        sipCalc.querySelectorAll('.sip-tab').forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                sipCalc.querySelectorAll('.sip-tab').forEach(function (t) { t.classList.remove('is-active'); });
+                tab.classList.add('is-active');
+                mode = tab.getAttribute('data-mode');
+                amountLabel.textContent = mode === 'sip' ? 'Monthly investment' : 'Total investment';
+                compute();
+            });
+        });
+
+        compute();
+    }
+
     /* Lightweight parallax for elements with [data-parallax] */
     var parallax = document.querySelectorAll('[data-parallax]');
     if (parallax.length) {

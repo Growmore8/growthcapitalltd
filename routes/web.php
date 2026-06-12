@@ -33,6 +33,10 @@ $router->get('/accounts', static fn (): string => View::render('accounts', [
     'title' => 'Account Types — GrowthCapital',
 ]));
 
+$router->get('/mutual-funds', static fn (): string => View::render('mutual-funds', [
+    'title' => 'Mutual Funds & SIP Calculator — GrowthCapital',
+]));
+
 $router->get('/contact', static fn (): string => View::render('contact', [
     'title' => 'Contact Us — GrowthCapital',
 ]));
