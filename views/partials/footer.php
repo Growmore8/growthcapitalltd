@@ -13,6 +13,12 @@
                     Metals, Indices and Cryptocurrencies — with competitive spreads and
                     professional trading platforms.
                 </p>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <?= e(config('contact.address')) ?></li>
+                    <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/<?= e(preg_replace('/\D/', '', (string) config('contact.whatsapp'))) ?>" target="_blank" rel="noopener"><?= e(config('contact.whatsapp')) ?></a></li>
+                    <li><i class="fa-brands fa-telegram"></i> <a href="https://t.me/+<?= e(preg_replace('/\D/', '', (string) config('contact.telegram'))) ?>" target="_blank" rel="noopener"><?= e(config('contact.telegram')) ?></a></li>
+                    <li><i class="fa-regular fa-envelope"></i> <a href="mailto:<?= e(config('contact.email')) ?>"><?= e(config('contact.email')) ?></a></li>
+                </ul>
                 <div class="footer-social" aria-label="Social media">
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>

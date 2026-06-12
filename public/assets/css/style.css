@@ -344,7 +344,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-col ul { display: grid; gap: 10px; }
 .footer-col a { color: #aebfd4; font-size: .92rem; }
 .footer-col a:hover { color: #fff; }
-.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-contact { display: grid; gap: 10px; margin: 16px 0 0; }
+.footer-contact li { display: flex; gap: 10px; color: #93a5bd; font-size: .9rem; align-items: flex-start; }
+.footer-contact li i { color: var(--accent); margin-top: 3px; width: 16px; text-align: center; flex: none; }
+.footer-contact a { color: #aebfd4; }
+.footer-contact a:hover { color: #fff; }
+.footer-social { display: flex; gap: 10px; margin-top: 18px; }
 .footer-social a {
     width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center;
     background: rgba(255,255,255,.08); color: #cdd9e9; font-size: .95rem; transition: transform .2s, background .2s, color .2s;
@@ -663,6 +668,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dot--invested { background: var(--navy-700); }
 .dot--returns { background: var(--accent); }
 .sip-disclaimer { font-size: .8rem; color: var(--muted); text-align: center; margin: 24px 0 0; }
+
+/* ==========================================================================
+   Map embed
+   ========================================================================== */
+.map-embed {
+    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    border: 1px solid var(--line); line-height: 0;
+}
+.map-embed iframe { display: block; width: 100%; }
 
 /* ==========================================================================
    Client reviews

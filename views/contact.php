@@ -12,9 +12,14 @@ require BASE_PATH . '/views/partials/page-header.php';
             <div class="contact-info">
                 <h2>Get in touch</h2>
                 <p>Have a question about your account, our platforms or the markets? Reach out and we'll respond promptly.</p>
+<?php
+                $waDigits = preg_replace('/\D/', '', (string) config('contact.whatsapp'));
+                $tgDigits = preg_replace('/\D/', '', (string) config('contact.telegram'));
+                ?>
                 <ul class="contact-list">
                     <li><span><i class="fa-regular fa-envelope"></i> Email</span><a href="mailto:<?= e(config('contact.email')) ?>"><?= e(config('contact.email')) ?></a></li>
-                    <li><span><i class="fa-solid fa-phone"></i> Phone</span><a href="tel:<?= e(str_replace(' ', '', (string) config('contact.phone'))) ?>"><?= e(config('contact.phone')) ?></a></li>
+                    <li><span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span><a href="https://wa.me/<?= e($waDigits) ?>" target="_blank" rel="noopener"><?= e(config('contact.whatsapp')) ?></a></li>
+                    <li><span><i class="fa-brands fa-telegram"></i> Telegram</span><a href="https://t.me/+<?= e($tgDigits) ?>" target="_blank" rel="noopener"><?= e(config('contact.telegram')) ?></a></li>
                     <li><span><i class="fa-solid fa-location-dot"></i> Address</span><?= e(config('contact.address')) ?></li>
                     <li><span><i class="fa-solid fa-id-card"></i> License</span><?= e(config('app.license')) ?></li>
                 </ul>
@@ -78,6 +83,18 @@ require BASE_PATH . '/views/partials/page-header.php';
             <div class="split__media" data-aos="fade-left">
                 <img src="<?= asset('images/people-meeting.jpg') ?>" alt="Our support team" loading="lazy">
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map -->
+<section class="section section--alt" style="padding-top:0;background:transparent">
+    <div class="container">
+        <div class="map-embed" data-aos="fade-up">
+            <iframe
+                src="https://www.google.com/maps?q=<?= urlencode((string) config('contact.map_query', config('contact.address'))) ?>&output=embed"
+                width="100%" height="440" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="GrowthCapital — London office location"></iframe>
         </div>
     </div>
 </section>

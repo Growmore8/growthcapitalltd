@@ -31,9 +31,12 @@ return [
     ],
 
     'contact' => [
-        'email'   => 'support@growthcapital.example',
-        'phone'   => '+44 20 0000 0000',
-        'address' => 'London, United Kingdom',
+        'email'    => 'support@growthcapitalltd.com',
+        'phone'    => '+44 7451 209400',
+        'whatsapp' => '+44 7451 209400',
+        'telegram' => '+44 7451 209400',
+        'address'  => 'No. 145, WeWork Building, City Road, London EC1V 1AZ, United Kingdom',
+        'map_query' => '145 City Road, London EC1V 1AZ, United Kingdom',
     ],
 
     // External auth/platform links (trading platform client area).
