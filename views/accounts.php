@@ -1,13 +1,15 @@
 <?php
 $pageHeading = 'Account Types';
 $pageSub     = 'Choose the account that matches your trading style and goals.';
+$bannerPhoto = true;
+$bannerImg   = 'images/cta-trader.jpg';
 require BASE_PATH . '/views/partials/page-header.php';
 ?>
 
 <section class="section">
     <div class="container">
         <div class="grid grid--4 pricing">
-            <article class="plan">
+            <article class="plan" data-reveal>
                 <h3 class="plan__name">Lite</h3>
                 <p class="plan__price">$250<span>min. deposit</span></p>
                 <ul class="plan__features">
@@ -19,7 +21,7 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <a class="btn btn--outline btn--block" href="<?= url(config('links.register', '/register')) ?>">Open Lite</a>
             </article>
 
-            <article class="plan plan--featured">
+            <article class="plan plan--featured" data-reveal>
                 <span class="plan__badge">Popular</span>
                 <h3 class="plan__name">Pro</h3>
                 <p class="plan__price">$2,500<span>min. deposit</span></p>
@@ -32,7 +34,7 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <a class="btn btn--primary btn--block" href="<?= url(config('links.register', '/register')) ?>">Open Pro</a>
             </article>
 
-            <article class="plan">
+            <article class="plan" data-reveal>
                 <h3 class="plan__name">VIP</h3>
                 <p class="plan__price">$25,000<span>min. deposit</span></p>
                 <ul class="plan__features">
@@ -44,7 +46,7 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <a class="btn btn--outline btn--block" href="<?= url(config('links.register', '/register')) ?>">Open VIP</a>
             </article>
 
-            <article class="plan">
+            <article class="plan" data-reveal>
                 <h3 class="plan__name">Raw (0 Spread)</h3>
                 <p class="plan__price">$500<span>min. deposit</span></p>
                 <ul class="plan__features">

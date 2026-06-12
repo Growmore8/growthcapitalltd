@@ -1,6 +1,8 @@
 <?php
 $pageHeading = 'Contact Us';
 $pageSub     = 'Our team is available 24/7 to help you.';
+$bannerPhoto = true;
+$bannerImg   = 'images/team-office.jpg';
 require BASE_PATH . '/views/partials/page-header.php';
 ?>
 
