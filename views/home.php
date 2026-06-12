@@ -40,20 +40,22 @@
                 </svg>
             </div>
 
-            <div class="float-card glass float-card--1" data-float="1">
-                <span class="float-card__pair">EUR/USD</span>
-                <span class="float-card__val">1.0842</span>
-                <span class="float-card__chg up">+0.12%</span>
-            </div>
-            <div class="float-card glass float-card--2" data-float="2">
-                <span class="float-card__pair"><i class="fa-solid fa-coins"></i> Gold</span>
-                <span class="float-card__val">2,318.4</span>
-                <span class="float-card__chg up">+0.45%</span>
-            </div>
-            <div class="float-card glass float-card--3" data-float="3">
-                <span class="float-card__pair"><i class="fa-brands fa-ethereum"></i> ETH</span>
-                <span class="float-card__val">3,512</span>
-                <span class="float-card__chg up">+0.9%</span>
+            <div class="hero2__cards">
+                <div class="float-card glass float-card--1" data-float="1">
+                    <span class="float-card__pair">EUR/USD</span>
+                    <span class="float-card__val">1.0842</span>
+                    <span class="float-card__chg up">+0.12%</span>
+                </div>
+                <div class="float-card glass float-card--2" data-float="2">
+                    <span class="float-card__pair"><i class="fa-solid fa-coins"></i> Gold</span>
+                    <span class="float-card__val">2,318.4</span>
+                    <span class="float-card__chg up">+0.45%</span>
+                </div>
+                <div class="float-card glass float-card--3" data-float="3">
+                    <span class="float-card__pair"><i class="fa-brands fa-ethereum"></i> ETH</span>
+                    <span class="float-card__val">3,512</span>
+                    <span class="float-card__chg up">+0.9%</span>
+                </div>
             </div>
         </div>
     </div>
