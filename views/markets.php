@@ -5,10 +5,19 @@ $bannerPhoto = true;
 require BASE_PATH . '/views/partials/page-header.php';
 ?>
 
+<!-- Intro -->
 <section class="section">
+    <div class="container narrow text-center">
+        <span class="eyebrow" data-aos="fade-up">One account, every market</span>
+        <h2 data-aos="fade-up">Trade the World's Markets in One Place</h2>
+        <p class="lead" data-aos="fade-up">Access more than 180 instruments across four major asset classes from a single GrowthCapital account. Enjoy tight spreads, deep liquidity and lightning-fast execution — whether you trade currencies, commodities, indices or digital assets.</p>
+    </div>
+</section>
+
+<section class="section section--alt">
     <div class="container">
-        <div class="split" data-reveal>
-            <div class="split__media" data-reveal="left">
+        <div class="split" data-aos="fade-up">
+            <div class="split__media" data-aos="fade-right">
                 <img src="<?= asset('images/market-forex.jpg') ?>" alt="Forex market" loading="lazy">
             </div>
             <div class="split__content" data-reveal="right">
@@ -21,7 +30,7 @@ require BASE_PATH . '/views/partials/page-header.php';
     </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
     <div class="container">
         <div class="split split--reverse">
             <div class="split__media" data-reveal="right">
@@ -37,7 +46,7 @@ require BASE_PATH . '/views/partials/page-header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section section--alt">
     <div class="container">
         <div class="split">
             <div class="split__media" data-reveal="left">
@@ -53,7 +62,7 @@ require BASE_PATH . '/views/partials/page-header.php';
     </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
     <div class="container">
         <div class="split split--reverse">
             <div class="split__media" data-reveal="right">
@@ -65,6 +74,23 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <p>Decentralized digital assets built on blockchain technology, available to trade around the clock. Capture opportunity in one of the most dynamic markets in the world.</p>
                 <a class="btn btn--outline" href="<?= url(config('links.register', '/register')) ?>">Trade Crypto</a>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trading conditions -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">Why trade with us</span>
+            <h2>Superior Trading Conditions</h2>
+            <p>Everything you need to trade the markets with an edge.</p>
+        </div>
+        <div class="grid grid--4">
+            <div class="value" data-aos="fade-up"><div class="value__icon"><i class="fa-solid fa-wave-square"></i></div><h3>Tight Spreads</h3><p>Raw spreads from 0.0 pips on our most popular instruments.</p></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="100"><div class="value__icon"><i class="fa-solid fa-bolt"></i></div><h3>Fast Execution</h3><p>Low-latency order fills with no dealing-desk intervention.</p></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="200"><div class="value__icon"><i class="fa-solid fa-gauge-high"></i></div><h3>High Leverage</h3><p>Flexible leverage up to 1:500 to suit your strategy.</p></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="300"><div class="value__icon"><i class="fa-solid fa-clock"></i></div><h3>24/5 Markets</h3><p>Trade around the clock across global trading sessions.</p></div>
         </div>
     </div>
 </section>

@@ -97,3 +97,11 @@ require BASE_PATH . '/views/partials/page-header.php';
         </div>
     </div>
 </section>
+
+<section class="cta-photo">
+    <div class="container" data-aos="zoom-in">
+        <h2>Your Markets, On Every Screen</h2>
+        <p>Open an account and trade seamlessly across desktop, web and mobile.</p>
+        <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-rocket"></i> Open an Account</a>
+    </div>
+</section>

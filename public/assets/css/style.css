@@ -556,6 +556,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pay-logo:hover .fa-ethereum { color: #627eea; }
 .pay-logo:hover .fa-cc-stripe { color: #635bff; }
 
+/* Auto-scrolling single-line funding marquee */
+.pay-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.pay-marquee__track { display: flex; gap: 18px; width: max-content; animation: payScroll 36s linear infinite; }
+.pay-marquee:hover .pay-marquee__track { animation-play-state: paused; }
+.pay-marquee .pay-logo { min-width: 150px; flex: none; }
+@keyframes payScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Clickable account cards (home) */
+.plan--link { text-decoration: none; color: inherit; cursor: pointer; }
+.plan--link:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.plan--link .link-arrow { margin-top: auto; }
+
 /* ==========================================================================
    SIP / Lumpsum calculator
    ========================================================================== */
@@ -637,6 +653,26 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dot--invested { background: var(--navy-700); }
 .dot--returns { background: var(--accent); }
 .sip-disclaimer { font-size: .8rem; color: var(--muted); text-align: center; margin: 24px 0 0; }
+
+/* ==========================================================================
+   FAQ accordion
+   ========================================================================== */
+.faq { display: grid; gap: 12px; }
+.faq__item {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 4px 20px;
+    transition: box-shadow .2s, border-color .2s;
+}
+.faq__item[open] { box-shadow: var(--shadow); border-color: transparent; }
+.faq__item summary {
+    list-style: none; cursor: pointer; font-weight: 600; color: var(--navy-800);
+    padding: 16px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+    content: "\2b"; color: var(--accent-d); font-weight: 800; font-size: 1.2rem; transition: transform .2s; flex: none;
+}
+.faq__item[open] summary::after { content: "\2212"; }
+.faq__item p { color: var(--muted); margin: 0 0 16px; }
 
 /* ==========================================================================
    Income plan highlight band
@@ -726,7 +762,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 [data-reveal] { transition-delay: var(--reveal-delay, 0s); }
 @media (prefers-reduced-motion: reduce) {
     [data-reveal] { opacity: 1 !important; transform: none !important; }
-    .hero::after, .float-img, .ticker__track, .logo-marquee__track { animation: none !important; }
+    .hero::after, .float-img, .ticker__track, .logo-marquee__track, .pay-marquee__track { animation: none !important; }
     .slide--active .eyebrow, .slide--active h1, .slide--active p,
     .slide--active .slide__actions, .slide--active .slide__tnc { animation: none !important; }
     .calc-launcher::after { animation: none !important; }
@@ -850,6 +886,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     .main-nav__auth { margin-top: 16px; }
     .main-nav__auth .btn { flex: 1; }
     .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+    .stats .grid--4 { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
     .pay-grid { grid-template-columns: repeat(3, 1fr); }
     .form-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
@@ -895,4 +932,24 @@ ul { margin: 0; padding: 0; list-style: none; }
     .calc-launcher { height: 54px; width: 54px; padding: 0; justify-content: center; }
     .calc-panel { right: 8px; left: 8px; bottom: 80px; width: auto; max-height: 78vh; }
     .calc-panel .sip-chart { order: -1; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .section { padding: 48px 0; }
+    .topbar__links a:not(:last-child) { display: none; } /* keep only language on tiny screens */
+    .brand { font-size: 1.1rem; }
+    .brand__mark { width: 30px; height: 30px; font-size: 1rem; }
+    .slide h1 { font-size: 2rem; }
+    .slide p { font-size: 1rem; }
+    .btn--lg { padding: 13px 22px; font-size: .98rem; }
+    .hero__badges { gap: 18px; }
+    .section__head { margin-bottom: 32px; }
+    .plan__price { font-size: 1.7rem; }
+    .donut { width: 180px; height: 180px; }
+    .sip-currency { max-width: 100%; width: 100%; }
+    .sip-calc__top { flex-direction: column; align-items: stretch; }
+    .footer-legal__bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .cta-band__inner { flex-direction: column; align-items: flex-start; }
 }

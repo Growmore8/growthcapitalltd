@@ -3,6 +3,7 @@ $pageHeading = 'Mutual Funds';
 $pageSub     = 'Professionally managed funds — your capital, our strategies.';
 $bannerPhoto = true;
 $bannerImg   = 'images/fund-markets.jpg';
+$showCalculator = true; // floating calculator only on this page
 require BASE_PATH . '/views/partials/page-header.php';
 ?>
 

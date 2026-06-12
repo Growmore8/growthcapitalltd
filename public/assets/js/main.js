@@ -152,6 +152,12 @@
         track.innerHTML += track.innerHTML;
     }
 
+    /* Duplicate funding logos for a seamless single-line marquee */
+    var payTrack = document.getElementById('payTrack');
+    if (payTrack) {
+        payTrack.innerHTML += payTrack.innerHTML;
+    }
+
     /* Scroll-reveal: fade/slide elements in as they enter the viewport */
     var reveals = document.querySelectorAll('[data-reveal]');
     if (reveals.length && 'IntersectionObserver' in window) {

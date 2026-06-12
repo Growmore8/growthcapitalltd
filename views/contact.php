@@ -43,3 +43,41 @@ require BASE_PATH . '/views/partials/page-header.php';
         </div>
     </div>
 </section>
+
+<!-- Support channels -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">We're here to help</span>
+            <h2>Ways to Reach Us</h2>
+            <p>Pick the channel that suits you — our team responds around the clock.</p>
+        </div>
+        <div class="grid grid--3">
+            <div class="value" data-aos="fade-up"><div class="value__icon"><i class="fa-solid fa-headset"></i></div><h3>Customer Support</h3><p>Account, deposits, withdrawals and general help, 24/7.</p><a class="link-arrow" href="mailto:<?= e(config('contact.email')) ?>">Email support <i class="fa-solid fa-arrow-right-long"></i></a></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="100"><div class="value__icon"><i class="fa-solid fa-chart-line"></i></div><h3>Trading Desk</h3><p>Questions about instruments, spreads or execution.</p><a class="link-arrow" href="tel:<?= e(str_replace(' ', '', (string) config('contact.phone'))) ?>">Call us <i class="fa-solid fa-arrow-right-long"></i></a></div>
+            <div class="value" data-aos="fade-up" data-aos-delay="200"><div class="value__icon"><i class="fa-solid fa-handshake"></i></div><h3>Partnerships</h3><p>IB, affiliate and institutional enquiries.</p><a class="link-arrow" href="mailto:<?= e(config('contact.email')) ?>">Get in touch <i class="fa-solid fa-arrow-right-long"></i></a></div>
+        </div>
+    </div>
+</section>
+
+<!-- Office & hours -->
+<section class="section">
+    <div class="container">
+        <div class="split">
+            <div class="split__content" data-aos="fade-right">
+                <span class="eyebrow">Office &amp; hours</span>
+                <h2>Always Within Reach</h2>
+                <p>Markets move 24 hours a day, and so do we. Our multilingual support team is available around the clock during trading days to make sure you're never left waiting.</p>
+                <ul class="split__list">
+                    <li><i class="fa-solid fa-clock"></i> Support: 24/5 (Mon–Fri), limited weekends</li>
+                    <li><i class="fa-solid fa-location-dot"></i> <?= e(config('contact.address')) ?></li>
+                    <li><i class="fa-solid fa-id-card"></i> License No. <?= e(config('app.license')) ?></li>
+                    <li><i class="fa-solid fa-globe"></i> Service in multiple languages</li>
+                </ul>
+            </div>
+            <div class="split__media" data-aos="fade-left">
+                <img src="<?= asset('images/people-meeting.jpg') ?>" alt="Our support team" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>

@@ -229,8 +229,65 @@
     </div>
 </section>
 
-<!-- ===================== Why choose us ===================== -->
+<!-- ===================== Trading accounts ===================== -->
 <section class="section">
+    <div class="container">
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">Trading accounts</span>
+            <h2>Find the Account That Fits You</h2>
+            <p>From first-time traders to professionals — choose an account and upgrade anytime.</p>
+        </div>
+        <div class="grid grid--4 pricing">
+            <a class="plan plan--link" href="<?= url('accounts') ?>" data-aos="fade-up">
+                <h3 class="plan__name">Lite</h3>
+                <p class="plan__price">$250<span>min. deposit</span></p>
+                <ul class="plan__features">
+                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:500</li>
+                    <li><i class="fa-solid fa-layer-group"></i> All major markets</li>
+                    <li><i class="fa-solid fa-headset"></i> 24/7 support</li>
+                </ul>
+                <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+            <a class="plan plan--featured plan--link" href="<?= url('accounts') ?>" data-aos="fade-up" data-aos-delay="100">
+                <span class="plan__badge">Popular</span>
+                <h3 class="plan__name">Pro</h3>
+                <p class="plan__price">$2,500<span>min. deposit</span></p>
+                <ul class="plan__features">
+                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:250</li>
+                    <li><i class="fa-solid fa-bolt"></i> Tighter spreads</li>
+                    <li><i class="fa-solid fa-star"></i> Priority support</li>
+                </ul>
+                <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+            <a class="plan plan--link" href="<?= url('accounts') ?>" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="plan__name">VIP</h3>
+                <p class="plan__price">$25,000<span>min. deposit</span></p>
+                <ul class="plan__features">
+                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:100</li>
+                    <li><i class="fa-solid fa-gem"></i> Best-in-class pricing</li>
+                    <li><i class="fa-solid fa-user-tie"></i> Dedicated manager</li>
+                </ul>
+                <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+            <a class="plan plan--link" href="<?= url('accounts') ?>" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="plan__name">Raw (0 Spread)</h3>
+                <p class="plan__price">$500<span>min. deposit</span></p>
+                <ul class="plan__features">
+                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:500</li>
+                    <li><i class="fa-solid fa-wave-square"></i> Spreads from 0.0 pips</li>
+                    <li><i class="fa-solid fa-coins"></i> Low commission</li>
+                </ul>
+                <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
+            </a>
+        </div>
+        <div class="text-center" style="margin-top:32px">
+            <a class="btn btn--outline btn--lg" href="<?= url('accounts') ?>">Compare All Accounts <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== Why choose us ===================== -->
+<section class="section section--alt">
     <div class="container">
         <div class="section__head" data-aos="fade-up">
             <span class="eyebrow">Why GrowthCapital</span>
@@ -261,19 +318,21 @@
             <span class="eyebrow">Fast &amp; secure</span>
             <h2>Flexible Funding Options</h2>
         </div>
-        <div class="pay-grid" data-aos="fade-up">
-            <div class="pay-logo" title="Visa"><i class="fa-brands fa-cc-visa"></i><span>Visa</span></div>
-            <div class="pay-logo" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i><span>Mastercard</span></div>
-            <div class="pay-logo" title="American Express"><i class="fa-brands fa-cc-amex"></i><span>Amex</span></div>
-            <div class="pay-logo" title="PayPal"><i class="fa-brands fa-cc-paypal"></i><span>PayPal</span></div>
-            <div class="pay-logo" title="Apple Pay"><i class="fa-brands fa-cc-apple-pay"></i><span>Apple Pay</span></div>
-            <div class="pay-logo" title="Google Pay"><i class="fa-brands fa-google-pay"></i><span>Google Pay</span></div>
-            <div class="pay-logo" title="Skrill / Stripe"><i class="fa-brands fa-cc-stripe"></i><span>Stripe</span></div>
-            <div class="pay-logo" title="Bank Wire"><i class="fa-solid fa-building-columns"></i><span>Bank Wire</span></div>
-            <div class="pay-logo" title="Bitcoin"><i class="fa-brands fa-bitcoin"></i><span>Bitcoin</span></div>
-            <div class="pay-logo" title="Ethereum"><i class="fa-brands fa-ethereum"></i><span>Ethereum</span></div>
-            <div class="pay-logo" title="USDT / Tether"><i class="fa-solid fa-coins"></i><span>USDT</span></div>
-            <div class="pay-logo" title="Wallet"><i class="fa-solid fa-wallet"></i><span>e-Wallets</span></div>
+        <div class="pay-marquee" data-aos="fade-up">
+            <div class="pay-marquee__track" id="payTrack">
+                <div class="pay-logo" title="Visa"><i class="fa-brands fa-cc-visa"></i><span>Visa</span></div>
+                <div class="pay-logo" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i><span>Mastercard</span></div>
+                <div class="pay-logo" title="American Express"><i class="fa-brands fa-cc-amex"></i><span>Amex</span></div>
+                <div class="pay-logo" title="PayPal"><i class="fa-brands fa-cc-paypal"></i><span>PayPal</span></div>
+                <div class="pay-logo" title="Apple Pay"><i class="fa-brands fa-cc-apple-pay"></i><span>Apple Pay</span></div>
+                <div class="pay-logo" title="Google Pay"><i class="fa-brands fa-google-pay"></i><span>Google Pay</span></div>
+                <div class="pay-logo" title="Stripe"><i class="fa-brands fa-cc-stripe"></i><span>Stripe</span></div>
+                <div class="pay-logo" title="Bank Wire"><i class="fa-solid fa-building-columns"></i><span>Bank Wire</span></div>
+                <div class="pay-logo" title="Bitcoin"><i class="fa-brands fa-bitcoin"></i><span>Bitcoin</span></div>
+                <div class="pay-logo" title="Ethereum"><i class="fa-brands fa-ethereum"></i><span>Ethereum</span></div>
+                <div class="pay-logo" title="USDT / Tether"><i class="fa-solid fa-coins"></i><span>USDT</span></div>
+                <div class="pay-logo" title="e-Wallets"><i class="fa-solid fa-wallet"></i><span>e-Wallets</span></div>
+            </div>
         </div>
     </div>
 </section>
