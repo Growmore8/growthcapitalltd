@@ -709,6 +709,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .map-embed iframe { display: block; width: 100%; }
 
+/* Office cards (contact) */
+.office-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.office-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.office-card__body { padding: 22px 24px 16px; }
+.office-card__body h3 { display: flex; align-items: center; gap: 9px; color: var(--navy-800); }
+.office-card__body h3 i { color: var(--accent-d); }
+.office-card__body p { color: var(--muted); margin: 0; }
+.office-card .map-embed { border: 0; border-radius: 0; box-shadow: none; }
+
 /* ==========================================================================
    Client reviews
    ========================================================================== */

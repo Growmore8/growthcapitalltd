@@ -37,6 +37,10 @@ return [
         'telegram' => '+44 7451 209400',
         'address'  => 'No. 145, WeWork Building, City Road, London EC1V 1AZ, United Kingdom',
         'map_query' => '145 City Road, London EC1V 1AZ, United Kingdom',
+        'offices'  => [
+            ['city' => 'London, United Kingdom', 'address' => 'No. 145, WeWork Building, City Road, London EC1V 1AZ, United Kingdom', 'map' => '145 City Road, London EC1V 1AZ'],
+            ['city' => 'Dubai, UAE', 'address' => 'International Business Tower, Al A\'amal Street, Business Bay, Dubai, United Arab Emirates', 'map' => 'International Business Tower, Business Bay, Dubai'],
+        ],
     ],
 
     // External auth/platform links (trading platform client area).

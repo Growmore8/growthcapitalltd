@@ -13,8 +13,19 @@
                     Metals, Indices and Cryptocurrencies — with competitive spreads and
                     professional trading platforms.
                 </p>
+                <?php
+                $footOffices = config('contact.offices');
+                if (!$footOffices) {
+                    $footOffices = [
+                        ['city' => 'London', 'address' => 'No. 145, WeWork Building, City Road, London EC1V 1AZ, UK'],
+                        ['city' => 'Dubai', 'address' => "International Business Tower, Al A'amal Street, Business Bay, Dubai, UAE"],
+                    ];
+                }
+                ?>
                 <ul class="footer-contact">
-                    <li><i class="fa-solid fa-location-dot"></i> <?= e(config('contact.address')) ?></li>
+                    <?php foreach ($footOffices as $fo): ?>
+                    <li><i class="fa-solid fa-location-dot"></i> <strong><?= e($fo['city']) ?>:</strong>&nbsp;<?= e($fo['address']) ?></li>
+                    <?php endforeach; ?>
                     <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/<?= e(preg_replace('/\D/', '', (string) config('contact.whatsapp'))) ?>" target="_blank" rel="noopener"><?= e(config('contact.whatsapp')) ?></a></li>
                     <li><i class="fa-brands fa-telegram"></i> <a href="https://t.me/+<?= e(preg_replace('/\D/', '', (string) config('contact.telegram'))) ?>" target="_blank" rel="noopener"><?= e(config('contact.telegram')) ?></a></li>
                     <li><i class="fa-regular fa-envelope"></i> <a href="mailto:<?= e(config('contact.email')) ?>"><?= e(config('contact.email')) ?></a></li>

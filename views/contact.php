@@ -65,36 +65,38 @@ require BASE_PATH . '/views/partials/page-header.php';
     </div>
 </section>
 
-<!-- Office & hours -->
-<section class="section">
+<!-- Our offices -->
+<?php
+$offices = config('contact.offices');
+if (!$offices) {
+    $offices = [
+        ['city' => 'London, United Kingdom', 'address' => 'No. 145, WeWork Building, City Road, London EC1V 1AZ, United Kingdom', 'map' => '145 City Road, London EC1V 1AZ'],
+        ['city' => 'Dubai, UAE', 'address' => "International Business Tower, Al A'amal Street, Business Bay, Dubai, United Arab Emirates", 'map' => 'International Business Tower, Business Bay, Dubai'],
+    ];
+}
+?>
+<section class="section section--alt">
     <div class="container">
-        <div class="split">
-            <div class="split__content" data-aos="fade-right">
-                <span class="eyebrow">Office &amp; hours</span>
-                <h2>Always Within Reach</h2>
-                <p>Markets move 24 hours a day, and so do we. Our multilingual support team is available around the clock during trading days to make sure you're never left waiting.</p>
-                <ul class="split__list">
-                    <li><i class="fa-solid fa-clock"></i> Support: 24/5 (Mon–Fri), limited weekends</li>
-                    <li><i class="fa-solid fa-location-dot"></i> <?= e(config('contact.address')) ?></li>
-                    <li><i class="fa-solid fa-id-card"></i> License No. <?= e(config('app.license')) ?></li>
-                    <li><i class="fa-solid fa-globe"></i> Service in multiple languages</li>
-                </ul>
-            </div>
-            <div class="split__media" data-aos="fade-left">
-                <img src="<?= asset('images/people-meeting.jpg') ?>" alt="Our support team" loading="lazy">
-            </div>
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">Our offices</span>
+            <h2>Visit Us</h2>
+            <p>A global presence with local support — our multilingual team is available 24/7.</p>
         </div>
-    </div>
-</section>
-
-<!-- Map -->
-<section class="section section--alt" style="padding-top:0;background:transparent">
-    <div class="container">
-        <div class="map-embed" data-aos="fade-up">
-            <iframe
-                src="https://www.google.com/maps?q=<?= urlencode((string) config('contact.map_query', config('contact.address'))) ?>&output=embed"
-                width="100%" height="440" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" title="GrowthCapital — London office location"></iframe>
+        <div class="grid grid--2">
+            <?php foreach ($offices as $o): ?>
+            <div class="office-card" data-aos="fade-up">
+                <div class="office-card__body">
+                    <h3><i class="fa-solid fa-location-dot"></i> <?= e($o['city']) ?></h3>
+                    <p><?= e($o['address']) ?></p>
+                </div>
+                <div class="map-embed">
+                    <iframe
+                        src="https://www.google.com/maps?q=<?= urlencode($o['map']) ?>&output=embed"
+                        width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="<?= e($o['city']) ?> office"></iframe>
+                </div>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
