@@ -89,7 +89,6 @@ $pageTitle = $title ?? 'GrowthCapital';
                     <div class="dropdown">
                         <a href="<?= url('about') ?>"><strong>About Us</strong><span>Who we are</span></a>
                         <a href="<?= url('contact') ?>"><strong>Contact</strong><span>Get in touch 24/7</span></a>
-                        <a href="<?= url('accounts') ?>"><strong>Account Types</strong><span>Compare plans</span></a>
                     </div>
                 </li>
             </ul>
