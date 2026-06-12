@@ -563,10 +563,19 @@ ul { margin: 0; padding: 0; list-style: none; }
     background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
     box-shadow: var(--shadow); padding: 28px; max-width: 960px; margin: 0 auto;
 }
-.sip-tabs {
-    display: inline-flex; background: var(--bg-alt); border-radius: 99px; padding: 5px; margin: 0 auto 26px;
-    display: flex; width: max-content;
+.sip-calc__top {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 26px; flex-wrap: wrap;
 }
+.sip-tabs {
+    display: inline-flex; background: var(--bg-alt); border-radius: 99px; padding: 5px;
+    width: max-content;
+}
+.sip-calc__top .sip-tabs { margin: 0; }
+.sip-currency {
+    font: inherit; font-weight: 600; color: var(--navy-800); background: #fff;
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; cursor: pointer; max-width: 220px;
+}
+.sip-currency:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(22,199,132,.15); }
 .sip-tab {
     border: 0; background: transparent; cursor: pointer; font: inherit; font-weight: 700; color: var(--muted);
     padding: 10px 30px; border-radius: 99px; transition: background .2s, color .2s;
@@ -630,6 +639,77 @@ ul { margin: 0; padding: 0; list-style: none; }
 .sip-disclaimer { font-size: .8rem; color: var(--muted); text-align: center; margin: 24px 0 0; }
 
 /* ==========================================================================
+   Income plan highlight band
+   ========================================================================== */
+.income-plan {
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; align-items: center;
+    background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: #fff;
+    border-radius: var(--radius); padding: 48px; position: relative; overflow: hidden;
+}
+.income-plan::after {
+    content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; right: -100px; top: -120px;
+    background: radial-gradient(circle, rgba(37,239,138,.25), transparent 65%);
+}
+.income-plan__body { position: relative; z-index: 1; }
+.income-plan h2 { color: #fff; }
+.income-plan p { color: #d3def0; }
+.income-plan__points { display: grid; gap: 10px; margin-top: 18px; }
+.income-plan__points li { display: flex; align-items: center; gap: 10px; color: #e3ebf7; }
+.income-plan__points i { color: var(--accent); width: 18px; text-align: center; }
+.income-plan__cta { position: relative; z-index: 1; display: grid; gap: 12px; }
+
+/* ==========================================================================
+   Floating calculator widget (chatbot-style)
+   ========================================================================== */
+.calc-widget { position: fixed; right: 24px; bottom: 24px; z-index: 200; }
+
+.calc-launcher {
+    position: relative; display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer;
+    height: 56px; padding: 0 22px; border-radius: 99px; font: inherit; font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-bright), var(--accent-d)); color: #04231a;
+    box-shadow: 0 10px 30px rgba(22,199,132,.45); transition: transform .2s, box-shadow .2s;
+}
+.calc-launcher i { font-size: 1.2rem; }
+.calc-launcher:hover { transform: translateY(-3px); box-shadow: 0 14px 38px rgba(22,199,132,.6); }
+.calc-launcher::after {
+    content: ""; position: absolute; inset: 0; border-radius: 99px; box-shadow: 0 0 0 0 rgba(22,199,132,.5);
+    animation: calcPulse 2.4s ease-out infinite;
+}
+@keyframes calcPulse { 0% { box-shadow: 0 0 0 0 rgba(22,199,132,.5); } 70% { box-shadow: 0 0 0 16px rgba(22,199,132,0); } 100% { box-shadow: 0 0 0 0 rgba(22,199,132,0); } }
+.calc-widget.is-open .calc-launcher { transform: scale(.9); opacity: .85; }
+
+.calc-panel {
+    position: fixed; right: 24px; bottom: 92px; width: min(400px, calc(100vw - 32px));
+    max-height: min(82vh, 660px); overflow-y: auto; background: #fff; border-radius: 16px;
+    box-shadow: var(--shadow-lg); border: 1px solid var(--line);
+    opacity: 0; visibility: hidden; transform: translateY(20px) scale(.98); transform-origin: bottom right;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s; z-index: 201;
+}
+.calc-widget.is-open .calc-panel { opacity: 1; visibility: visible; transform: none; }
+
+.calc-panel__head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 18px; color: #fff; font-weight: 700;
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+    position: sticky; top: 0; z-index: 2; border-radius: 16px 16px 0 0;
+}
+.calc-panel__head i { color: var(--accent); }
+.calc-panel__close {
+    background: rgba(255,255,255,.12); border: 0; color: #fff; width: 30px; height: 30px; border-radius: 8px;
+    font-size: 1.3rem; line-height: 1; cursor: pointer; transition: background .2s;
+}
+.calc-panel__close:hover { background: rgba(255,255,255,.25); }
+.calc-panel__body { padding: 4px; }
+
+/* Compact the calculator inside the floating panel */
+.calc-panel .sip-calc { box-shadow: none; border: 0; padding: 16px; max-width: none; margin: 0; }
+.calc-panel .sip-grid { grid-template-columns: 1fr; gap: 18px; }
+.calc-panel .sip-tabs { margin: 0 auto 18px; }
+.calc-panel .donut { width: 170px; height: 170px; }
+.calc-panel .sip-field { margin-bottom: 18px; }
+.calc-panel .sip-summary { margin-top: 18px; }
+
+/* ==========================================================================
    Scroll-reveal animations
    ========================================================================== */
 [data-reveal] {
@@ -649,6 +729,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     .hero::after, .float-img, .ticker__track, .logo-marquee__track { animation: none !important; }
     .slide--active .eyebrow, .slide--active h1, .slide--active p,
     .slide--active .slide__actions, .slide--active .slide__tnc { animation: none !important; }
+    .calc-launcher::after { animation: none !important; }
 }
 
 /* Fade-up keyframe used by hero content on load */
@@ -806,4 +887,12 @@ ul { margin: 0; padding: 0; list-style: none; }
     .sip-grid { grid-template-columns: 1fr; gap: 28px; }
     .sip-chart { order: -1; }
     .sip-calc { padding: 20px; }
+    .income-plan { grid-template-columns: 1fr; padding: 32px 24px; }
+
+    /* Floating calculator widget on mobile */
+    .calc-widget { right: 14px; bottom: 14px; }
+    .calc-launcher__txt { display: none; }
+    .calc-launcher { height: 54px; width: 54px; padding: 0; justify-content: center; }
+    .calc-panel { right: 8px; left: 8px; bottom: 80px; width: auto; max-height: 78vh; }
+    .calc-panel .sip-chart { order: -1; }
 }

@@ -77,6 +77,8 @@
     </div>
 </footer>
 
+<?php require BASE_PATH . '/views/partials/calculator-widget.php'; ?>
+
 <!-- AOS — Animate On Scroll -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="<?= asset('js/main.js') ?>" defer></script>

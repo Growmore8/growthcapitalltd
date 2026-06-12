@@ -174,12 +174,48 @@
         reveals.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
+    /* Floating calculator widget toggle (chatbot-style) */
+    var calcWidget = document.getElementById('calcWidget');
+    if (calcWidget) {
+        var launcher = document.getElementById('calcLauncher');
+        var closeBtn = document.getElementById('calcClose');
+        var openCalc = function () {
+            calcWidget.classList.add('is-open');
+            if (launcher) launcher.setAttribute('aria-expanded', 'true');
+        };
+        var closeCalc = function () {
+            calcWidget.classList.remove('is-open');
+            if (launcher) launcher.setAttribute('aria-expanded', 'false');
+        };
+        if (launcher) launcher.addEventListener('click', function () {
+            calcWidget.classList.contains('is-open') ? closeCalc() : openCalc();
+        });
+        if (closeBtn) closeBtn.addEventListener('click', closeCalc);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCalc(); });
+        // Any [data-open-calc] button on the page opens the widget.
+        document.querySelectorAll('[data-open-calc]').forEach(function (b) {
+            b.addEventListener('click', function (e) { e.preventDefault(); openCalc(); });
+        });
+    }
+
     /* SIP / Lumpsum calculator */
     var sipCalc = document.getElementById('sipCalc');
     if (sipCalc) {
-        var CURRENCY = '₹'; // ₹ — change to '$' if preferred
+        var CURRENCIES = {
+            USD: { s: '$',   l: 'en-US' }, EUR: { s: '€',  l: 'de-DE' }, GBP: { s: '£',  l: 'en-GB' },
+            INR: { s: '₹',   l: 'en-IN' }, LKR: { s: 'Rs', l: 'en-LK' }, MVR: { s: 'Rf', l: 'en-US' },
+            PKR: { s: '₨',   l: 'en-PK' }, BDT: { s: '৳',  l: 'en-BD' }, NPR: { s: 'रू', l: 'en-NP' },
+            AED: { s: 'AED', l: 'en-AE' }, SAR: { s: 'SAR',l: 'en-SA' }, SGD: { s: 'S$', l: 'en-SG' },
+            MYR: { s: 'RM',  l: 'ms-MY' }, THB: { s: '฿',  l: 'th-TH' }, IDR: { s: 'Rp', l: 'id-ID' },
+            PHP: { s: '₱',   l: 'en-PH' }, JPY: { s: '¥',  l: 'ja-JP' }, CNY: { s: '¥',  l: 'zh-CN' },
+            HKD: { s: 'HK$', l: 'en-HK' }, AUD: { s: 'A$', l: 'en-AU' }, CAD: { s: 'C$', l: 'en-CA' },
+            ZAR: { s: 'R',   l: 'en-ZA' }
+        };
+        var curCode = 'USD';
         var mode = 'sip';
 
+        var currencySel = document.getElementById('sipCurrency');
+        var curSym = document.getElementById('sipCurSym');
         var amount = document.getElementById('sipAmount');
         var amountRange = document.getElementById('sipAmountRange');
         var rate = document.getElementById('sipRate');
@@ -195,8 +231,21 @@
         var donutTotal = document.getElementById('sipDonutTotal');
 
         var fmt = function (n) {
-            return CURRENCY + Math.round(n).toLocaleString('en-IN');
+            var c = CURRENCIES[curCode] || CURRENCIES.USD;
+            try {
+                return new Intl.NumberFormat(c.l, { style: 'currency', currency: curCode, maximumFractionDigits: 0 }).format(Math.round(n));
+            } catch (e) {
+                return c.s + ' ' + Math.round(n).toLocaleString();
+            }
         };
+
+        if (currencySel) {
+            currencySel.addEventListener('change', function () {
+                curCode = currencySel.value;
+                if (curSym) curSym.textContent = (CURRENCIES[curCode] || CURRENCIES.USD).s;
+                compute();
+            });
+        }
 
         // Keep a number input and its range slider in sync.
         var link = function (num, range) {
