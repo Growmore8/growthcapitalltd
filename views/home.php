@@ -30,6 +30,20 @@
             </div>
         </article>
 
+        <!-- Slide: GC Racing (text left) -->
+        <article class="slide slide--left">
+            <div class="slide__media" style="--img:url('<?= asset('images/racing.jpg') ?>'); --pos:center"></div>
+            <div class="container slide__inner">
+                <span class="eyebrow">Official Racing Partner · GC Racing</span>
+                <h1>Built for the <span class="text-accent">Fast Lane</span></h1>
+                <p>Speed, precision and performance under pressure — the same engineering mindset we bring to every trade.</p>
+                <div class="slide__actions">
+                    <a class="btn btn--primary btn--lg" href="<?= url('about') ?>">Discover the Partnership</a>
+                    <a class="btn btn--glass btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Trading</a>
+                </div>
+            </div>
+        </article>
+
         <!-- Slide 3: Podcast (text left) -->
         <article class="slide slide--left">
             <div class="slide__media" style="--img:url('<?= asset('images/slide-podcast.jpg') ?>'); --pos:center"></div>

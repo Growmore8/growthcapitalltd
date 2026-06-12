@@ -109,15 +109,19 @@
         }
     }
 
-    /* Sticky header shadow on scroll */
+    /* Sticky header shadow + scroll progress bar */
     var header = document.getElementById('siteHeader');
-    if (header) {
-        var onScroll = function () {
-            header.classList.toggle('is-stuck', window.scrollY > 8);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
+    var progress = document.getElementById('scrollProgress');
+    var onScroll = function () {
+        if (header) header.classList.toggle('is-stuck', window.scrollY > 8);
+        if (progress) {
+            var h = document.documentElement;
+            var max = h.scrollHeight - h.clientHeight;
+            progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+        }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     /* Animated stat counters (run once when visible) */
     var counters = document.querySelectorAll('[data-count]');

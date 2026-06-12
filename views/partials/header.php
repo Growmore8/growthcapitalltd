@@ -23,6 +23,8 @@ $pageTitle = $title ?? 'GrowthCapital';
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- Utility / top bar -->
 <div class="topbar">
     <div class="container topbar__inner">

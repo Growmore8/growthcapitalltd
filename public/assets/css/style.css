@@ -778,6 +778,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .calc-panel .sip-summary { margin-top: 18px; }
 
 /* ==========================================================================
+   Scroll progress bar (cinematic)
+   ========================================================================== */
+.scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: linear-gradient(90deg, var(--accent-bright), var(--accent-d));
+    box-shadow: 0 0 10px rgba(37,239,138,.6); z-index: 999; transition: width .1s linear;
+}
+
+/* ==========================================================================
    Scroll-reveal animations
    ========================================================================== */
 [data-reveal] {
@@ -878,7 +887,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Page banner with photo */
 .page-banner--photo {
     background: linear-gradient(rgba(5,11,24,.62), rgba(5,11,24,.78)),
-                var(--banner-img, url("../images/city-skyline.jpg")) center/cover no-repeat;
+                var(--banner-img, url("../images/city-skyline.jpg")) center/cover fixed no-repeat;
 }
 .page-banner--photo h1 { text-shadow: 0 2px 20px rgba(0,0,0,.4); }
 
@@ -895,7 +904,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     .split { grid-template-columns: 1fr; gap: 32px; }
     .split--reverse .split__media { order: 0; }
     /* fixed backgrounds are janky on mobile/touch */
-    .sponsor, .cta-photo { background-attachment: scroll; }
+    .sponsor, .cta-photo, .page-banner--photo { background-attachment: scroll; }
     .sponsor-badge { display: none; }
 }
 
