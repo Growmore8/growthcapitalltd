@@ -1,0 +1,10 @@
+# Normalize line endings to LF in the repo (important for Linux VPS deployment)
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

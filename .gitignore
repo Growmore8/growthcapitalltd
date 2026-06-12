@@ -1,0 +1,22 @@
+# Dependencies
+/vendor/
+
+# Local environment / secrets
+/config/config.php
+.env
+*.local.php
+
+# Logs & caches
+*.log
+/storage/cache/*
+/storage/logs/*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Build artifacts
+/node_modules/

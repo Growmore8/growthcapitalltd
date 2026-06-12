@@ -1,0 +1,29 @@
+# GrowthCapital — Apache front-controller rewrite (production / VPS)
+# Point your Apache DocumentRoot at this /public directory.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Serve existing files and directories directly.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route everything else to the front controller.
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Basic hardening
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Block access to dotfiles (e.g. .git, .env)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Default document
+DirectoryIndex index.php
