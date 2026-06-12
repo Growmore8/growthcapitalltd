@@ -2,15 +2,15 @@
 <section class="carousel" id="heroCarousel" aria-label="Featured highlights">
     <div class="carousel__track" id="carouselTrack">
 
-        <!-- Slide 1: Bonus (centered) -->
-        <article class="slide slide--center slide--active">
-            <div class="slide__media" style="--img:url('<?= asset('images/slide-bonus.jpg') ?>'); --pos:center"></div>
+        <!-- Slide 1: Bonus (vibrant gradient promo) -->
+        <article class="slide slide--center slide--promo slide--active">
+            <div class="slide__media slide__media--promo"></div>
             <div class="container slide__inner slide__inner--center">
-                <span class="eyebrow">Limited-time offer</span>
-                <h1>100% Bonus on Your <span class="text-accent">First Deposit</span></h1>
-                <p>Plus 50% extra every time you top up.*</p>
+                <span class="eyebrow eyebrow--light">Limited-time offer</span>
+                <h1>Get a <span class="text-pop">100% Bonus</span><br>on Your First Deposit</h1>
+                <p>Double your starting capital — plus <strong>50% extra</strong> every time you top up.*</p>
                 <div class="slide__actions">
-                    <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Learn More</a>
+                    <a class="btn btn--light btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Claim Your Bonus <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <p class="slide__tnc">*Terms and Conditions apply.</p>
             </div>

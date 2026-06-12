@@ -36,6 +36,7 @@
 /* ---------- Base / reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; max-width: 100%; }
 body {
     margin: 0;
     font-family: var(--font);
@@ -405,7 +406,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    Hero carousel
    ========================================================================== */
 .carousel { position: relative; overflow: hidden; background: var(--navy-900); }
-.carousel__track { position: relative; height: clamp(500px, 70vh, 700px); }
+.carousel__track { position: relative; height: clamp(560px, 78vh, 760px); }
 .slide {
     position: absolute; inset: 0; display: flex; align-items: center; color: #fff;
     opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility .9s ease; z-index: 1;
@@ -426,15 +427,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 .slide::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .slide--center::before {
     background:
-        linear-gradient(180deg, rgba(5,11,24,.35) 0%, rgba(5,11,24,.5) 60%, rgba(5,11,24,.78) 100%),
-        radial-gradient(80% 60% at 50% 40%, transparent, rgba(5,11,24,.35));
+        linear-gradient(180deg, rgba(7,16,33,.4) 0%, rgba(7,16,33,.5) 60%, rgba(7,16,33,.72) 100%),
+        radial-gradient(90% 70% at 50% 40%, rgba(22,199,132,.12), transparent 70%);
 }
 .slide--left::before {
-    background: linear-gradient(90deg, rgba(5,11,24,.92) 0%, rgba(5,11,24,.72) 38%, rgba(5,11,24,.25) 66%, rgba(5,11,24,0) 100%);
+    background: linear-gradient(90deg, rgba(7,16,33,.93) 0%, rgba(11,42,74,.66) 40%, rgba(22,199,132,.12) 78%, transparent 100%);
 }
 .slide--right::before {
-    background: linear-gradient(90deg, rgba(5,11,24,0) 0%, rgba(5,11,24,.15) 30%, rgba(5,11,24,.8) 60%, rgba(5,11,24,.96) 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(22,199,132,.12) 24%, rgba(11,42,74,.66) 56%, rgba(7,16,33,.95) 100%);
 }
+/* Vibrant gradient promo slide (no photo, fully colourful) */
+.slide__media--promo {
+    background: linear-gradient(125deg, #07142b 0%, #0c5a3f 44%, #16c784 100%);
+    background-size: 220% 220%;
+}
+.slide--active .slide__media--promo { animation: promoShift 14s ease infinite; transform: none; }
+@keyframes promoShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.slide--promo::before { background: radial-gradient(75% 95% at 50% 50%, rgba(5,11,24,.32), rgba(5,11,24,.55)); }
+.eyebrow--light { color: rgba(255,255,255,.92); }
+.text-pop { color: #ffd76a; }
 /* subtle green glow accent on every slide */
 .slide::after {
     content: ""; position: absolute; z-index: 1; pointer-events: none;
@@ -446,8 +457,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .slide__inner--center { max-width: 800px; margin: 0 auto; text-align: center; }
 .slide__inner--right { margin-left: auto; max-width: 560px; text-align: left; }
 .slide h1 {
-    color: #fff; font-size: clamp(2.2rem, 5.2vw, 4rem); font-weight: 900; line-height: 1.05;
-    margin-bottom: 18px; letter-spacing: -.02em; text-shadow: 0 2px 24px rgba(0,0,0,.35);
+    color: #fff; font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 900; line-height: 1.08;
+    margin-bottom: 16px; letter-spacing: -.02em; text-shadow: 0 2px 24px rgba(0,0,0,.35);
 }
 .slide p { color: #e3ebf7; font-size: clamp(1.02rem, 1.6vw, 1.3rem); max-width: 560px; text-shadow: 0 1px 12px rgba(0,0,0,.4); }
 .slide__inner--center p { margin-left: auto; margin-right: auto; }
