@@ -13,6 +13,51 @@
         });
     }
 
+    /* Animated hero (GSAP) + self-drawing chart */
+    var heroChart = document.querySelector('.hero-chart');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Draw the chart line regardless of GSAP (CSS handles the stroke animation).
+    if (heroChart) {
+        window.setTimeout(function () { heroChart.classList.add('is-drawn'); }, 350);
+    }
+
+    if (window.gsap && !reduceMotion) {
+        var hero = document.getElementById('hero');
+        if (hero) {
+            var tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } });
+            tl.from('[data-hero="pill"]',    { y: 20, opacity: 0 })
+              .from('[data-hero="title"]',   { y: 34, opacity: 0 }, '-=0.5')
+              .from('[data-hero="text"]',    { y: 22, opacity: 0 }, '-=0.55')
+              .from('[data-hero="actions"]', { y: 22, opacity: 0 }, '-=0.55')
+              .from('[data-hero="trust"]',   { y: 18, opacity: 0 }, '-=0.55')
+              .from('[data-hero="chart"]',   { y: 44, opacity: 0, scale: 0.96 }, '-=0.7')
+              .from('.float-card', { y: 28, opacity: 0, stagger: 0.14, clearProps: 'all' }, '-=0.5');
+
+            if (window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+                // Parallax depth on the background glows + the whole visual on scroll.
+                gsap.to('.hero2__glow--1', { yPercent: -24, ease: 'none',
+                    scrollTrigger: { trigger: '.hero2', start: 'top top', end: 'bottom top', scrub: true } });
+                gsap.to('.hero2__glow--2', { yPercent: 28, ease: 'none',
+                    scrollTrigger: { trigger: '.hero2', start: 'top top', end: 'bottom top', scrub: true } });
+                gsap.to('.hero2__visual', { yPercent: -10, ease: 'none',
+                    scrollTrigger: { trigger: '.hero2', start: 'top top', end: 'bottom top', scrub: true } });
+            }
+        }
+
+        // Subtle mouse parallax on the hero visual.
+        var visual = document.querySelector('.hero2__visual');
+        if (visual && window.matchMedia('(pointer:fine)').matches) {
+            document.querySelector('.hero2').addEventListener('mousemove', function (e) {
+                var r = this.getBoundingClientRect();
+                var dx = (e.clientX - r.left) / r.width - 0.5;
+                var dy = (e.clientY - r.top) / r.height - 0.5;
+                gsap.to(visual, { x: dx * 18, y: dy * 18, duration: 0.6, ease: 'power2.out' });
+            });
+        }
+    }
+
     /* Mobile navigation toggle */
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('mainNav');

@@ -1,83 +1,62 @@
-<!-- ===================== Hero carousel ===================== -->
-<section class="carousel" id="heroCarousel" aria-label="Featured highlights">
-    <div class="carousel__track" id="carouselTrack">
-
-        <!-- Slide 1: Bonus (vibrant gradient promo) -->
-        <article class="slide slide--center slide--promo slide--active">
-            <div class="slide__media slide__media--promo"></div>
-            <div class="promo-deco" aria-hidden="true"><span>%</span><span>%</span><span>%</span><span>%</span><span>%</span><span>+</span></div>
-            <div class="container slide__inner slide__inner--center">
-                <span class="promo-pill"><i class="fa-solid fa-gift"></i> Limited-Time Welcome Offer</span>
-                <h1>Get a <span class="text-pop">100%</span> Bonus<br>on Your First Deposit</h1>
-                <p>Double your starting capital — plus <strong>50% extra</strong> on every top-up.*</p>
-                <div class="slide__actions">
-                    <a class="btn btn--light btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Claim Your Bonus <i class="fa-solid fa-arrow-right-long"></i></a>
-                    <a class="btn btn--glass btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
-                </div>
-                <p class="slide__tnc">*Terms and Conditions apply.</p>
-            </div>
-        </article>
-
-        <!-- Slide 2: Sponsorship (athlete left, text right) -->
-        <article class="slide slide--right">
-            <div class="slide__media" style="--img:url('<?= asset('images/athlete-football.jpg') ?>'); --pos:24% 12%"></div>
-            <div class="container slide__inner slide__inner--right">
-                <span class="eyebrow">Official Trading Partners</span>
-                <h1>Different Arenas.<br>The Same Pursuit of <span class="text-accent">Excellence</span>.</h1>
-                <p>We bring the discipline and precision of elite sport to every trade.</p>
-                <div class="slide__actions">
-                    <a class="btn btn--primary btn--lg" href="<?= url('about') ?>">Discover More</a>
-                    <a class="btn btn--glass btn--lg" href="<?= url(config('links.register', '/register')) ?>">Start Trading</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Slide: GC Racing (text left) -->
-        <article class="slide slide--left">
-            <div class="slide__media" style="--img:url('<?= asset('images/racing.jpg') ?>'); --pos:center"></div>
-            <div class="container slide__inner">
-                <span class="eyebrow">Official Racing Partner · GC Racing</span>
-                <h1>Built for the <span class="text-accent">Fast Lane</span></h1>
-                <p>Speed, precision and performance under pressure — the same engineering mindset we bring to every trade.</p>
-                <div class="slide__actions">
-                    <a class="btn btn--primary btn--lg" href="<?= url('about') ?>">Discover the Partnership</a>
-                    <a class="btn btn--glass btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Trading</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Slide 3: Podcast (text left) -->
-        <article class="slide slide--left">
-            <div class="slide__media" style="--img:url('<?= asset('images/slide-podcast.jpg') ?>'); --pos:center"></div>
-            <div class="container slide__inner">
-                <span class="eyebrow">GrowthCapital Talks</span>
-                <h1>Insights From the <span class="text-accent">People Who Move Markets</span></h1>
-                <p>A new episode every fortnight — uncut conversations with industry leaders.</p>
-                <div class="slide__actions">
-                    <a class="btn btn--primary btn--lg" href="#">Watch Now</a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Slide 4: Markets (text left) -->
-        <article class="slide slide--left">
-            <div class="slide__media" style="--img:url('<?= asset('images/slide-trading.jpg') ?>'); --pos:center"></div>
-            <div class="container slide__inner">
-                <span class="eyebrow">Global Online Trading</span>
-                <h1>Enter the World of <span class="text-accent">Limitless</span> Possibilities</h1>
-                <p>Trade Forex, Metals, Indices and Cryptocurrencies on professional platforms.</p>
-                <div class="slide__actions">
-                    <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>">Open an Account</a>
-                    <a class="btn btn--glass btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
-                </div>
-            </div>
-        </article>
-
+<!-- ===================== Animated hero ===================== -->
+<section class="hero2" id="hero">
+    <div class="hero2__bg" aria-hidden="true">
+        <span class="hero2__glow hero2__glow--1"></span>
+        <span class="hero2__glow hero2__glow--2"></span>
+        <span class="hero2__grid"></span>
     </div>
+    <div class="container hero2__inner">
+        <div class="hero2__content">
+            <span class="promo-pill" data-hero="pill"><i class="fa-solid fa-gift"></i> Limited-Time · 100% Deposit Bonus</span>
+            <h1 data-hero="title">Trade Smarter.<br><span class="text-accent">Grow Faster.</span></h1>
+            <p data-hero="text">Forex, Metals, Indices &amp; Cryptocurrencies on professional platforms — raw spreads from 0.0 pips and lightning-fast execution.</p>
+            <div class="hero2__actions" data-hero="actions">
+                <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Trading <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a class="btn btn--ghost btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
+            </div>
+            <ul class="hero2__trust" data-hero="trust">
+                <li><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></span> 4.8/5</li>
+                <li><i class="fa-solid fa-earth-americas"></i> 50+ countries</li>
+                <li><i class="fa-solid fa-bolt"></i> 1:500 leverage</li>
+            </ul>
+        </div>
 
-    <button class="carousel__arrow carousel__arrow--prev" id="carouselPrev" aria-label="Previous slide">&#8249;</button>
-    <button class="carousel__arrow carousel__arrow--next" id="carouselNext" aria-label="Next slide">&#8250;</button>
-    <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="Choose slide"></div>
+        <div class="hero2__visual" data-hero="visual">
+            <div class="hero-chart glass" data-hero="chart">
+                <div class="hero-chart__head">
+                    <span class="hero-chart__pair"><i class="fa-brands fa-bitcoin"></i> BTC/USD</span>
+                    <span class="hero-chart__chg up"><i class="fa-solid fa-caret-up"></i> 2.41%</span>
+                </div>
+                <div class="hero-chart__val">$<span data-count="67940">0</span></div>
+                <svg class="hero-chart__svg" viewBox="0 0 420 180" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="rgba(22,199,132,.45)"/>
+                            <stop offset="1" stop-color="rgba(22,199,132,0)"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="hero-chart__area" d="M0,140 L40,120 L80,135 L120,95 L160,110 L200,70 L240,85 L280,45 L320,60 L360,30 L420,20 L420,180 L0,180 Z"/>
+                    <path class="hero-chart__line" d="M0,140 L40,120 L80,135 L120,95 L160,110 L200,70 L240,85 L280,45 L320,60 L360,30 L420,20"/>
+                </svg>
+            </div>
+
+            <div class="float-card glass float-card--1" data-float="1">
+                <span class="float-card__pair">EUR/USD</span>
+                <span class="float-card__val">1.0842</span>
+                <span class="float-card__chg up">+0.12%</span>
+            </div>
+            <div class="float-card glass float-card--2" data-float="2">
+                <span class="float-card__pair"><i class="fa-solid fa-coins"></i> Gold</span>
+                <span class="float-card__val">2,318.4</span>
+                <span class="float-card__chg up">+0.45%</span>
+            </div>
+            <div class="float-card glass float-card--3" data-float="3">
+                <span class="float-card__pair"><i class="fa-brands fa-ethereum"></i> ETH</span>
+                <span class="float-card__val">3,512</span>
+                <span class="float-card__chg up">+0.9%</span>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ===================== Trust bar ===================== -->
