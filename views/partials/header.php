@@ -94,8 +94,7 @@ $pageTitle = $title ?? 'GrowthCapital';
                 </li>
             </ul>
             <div class="main-nav__auth">
-                <a class="btn btn--primary" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Trading <i class="fa-solid fa-arrow-right-long"></i></a>
-                <a class="btn btn--ghost" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-regular fa-user"></i> Client Login</a>
+                <a class="btn btn--primary" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-regular fa-user"></i> Client Login</a>
             </div>
         </nav>
     </div>
