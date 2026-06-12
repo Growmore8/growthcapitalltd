@@ -62,7 +62,6 @@ $pageTitle = $title ?? 'GrowthCapital';
                         <a href="<?= url('markets') ?>"><strong>Metals</strong><span>Gold, silver, platinum</span></a>
                         <a href="<?= url('markets') ?>"><strong>Indices</strong><span>Global stock indices</span></a>
                         <a href="<?= url('markets') ?>"><strong>Cryptocurrencies</strong><span>Digital assets, 24/7</span></a>
-                        <a href="<?= url('mutual-funds') ?>"><strong>Mutual Funds</strong><span>Managed funds &amp; SIP</span></a>
                     </div>
                 </li>
 
@@ -78,10 +77,11 @@ $pageTitle = $title ?? 'GrowthCapital';
 
                 <li><a class="<?= is_active('/accounts') ?>" href="<?= url('accounts') ?>">Accounts</a></li>
 
+                <li><a class="<?= is_active('/mutual-funds') ?>" href="<?= url('mutual-funds') ?>">Mutual Funds</a></li>
+
                 <li class="has-dropdown">
                     <a href="#">More <span class="caret"></span></a>
                     <div class="dropdown">
-                        <a href="<?= url('mutual-funds') ?>"><strong>Mutual Funds</strong><span>Invest &amp; SIP calculator</span></a>
                         <a href="<?= url('about') ?>"><strong>About Us</strong><span>Who we are</span></a>
                         <a href="<?= url('contact') ?>"><strong>Contact</strong><span>Get in touch 24/7</span></a>
                         <a href="<?= url('accounts') ?>"><strong>Account Types</strong><span>Compare plans</span></a>
