@@ -5,12 +5,14 @@
         <!-- Slide 1: Bonus (vibrant gradient promo) -->
         <article class="slide slide--center slide--promo slide--active">
             <div class="slide__media slide__media--promo"></div>
+            <div class="promo-deco" aria-hidden="true"><span>%</span><span>%</span><span>%</span><span>%</span><span>%</span><span>+</span></div>
             <div class="container slide__inner slide__inner--center">
-                <span class="eyebrow eyebrow--light">Limited-time offer</span>
-                <h1>Get a <span class="text-pop">100% Bonus</span><br>on Your First Deposit</h1>
-                <p>Double your starting capital — plus <strong>50% extra</strong> every time you top up.*</p>
+                <span class="promo-pill"><i class="fa-solid fa-gift"></i> Limited-Time Welcome Offer</span>
+                <h1>Get a <span class="text-pop">100%</span> Bonus<br>on Your First Deposit</h1>
+                <p>Double your starting capital — plus <strong>50% extra</strong> on every top-up.*</p>
                 <div class="slide__actions">
                     <a class="btn btn--light btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Claim Your Bonus <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a class="btn btn--glass btn--lg" href="<?= url('markets') ?>">Explore Markets</a>
                 </div>
                 <p class="slide__tnc">*Terms and Conditions apply.</p>
             </div>

@@ -88,6 +88,6 @@
 
 <!-- AOS — Animate On Scroll -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="<?= asset('js/main.js') ?>" defer></script>
+<script src="<?= asset_v('js/main.js') ?>" defer></script>
 </body>
 </html>

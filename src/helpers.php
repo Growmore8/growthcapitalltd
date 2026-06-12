@@ -69,6 +69,19 @@ if (!function_exists('asset')) {
     }
 }
 
+if (!function_exists('asset_v')) {
+    /**
+     * Asset URL with a cache-busting ?v=<filemtime> so updated CSS/JS always reload.
+     */
+    function asset_v(string $path): string
+    {
+        $file = BASE_PATH . '/public/assets/' . ltrim($path, '/');
+        $ver  = is_file($file) ? filemtime($file) : null;
+
+        return asset($path) . ($ver ? ('?v=' . $ver) : '');
+    }
+}
+
 if (!function_exists('is_active')) {
     /**
      * Return $class (default 'active') when the current request path matches $path.

@@ -19,7 +19,7 @@ $pageTitle = $title ?? 'GrowthCapital';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- AOS — Animate On Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset_v('css/style.css') ?>">
 </head>
 <body>
 
