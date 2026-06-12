@@ -1,5 +1,66 @@
 # Deployment Guide — GrowthCapital (VPS)
 
+## Quick path: Hostinger VPS + CloudPanel (Nginx) — growthcapitalltd.com
+
+CloudPanel runs **Nginx + PHP-FPM**, so the `.htaccess` is not used; the PHP-site
+vhost already routes everything to `index.php`. We only need to point the web root
+at `/public`.
+
+> The app has **no Composer dependencies** (autoload-only), so it runs even
+> without `composer install` thanks to the fallback autoloader in `bootstrap.php`.
+
+**1. DNS** (registrar / Hostinger DNS) — point the domain at the VPS:
+```
+A   @     187.127.106.13
+A   www   187.127.106.13
+```
+
+**2. Create the site (CloudPanel → + Add Site → Create a PHP Site):**
+- Application: `Generic`  ·  Domain: `growthcapitalltd.com`  ·  PHP: `8.3`
+- Site User: `growthcapital` (save the generated password)
+- After creating, add `www.growthcapitalltd.com` under **Site → Domains**.
+
+**3. Create the database (CloudPanel → site → Databases → Add):**
+- Name: `growthcapital`  ·  User: `growthcapital_user`  ·  save the password.
+
+**4. Deploy the code** (Hostinger **Terminal**, or `ssh growthcapital@187.127.106.13`):
+```bash
+cd /home/growthcapital/htdocs/growthcapitalltd.com
+rm -rf ./* ./.[!.]* 2>/dev/null            # clear the default placeholder
+git clone https://github.com/Growmore8/growthcapitalltd.git .
+composer install --no-dev --optimize-autoloader   # optional (no deps); skip if composer absent
+cp config/config.example.php config/config.php
+nano config/config.php                      # see values below
+mysql -u growthcapital_user -p growthcapital < database/schema.sql
+```
+`config/config.php` production values:
+```php
+'app' => ['name'=>'GrowthCapital','license'=>'11064258',
+          'base_url'=>'https://growthcapitalltd.com','env'=>'production','debug'=>false],
+'db'  => ['host'=>'127.0.0.1','port'=>'3306','name'=>'growthcapital',
+          'user'=>'growthcapital_user','pass'=>'YOUR_DB_PASSWORD','charset'=>'utf8mb4'],
+```
+
+**5. Point the web root at `/public`** (CloudPanel → site → **Vhost**):
+change the `root` line to:
+```nginx
+root /home/growthcapital/htdocs/growthcapitalltd.com/public;
+```
+Save (CloudPanel reloads Nginx). The existing `try_files $uri $uri/ /index.php?$query_string;`
+handles clean URLs.
+
+**6. SSL** (CloudPanel → site → **SSL/TLS → Actions → New Let's Encrypt Certificate**),
+include `www`. CloudPanel adds the HTTPS redirect automatically.
+
+**7. Updating later:**
+```bash
+cd /home/growthcapital/htdocs/growthcapitalltd.com && git pull origin main
+```
+
+---
+
+## Generic guide (other servers / Apache)
+
 This guide covers deploying the site to a Linux VPS with a domain. Fill in the
 real VPS details when provided.
 
