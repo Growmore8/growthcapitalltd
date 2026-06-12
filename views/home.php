@@ -226,7 +226,26 @@
     </div>
 </section>
 
-<!-- ===================== Mobile app showcase (animated) ===================== -->
+<?php
+// If you upload a video to public/assets/videos/app-showcase.mp4 (or .webm)
+// the whole section becomes just your video. Otherwise the animated
+// CSS phones + text fallback is shown.
+$appVideo  = is_file(BASE_PATH . '/public/assets/videos/app-showcase.mp4');
+$appWebm   = is_file(BASE_PATH . '/public/assets/videos/app-showcase.webm');
+$appPoster = is_file(BASE_PATH . '/public/assets/images/app-poster.jpg');
+?>
+<?php if ($appVideo || $appWebm): ?>
+<!-- ===================== Mobile app showcase (video) ===================== -->
+<section class="appshow appshow--video">
+    <div class="container">
+        <video class="appshow__video" autoplay muted loop playsinline preload="metadata"<?= $appPoster ? ' poster="' . asset('images/app-poster.jpg') . '"' : '' ?> data-aos="zoom-in">
+            <?php if ($appWebm): ?><source src="<?= asset('videos/app-showcase.webm') ?>" type="video/webm"><?php endif; ?>
+            <?php if ($appVideo): ?><source src="<?= asset('videos/app-showcase.mp4') ?>" type="video/mp4"><?php endif; ?>
+        </video>
+    </div>
+</section>
+<?php else: ?>
+<!-- ===================== Mobile app showcase (animated fallback) ===================== -->
 <section class="appshow" id="appShow">
     <div class="appshow__aurora" aria-hidden="true">
         <span class="blob blob--green"></span>
@@ -246,9 +265,7 @@
                 <a class="store-badge" href="<?= url(config('links.platform', '/platform')) ?>" target="_blank" rel="noopener"><i class="fa-brands fa-google-play"></i><span><small>Get it on</small>Google Play</span></a>
             </div>
         </div>
-
         <div class="appshow__phones">
-            <!-- Back phone: wallet -->
             <div class="phone phone--back" data-app="phoneBack">
                 <div class="phone__screen">
                     <div class="phone__bar"><span>Wallet</span><i class="fa-solid fa-wallet"></i></div>
@@ -264,7 +281,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Front phone: trading -->
             <div class="phone phone--front" data-app="phoneFront">
                 <div class="phone__screen">
                     <div class="phone__bar"><span><i class="fa-brands fa-bitcoin"></i> BTC/USD</span><span class="up">+2.4%</span></div>
@@ -289,6 +305,7 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- ===================== Trading accounts ===================== -->
 <section class="section">
