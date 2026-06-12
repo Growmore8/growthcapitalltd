@@ -286,6 +286,7 @@
         var curCode = 'USD';
         var mode = 'sip';
 
+        var periodUnit = 'yr';
         var currencySel = document.getElementById('sipCurrency');
         var curSym = document.getElementById('sipCurSym');
         var amount = document.getElementById('sipAmount');
@@ -331,11 +332,13 @@
         function compute() {
             var P = Math.max(0, parseFloat(amount.value) || 0);
             var annual = Math.max(0, parseFloat(rate.value) || 0);
-            var yrs = Math.max(0, parseFloat(years.value) || 0);
+            var period = Math.max(0, parseFloat(years.value) || 0);
+            // Total number of months, regardless of the chosen unit.
+            var n = periodUnit === 'mo' ? period : period * 12;
+            var yrs = n / 12;
 
             var invested, future;
             if (mode === 'sip') {
-                var n = yrs * 12;
                 var i = annual / 100 / 12;
                 invested = P * n;
                 future = i === 0 ? invested : P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
@@ -358,6 +361,35 @@
         link(amount, amountRange);
         link(rate, rateRange);
         link(years, yearsRange);
+
+        // Time-period unit toggle (Years / Months)
+        var unitWrap = document.getElementById('sipUnit');
+        var unitLabel = document.getElementById('sipUnitLabel');
+        if (unitWrap) {
+            unitWrap.querySelectorAll('.sip-unit__btn').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var u = b.getAttribute('data-unit');
+                    if (u === periodUnit) return;
+                    unitWrap.querySelectorAll('.sip-unit__btn').forEach(function (x) { x.classList.remove('is-active'); });
+                    b.classList.add('is-active');
+                    var cur = parseFloat(years.value) || 0;
+                    if (u === 'mo') {
+                        periodUnit = 'mo';
+                        if (unitLabel) unitLabel.textContent = 'Mo';
+                        years.max = 360; yearsRange.max = 360; yearsRange.step = 1;
+                        var vMo = Math.min(360, Math.max(1, Math.round(cur * 12)));
+                        years.value = vMo; yearsRange.value = vMo;
+                    } else {
+                        periodUnit = 'yr';
+                        if (unitLabel) unitLabel.textContent = 'Yr';
+                        years.max = 40; yearsRange.max = 40; yearsRange.step = 1;
+                        var vYr = Math.min(40, Math.max(1, Math.round(cur / 12)));
+                        years.value = vYr; yearsRange.value = vYr;
+                    }
+                    compute();
+                });
+            });
+        }
 
         // Tab toggle (SIP / Lumpsum)
         sipCalc.querySelectorAll('.sip-tab').forEach(function (tab) {

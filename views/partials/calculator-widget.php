@@ -65,15 +65,21 @@
                         <div class="sip-field">
                             <div class="sip-field__top">
                                 <label for="sipRate">Expected return rate (p.a.)</label>
-                                <div class="sip-box"><input type="number" id="sipRate" value="12" min="1" max="40" step="0.5"><span>%</span></div>
+                                <div class="sip-box"><input type="number" id="sipRate" value="12" min="1" max="50" step="0.5"><span>%</span></div>
                             </div>
-                            <input type="range" id="sipRateRange" min="1" max="30" step="0.5" value="12">
+                            <input type="range" id="sipRateRange" min="1" max="50" step="0.5" value="12">
                         </div>
 
                         <div class="sip-field">
                             <div class="sip-field__top">
                                 <label for="sipYears">Time period</label>
-                                <div class="sip-box"><input type="number" id="sipYears" value="10" min="1" max="40"><span>Yr</span></div>
+                                <div class="sip-period">
+                                    <div class="sip-unit" id="sipUnit">
+                                        <button type="button" class="sip-unit__btn is-active" data-unit="yr">Years</button>
+                                        <button type="button" class="sip-unit__btn" data-unit="mo">Months</button>
+                                    </div>
+                                    <div class="sip-box"><input type="number" id="sipYears" value="10" min="1" max="40"><span id="sipUnitLabel">Yr</span></div>
+                                </div>
                             </div>
                             <input type="range" id="sipYearsRange" min="1" max="40" step="1" value="10">
                         </div>
