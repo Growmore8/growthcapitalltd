@@ -5,7 +5,7 @@
         <div class="footer-grid">
             <div class="footer-col footer-col--brand">
                 <a class="brand brand--footer" href="<?= url('/') ?>">
-                    <span class="brand__mark"><img src="<?= asset('images/logo-mark.svg') ?>" alt="GrowthCapital logo" width="36" height="36"></span>
+                    <span class="brand__mark"><img src="<?= logo_mark() ?>" alt="GrowthCapital logo" width="36" height="36"></span>
                     <span class="brand__name">Growth<strong>Capital</strong></span>
                 </a>
                 <p class="footer-about">

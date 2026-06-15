@@ -9,8 +9,14 @@ $pageTitle = $title ?? 'GrowthCapital';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GrowthCapital — global online trading in Forex, Metals, Indices and Cryptocurrencies. Trade with tight spreads on professional platforms.">
     <title><?= e($pageTitle) ?></title>
+<?php $favPng = is_file(BASE_PATH . '/public/favicon.png'); ?>
+    <?php if ($favPng): ?>
+    <link rel="icon" type="image/png" href="<?= url('favicon.png') ?>">
+    <link rel="apple-touch-icon" href="<?= url('favicon.png') ?>">
+    <?php else: ?>
     <link rel="icon" type="image/svg+xml" href="<?= url('favicon.svg') ?>">
     <link rel="apple-touch-icon" href="<?= asset('images/logo-mark.svg') ?>">
+    <?php endif; ?>
     <meta name="theme-color" content="#0a1730">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +49,7 @@ $pageTitle = $title ?? 'GrowthCapital';
     <div class="container site-header__inner">
         <div class="site-header__left">
             <a class="brand" href="<?= url('/') ?>">
-                <span class="brand__mark"><img src="<?= asset('images/logo-mark.svg') ?>" alt="GrowthCapital logo" width="36" height="36"></span>
+                <span class="brand__mark"><img src="<?= logo_mark() ?>" alt="GrowthCapital logo" width="36" height="36"></span>
                 <span class="brand__name">Growth<strong>Capital</strong></span>
             </a>
             <div class="sponsor-badge" title="Official Sponsorship">

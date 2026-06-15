@@ -69,6 +69,19 @@ if (!function_exists('asset')) {
     }
 }
 
+if (!function_exists('logo_mark')) {
+    /**
+     * Brand mark URL — prefers an uploaded PNG (your exact artwork) over the SVG.
+     * Drop your image at public/assets/images/logo-mark.png to use it everywhere.
+     */
+    function logo_mark(): string
+    {
+        $png = BASE_PATH . '/public/assets/images/logo-mark.png';
+
+        return is_file($png) ? asset_v('images/logo-mark.png') : asset_v('images/logo-mark.svg');
+    }
+}
+
 if (!function_exists('asset_v')) {
     /**
      * Asset URL with a cache-busting ?v=<filemtime> so updated CSS/JS always reload.

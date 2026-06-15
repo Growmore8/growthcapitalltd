@@ -12,7 +12,7 @@
     <main class="platform">
         <div class="platform__panel">
             <a class="brand brand--platform" href="<?= url('/') ?>">
-                <span class="brand__mark"><img src="<?= asset('images/logo-mark.svg') ?>" alt="GrowthCapital logo" width="36" height="36"></span>
+                <span class="brand__mark"><img src="<?= logo_mark() ?>" alt="GrowthCapital logo" width="36" height="36"></span>
                 <span class="brand__name">Growth<strong>Capital</strong></span>
             </a>
             <h1>Platform Login</h1>
