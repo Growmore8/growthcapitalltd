@@ -20,7 +20,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h2>Let Professionals Trade for You</h2>
                 <p>With our managed fund scheme you simply deposit capital and our experienced team executes trades on your behalf using tested market strategies across Forex, Metals, Indices and Cryptocurrencies.</p>
                 <p><strong>All funds remain under your ownership</strong> at all times — we only manage the trading, while you stay in control of your capital.</p>
-                <button class="btn btn--primary btn--lg" data-open-calc><i class="fa-solid fa-calculator"></i> Calculate Returns</button>
+                <div class="hero__actions" style="display:flex;gap:12px;flex-wrap:wrap">
+                    <button class="btn btn--primary btn--lg" data-open-calc><i class="fa-solid fa-calculator"></i> Calculate Returns</button>
+                    <a class="btn btn--outline btn--lg" href="<?= url('fund-login') ?>"><i class="fa-regular fa-user"></i> Mutual Fund Login</a>
+                </div>
             </div>
         </div>
     </div>
