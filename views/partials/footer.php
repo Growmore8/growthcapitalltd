@@ -82,7 +82,7 @@
                 <p>
                     &copy; <?= date('Y') ?> <strong><?= e(config('app.name', 'GrowthCapital')) ?></strong>.
                     All rights reserved. &nbsp;|&nbsp;
-                    License Number: <strong><?= e(config('app.license', '11064258')) ?></strong>
+                    License Number: <a class="license-link" href="https://find-and-update.company-information.service.gov.uk/company/<?= e(config('app.license', '11064258')) ?>" target="_blank" rel="noopener"><strong><?= e(config('app.license', '11064258')) ?></strong></a>
                 </p>
                 <ul class="footer-legal__links">
                     <li><a href="#">Privacy Policy</a></li>

@@ -21,10 +21,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h3 class="plan__name">Lite</h3>
                 <p class="plan__price">$250<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li>Leverage up to 1:500</li>
-                    <li>All major markets</li>
-                    <li>Standard spreads</li>
-                    <li>24/7 support</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Forex</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
+                    <li><i class="fa-solid fa-wave-square"></i> Standard spreads</li>
+                    <li><i class="fa-solid fa-headset"></i> 24/7 support</li>
                 </ul>
                 <a class="btn btn--outline btn--block" href="<?= url(config('links.register', '/register')) ?>">Open Lite</a>
             </article>
@@ -34,10 +34,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h3 class="plan__name">Pro</h3>
                 <p class="plan__price">$2,500<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li>Leverage up to 1:250</li>
-                    <li>Tighter spreads</li>
-                    <li>Priority support</li>
-                    <li>Advanced tools</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Forex &amp; Commodities</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
+                    <li><i class="fa-solid fa-wave-square"></i> Standard spreads</li>
+                    <li><i class="fa-solid fa-star"></i> Priority support</li>
                 </ul>
                 <a class="btn btn--primary btn--block" href="<?= url(config('links.register', '/register')) ?>">Open Pro</a>
             </article>
@@ -46,10 +46,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h3 class="plan__name">VIP</h3>
                 <p class="plan__price">$25,000<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li>Leverage up to 1:100</li>
-                    <li>Best-in-class pricing</li>
-                    <li>Dedicated manager</li>
-                    <li>VIP support</li>
+                    <li><i class="fa-solid fa-globe"></i> All markets &amp; assets</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
+                    <li><i class="fa-solid fa-wave-square"></i> Standard spreads</li>
+                    <li><i class="fa-solid fa-crown"></i> VIP support</li>
                 </ul>
                 <a class="btn btn--outline btn--block" href="<?= url(config('links.register', '/register')) ?>">Open VIP</a>
             </article>
@@ -58,10 +58,10 @@ require BASE_PATH . '/views/partials/page-header.php';
                 <h3 class="plan__name">Raw (0 Spread)</h3>
                 <p class="plan__price">$500<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li>Leverage up to 1:500</li>
-                    <li>Spreads from 0.0 pips</li>
-                    <li>Low commission</li>
-                    <li>24/7 support</li>
+                    <li><i class="fa-solid fa-coins"></i> Commodities</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
+                    <li><i class="fa-solid fa-wave-square"></i> 0 spreads</li>
+                    <li><i class="fa-solid fa-headset"></i> 24/7 support</li>
                 </ul>
                 <a class="btn btn--outline btn--block" href="<?= url(config('links.register', '/register')) ?>">Open Raw</a>
             </article>

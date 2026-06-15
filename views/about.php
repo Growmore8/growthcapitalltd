@@ -12,7 +12,7 @@ require BASE_PATH . '/views/partials/page-header.php';
         <div class="split">
             <div class="split__media" data-aos="fade-right">
                 <img src="<?= asset('images/team-office.jpg') ?>" alt="The GrowthCapital team" loading="lazy">
-                <span class="badge-float">License No. <?= e(config('app.license', '11064258')) ?></span>
+                <a class="badge-float" href="https://find-and-update.company-information.service.gov.uk/company/<?= e(config('app.license', '11064258')) ?>" target="_blank" rel="noopener">License No. <?= e(config('app.license', '11064258')) ?></a>
             </div>
             <div class="split__content" data-aos="fade-left">
                 <span class="eyebrow">Who we are</span>
@@ -91,7 +91,7 @@ require BASE_PATH . '/views/partials/page-header.php';
             <div class="split__content" data-aos="fade-right">
                 <span class="eyebrow">Regulated &amp; licensed</span>
                 <h2>Compliance You Can Rely On</h2>
-                <p>GrowthCapital operates under License Number <strong><?= e(config('app.license', '11064258')) ?></strong>. We adhere to strict standards covering client-fund handling, transparency and responsible trading.</p>
+                <p>GrowthCapital operates under License Number <a class="license-link" href="https://find-and-update.company-information.service.gov.uk/company/<?= e(config('app.license', '11064258')) ?>" target="_blank" rel="noopener"><strong><?= e(config('app.license', '11064258')) ?></strong></a>. We adhere to strict standards covering client-fund handling, transparency and responsible trading.</p>
                 <ul class="split__list">
                     <li><i class="fa-solid fa-shield-halved"></i> Segregated client funds</li>
                     <li><i class="fa-solid fa-file-shield"></i> Strict KYC &amp; AML procedures</li>

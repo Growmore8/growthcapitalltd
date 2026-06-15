@@ -129,11 +129,16 @@
             toggle.setAttribute('aria-expanded', String(open));
         });
         nav.addEventListener('click', function (e) {
-            if (e.target.tagName === 'A') {
-                nav.classList.remove('is-open');
-                toggle.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
+            var a = e.target.closest('a');
+            if (!a) return;
+            // Don't close the menu when tapping a dropdown parent (it just toggles the accordion).
+            if (a.parentNode.classList.contains('has-dropdown') &&
+                window.matchMedia('(max-width: 1080px)').matches) {
+                return;
             }
+            nav.classList.remove('is-open');
+            toggle.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
         });
     }
 

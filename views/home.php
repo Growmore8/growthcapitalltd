@@ -78,50 +78,6 @@
     </div>
 </section>
 
-<!-- ===================== Live markets (TradingView) ===================== -->
-<section class="section">
-    <div class="container">
-        <div class="section__head" data-aos="fade-up">
-            <span class="eyebrow">Live markets</span>
-            <h2>Real-Time Market Data</h2>
-            <p>Track the instruments that matter — powered by live market feeds.</p>
-        </div>
-        <div class="tv-overview" data-aos="fade-up">
-            <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                {
-                "colorTheme": "dark",
-                "dateRange": "12M",
-                "showChart": true,
-                "locale": "en",
-                "width": "100%",
-                "height": 460,
-                "largeChartUrl": "",
-                "isTransparent": false,
-                "showSymbolLogo": true,
-                "showFloatingTooltip": true,
-                "tabs": [
-                    {"title": "Forex", "symbols": [
-                        {"s": "FX:EURUSD"}, {"s": "FX:GBPUSD"}, {"s": "FX:USDJPY"}, {"s": "FX:AUDUSD"}, {"s": "FX:USDCAD"}
-                    ]},
-                    {"title": "Metals", "symbols": [
-                        {"s": "OANDA:XAUUSD", "d": "Gold"}, {"s": "OANDA:XAGUSD", "d": "Silver"}, {"s": "TVC:PLATINUM"}
-                    ]},
-                    {"title": "Indices", "symbols": [
-                        {"s": "FOREXCOM:SPXUSD", "d": "S&P 500"}, {"s": "FOREXCOM:DJI", "d": "Dow 30"}, {"s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100"}
-                    ]},
-                    {"title": "Crypto", "symbols": [
-                        {"s": "BITSTAMP:BTCUSD", "d": "Bitcoin"}, {"s": "BITSTAMP:ETHUSD", "d": "Ethereum"}, {"s": "BINANCE:SOLUSD", "d": "Solana"}
-                    ]}
-                ]
-                }
-                </script>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ===================== Markets image cards ===================== -->
 <section class="section section--alt">
     <div class="container">
@@ -171,37 +127,6 @@
     </div>
 </section>
 
-<!-- ===================== Advanced chart (TradingView) ===================== -->
-<section class="section">
-    <div class="container">
-        <div class="section__head" data-aos="fade-up">
-            <span class="eyebrow">Professional charting</span>
-            <h2>Analyse Like a Pro</h2>
-            <p>Full-featured, real-time charts with the tools serious traders rely on.</p>
-        </div>
-        <div class="tv-chart" data-aos="fade-up">
-            <div class="tradingview-widget-container">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                "autosize": true,
-                "symbol": "OANDA:XAUUSD",
-                "interval": "60",
-                "timezone": "Etc/UTC",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "hide_side_toolbar": true,
-                "allow_symbol_change": true,
-                "calendar": false,
-                "support_host": "https://www.tradingview.com"
-                }
-                </script>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ===================== Platforms split ===================== -->
 <section class="section section--alt">
     <div class="container">
@@ -239,8 +164,8 @@
                 <h3 class="plan__name">Lite</h3>
                 <p class="plan__price">$250<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:500</li>
-                    <li><i class="fa-solid fa-layer-group"></i> All major markets</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Forex</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
                     <li><i class="fa-solid fa-headset"></i> 24/7 support</li>
                 </ul>
                 <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
@@ -250,8 +175,8 @@
                 <h3 class="plan__name">Pro</h3>
                 <p class="plan__price">$2,500<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:250</li>
-                    <li><i class="fa-solid fa-bolt"></i> Tighter spreads</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Forex &amp; Commodities</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
                     <li><i class="fa-solid fa-star"></i> Priority support</li>
                 </ul>
                 <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
@@ -260,9 +185,9 @@
                 <h3 class="plan__name">VIP</h3>
                 <p class="plan__price">$25,000<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:100</li>
-                    <li><i class="fa-solid fa-gem"></i> Best-in-class pricing</li>
-                    <li><i class="fa-solid fa-user-tie"></i> Dedicated manager</li>
+                    <li><i class="fa-solid fa-globe"></i> All markets &amp; assets</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
+                    <li><i class="fa-solid fa-crown"></i> VIP support</li>
                 </ul>
                 <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
             </a>
@@ -270,9 +195,9 @@
                 <h3 class="plan__name">Raw (0 Spread)</h3>
                 <p class="plan__price">$500<span>min. deposit</span></p>
                 <ul class="plan__features">
-                    <li><i class="fa-solid fa-gauge-high"></i> Leverage up to 1:500</li>
-                    <li><i class="fa-solid fa-wave-square"></i> Spreads from 0.0 pips</li>
-                    <li><i class="fa-solid fa-coins"></i> Low commission</li>
+                    <li><i class="fa-solid fa-coins"></i> Commodities</li>
+                    <li><i class="fa-solid fa-wave-square"></i> 0 spreads</li>
+                    <li><i class="fa-solid fa-percent"></i> 5% withdrawal commission</li>
                 </ul>
                 <span class="link-arrow">View details <i class="fa-solid fa-arrow-right-long"></i></span>
             </a>

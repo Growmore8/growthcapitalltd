@@ -21,7 +21,7 @@ require BASE_PATH . '/views/partials/page-header.php';
                     <li><span><i class="fa-brands fa-whatsapp"></i> WhatsApp</span><a href="https://wa.me/<?= e($waDigits) ?>" target="_blank" rel="noopener"><?= e(config('contact.whatsapp')) ?></a></li>
                     <li><span><i class="fa-brands fa-telegram"></i> Telegram</span><a href="https://t.me/+<?= e($tgDigits) ?>" target="_blank" rel="noopener"><?= e(config('contact.telegram')) ?></a></li>
                     <li><span><i class="fa-solid fa-location-dot"></i> Address</span><?= e(config('contact.address')) ?></li>
-                    <li><span><i class="fa-solid fa-id-card"></i> License</span><?= e(config('app.license')) ?></li>
+                    <li><span><i class="fa-solid fa-id-card"></i> License</span><a href="https://find-and-update.company-information.service.gov.uk/company/<?= e(config('app.license')) ?>" target="_blank" rel="noopener"><?= e(config('app.license')) ?></a></li>
                 </ul>
             </div>
 

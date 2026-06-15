@@ -364,6 +364,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-legal__warning { font-size: .82rem; color: #8497b1; }
 .footer-legal__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .85rem; }
 .footer-legal__bottom strong { color: #cdd9e9; }
+.license-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(255,255,255,.3); }
+.license-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .footer-legal__links { display: flex; gap: 18px; }
 .footer-legal__links a { color: #8497b1; }
 .footer-legal__links a:hover { color: #fff; }
