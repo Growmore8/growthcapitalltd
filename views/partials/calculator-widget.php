@@ -64,7 +64,7 @@
 
                         <div class="sip-field">
                             <div class="sip-field__top">
-                                <label for="sipRate">Expected return rate (p.a.)</label>
+                                <label for="sipRate">Expected return rate (per month)</label>
                                 <div class="sip-box"><input type="number" id="sipRate" value="12" min="1" max="50" step="0.5"><span>%</span></div>
                             </div>
                             <input type="range" id="sipRateRange" min="1" max="50" step="0.5" value="12">

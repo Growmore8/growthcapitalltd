@@ -379,19 +379,18 @@
 
         function compute() {
             var P = Math.max(0, parseFloat(amount.value) || 0);
-            var annual = Math.max(0, parseFloat(rate.value) || 0);
+            // Rate is entered as a MONTHLY percentage.
+            var i = Math.max(0, parseFloat(rate.value) || 0) / 100;
             // Time period is in months.
             var n = Math.max(0, parseFloat(years.value) || 0);
-            var yrs = n / 12;
 
             var invested, future;
             if (mode === 'sip') {
-                var i = annual / 100 / 12;
                 invested = P * n;
                 future = i === 0 ? invested : P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
             } else {
                 invested = P;
-                future = P * Math.pow(1 + annual / 100, yrs);
+                future = P * Math.pow(1 + i, n);
             }
             var gains = Math.max(0, future - invested);
 
