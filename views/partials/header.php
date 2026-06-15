@@ -99,7 +99,7 @@ $pageTitle = $title ?? 'GrowthCapital';
                 </li>
             </ul>
             <div class="main-nav__auth">
-                <a class="btn btn--primary" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-regular fa-user"></i> Client Login</a>
+                <a class="btn btn--primary" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-chart-line"></i> Trade Login</a>
             </div>
         </nav>
     </div>

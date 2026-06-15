@@ -66,3 +66,8 @@ $router->post('/register', static fn (): string => View::render('register', [
 $router->get('/platform', static fn (): string => View::render('platform-login', [
     'title' => 'Platform Login — GrowthCapital',
 ], false));
+
+// Mutual Fund login — temporary animated "Coming Soon" (standalone).
+$router->get('/fund-login', static fn (): string => View::render('fund-coming-soon', [
+    'title' => 'Mutual Funds — Coming Soon | GrowthCapital',
+], false));
