@@ -108,10 +108,9 @@ if (!function_exists('mutual_fund_plans')) {
     function mutual_fund_plans(): array
     {
         $fallback = [
-            ['name' => 'Capital Growth',     'min_deposit' => 1000,  'lock_in_months' => 4, 'description' => 'Entry-level plan',  'features' => ['Funds stay client-owned']],
-            ['name' => 'Progressive Growth', 'min_deposit' => 2500,  'lock_in_months' => 3, 'description' => 'Balanced growth',    'features' => ['Funds stay client-owned']],
-            ['name' => 'Smart Growth',       'min_deposit' => 10000, 'lock_in_months' => 2, 'description' => 'Accelerated growth', 'features' => ['Funds stay client-owned']],
-            ['name' => 'Imperial Growth',    'min_deposit' => 25000, 'lock_in_months' => 1, 'description' => 'Premium plan',       'features' => ['Funds stay client-owned']],
+            ['name' => 'Silver',   'min_deposit' => 50,  'max_deposit' => 250,  'pool_amount' => 10000, 'daily_return_pct' => 5, 'daily_profit_cap' => 500],
+            ['name' => 'Gold',     'min_deposit' => 250, 'max_deposit' => 500,  'pool_amount' => 25000, 'daily_return_pct' => 6, 'daily_profit_cap' => 1500],
+            ['name' => 'Platinum', 'min_deposit' => 500, 'max_deposit' => 2500, 'pool_amount' => 50000, 'daily_return_pct' => 8, 'daily_profit_cap' => 4000],
         ];
 
         $url = (string) config('mutualfunds.api_url', 'https://mutualfunds.growthcapitalltd.com/api/account-types');
@@ -143,9 +142,10 @@ if (!function_exists('mutual_fund_plans')) {
                 $plans = array_map(static fn ($t) => [
                     'name' => (string) ($t['name'] ?? ''),
                     'min_deposit' => (float) ($t['min_deposit'] ?? 0),
-                    'lock_in_months' => (int) ($t['lock_in_months'] ?? 0),
-                    'description' => (string) ($t['description'] ?? ''),
-                    'features' => is_array($t['features'] ?? null) ? $t['features'] : [],
+                    'max_deposit' => isset($t['max_deposit']) ? (float) $t['max_deposit'] : null,
+                    'pool_amount' => (float) ($t['pool_amount'] ?? 0),
+                    'daily_return_pct' => (float) ($t['daily_return_pct'] ?? 0),
+                    'daily_profit_cap' => (float) ($t['daily_profit_cap'] ?? 0),
                 ], $json['data']);
             }
         }

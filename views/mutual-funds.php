@@ -70,18 +70,21 @@ require BASE_PATH . '/views/partials/page-header.php';
             <?php foreach ($plans as $i => $plan): ?>
                 <?php
                     $featured = $i === $featuredIndex;
-                    $months = (int) ($plan['lock_in_months'] ?? 0);
-                    $term = $months > 0 ? ($months . '-month term') : 'Flexible term';
+                    $pool = (float) ($plan['pool_amount'] ?? 0);
+                    $min  = (float) ($plan['min_deposit'] ?? 0);
+                    $max  = isset($plan['max_deposit']) ? (float) $plan['max_deposit'] : null;
+                    $cap  = (float) ($plan['daily_profit_cap'] ?? 0);
+                    $pct  = (float) ($plan['daily_return_pct'] ?? 0);
+                    $pctLabel = rtrim(rtrim(number_format($pct, 2), '0'), '.');
                 ?>
                 <article class="plan<?= $featured ? ' plan--featured' : '' ?>" data-aos="fade-up"<?= $i ? ' data-aos-delay="' . ($i * 100) . '"' : '' ?>>
                     <?php if ($featured): ?><span class="plan__badge">Popular</span><?php endif; ?>
                     <h3 class="plan__name"><?= e($plan['name']) ?></h3>
-                    <p class="plan__price">$<?= e(number_format((float) $plan['min_deposit'])) ?><span>minimum<?= $months > 0 ? ' · ' . e((string) $months) . ' month' . ($months > 1 ? 's' : '') : '' ?></span></p>
+                    <p class="plan__price">$<?= e(number_format($pool)) ?><span>pool account</span></p>
                     <ul class="plan__features">
-                        <li><i class="fa-regular fa-clock"></i> <?= e($term) ?></li>
-                        <?php if (!empty($plan['description'])): ?>
-                            <li><i class="fa-solid fa-arrow-trend-up"></i> <?= e($plan['description']) ?></li>
-                        <?php endif; ?>
+                        <li><i class="fa-solid fa-wallet"></i> $<?= e(number_format($min)) ?><?= $max ? ' – $' . e(number_format($max)) : '+' ?></li>
+                        <li><i class="fa-solid fa-arrow-trend-up"></i> Up to $<?= e(number_format($cap)) ?> /day</li>
+                        <li><i class="fa-solid fa-percent"></i> <?= e($pctLabel) ?>% daily profit</li>
                         <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
                     </ul>
                     <button class="btn <?= $featured ? 'btn--primary' : 'btn--outline' ?> btn--block" data-open-calc>Estimate Returns</button>
