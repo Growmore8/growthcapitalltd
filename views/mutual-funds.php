@@ -61,7 +61,7 @@ require BASE_PATH . '/views/partials/page-header.php';
             <h2>Choose Your Plan</h2>
             <p>Each plan runs for a fixed term with a minimum investment.</p>
         </div>
-        <div class="grid grid--4 pricing">
+        <div class="grid grid--3 pricing" style="max-width:1000px;margin-inline:auto">
             <?php
                 $plans = mutual_fund_plans();
                 // The most popular tier is highlighted — use the 2nd plan when there are several.
