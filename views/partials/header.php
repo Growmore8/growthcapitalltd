@@ -99,10 +99,69 @@ $pageTitle = $title ?? 'GrowthCapital';
                 </li>
             </ul>
             <div class="main-nav__auth">
-                <a class="btn btn--primary" href="<?= url(config('links.login', '/login')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-chart-line"></i> Trade Login</a>
+                <button type="button" class="btn btn--primary" id="loginChooserBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
             </div>
         </nav>
     </div>
 </header>
+
+<?php
+    $tradeLogin = url(config('links.login', '/login'));
+    $fundLogin  = config('links.fund_login', 'https://mutualfunds.growthcapitalltd.com/login');
+?>
+<!-- Login chooser modal -->
+<div class="login-chooser" id="loginChooser" hidden>
+    <div class="login-chooser__backdrop" data-login-close></div>
+    <div class="login-chooser__card" role="dialog" aria-modal="true" aria-label="Choose login">
+        <button class="login-chooser__x" data-login-close aria-label="Close">&times;</button>
+        <h3 class="login-chooser__title">How would you like to log in?</h3>
+        <p class="login-chooser__sub">Choose the account you want to access.</p>
+        <div class="login-chooser__opts">
+            <a class="login-opt" href="<?= e($tradeLogin) ?>" target="_blank" rel="noopener">
+                <span class="login-opt__icon login-opt__icon--blue"><i class="fa-solid fa-chart-line"></i></span>
+                <span class="login-opt__txt"><strong>Trading Account</strong><span>Forex, metals, indices &amp; crypto</span></span>
+                <i class="fa-solid fa-arrow-right login-opt__go"></i>
+            </a>
+            <a class="login-opt" href="<?= e($fundLogin) ?>">
+                <span class="login-opt__icon login-opt__icon--green"><i class="fa-solid fa-coins"></i></span>
+                <span class="login-opt__txt"><strong>Mutual Funds</strong><span>Managed pool investing</span></span>
+                <i class="fa-solid fa-arrow-right login-opt__go"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-chooser{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+    .login-chooser[hidden]{display:none}
+    .login-chooser__backdrop{position:absolute;inset:0;background:rgba(10,23,48,.6);backdrop-filter:blur(3px)}
+    .login-chooser__card{position:relative;background:#fff;border-radius:18px;max-width:440px;width:100%;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.3);animation:lcPop .2s ease}
+    @keyframes lcPop{from{transform:translateY(10px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+    .login-chooser__x{position:absolute;top:14px;right:16px;border:0;background:none;font-size:26px;line-height:1;color:#94a3b8;cursor:pointer}
+    .login-chooser__title{margin:0 0 4px;font-size:20px;color:#0a1730;font-family:'Outfit',sans-serif}
+    .login-chooser__sub{margin:0 0 18px;font-size:14px;color:#64748b}
+    .login-chooser__opts{display:grid;gap:12px}
+    .login-opt{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #e6eaf0;border-radius:14px;text-decoration:none;transition:.15s}
+    .login-opt:hover{border-color:#16c784;box-shadow:0 6px 18px rgba(22,199,132,.15);transform:translateY(-1px)}
+    .login-opt__icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:18px;flex:0 0 auto}
+    .login-opt__icon--blue{background:#2563eb}
+    .login-opt__icon--green{background:#16c784}
+    .login-opt__txt{display:flex;flex-direction:column}
+    .login-opt__txt strong{color:#0a1730;font-size:15px}
+    .login-opt__txt span{color:#64748b;font-size:12.5px}
+    .login-opt__go{margin-left:auto;color:#94a3b8}
+</style>
+<script>
+    (function(){
+        var modal=document.getElementById('loginChooser');
+        var open=document.getElementById('loginChooserBtn');
+        if(!modal||!open)return;
+        function show(){modal.hidden=false;document.body.style.overflow='hidden';}
+        function hide(){modal.hidden=true;document.body.style.overflow='';}
+        open.addEventListener('click',show);
+        modal.querySelectorAll('[data-login-close]').forEach(function(el){el.addEventListener('click',hide);});
+        document.addEventListener('keydown',function(e){if(e.key==='Escape')hide();});
+    })();
+</script>
 
 <main class="site-main">
