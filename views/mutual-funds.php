@@ -62,47 +62,31 @@ require BASE_PATH . '/views/partials/page-header.php';
             <p>Each plan runs for a fixed term with a minimum investment.</p>
         </div>
         <div class="grid grid--4 pricing">
-            <article class="plan" data-aos="fade-up">
-                <h3 class="plan__name">Capital Growth</h3>
-                <p class="plan__price">$1,000<span>minimum · 4 months</span></p>
-                <ul class="plan__features">
-                    <li><i class="fa-regular fa-clock"></i> 4-month term</li>
-                    <li><i class="fa-solid fa-shield-halved"></i> Entry-level plan</li>
-                    <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
-                </ul>
-                <button class="btn btn--outline btn--block" data-open-calc>Estimate Returns</button>
-            </article>
-            <article class="plan plan--featured" data-aos="fade-up" data-aos-delay="100">
-                <span class="plan__badge">Popular</span>
-                <h3 class="plan__name">Progressive Growth</h3>
-                <p class="plan__price">$2,500<span>minimum · 3 months</span></p>
-                <ul class="plan__features">
-                    <li><i class="fa-regular fa-clock"></i> 3-month term</li>
-                    <li><i class="fa-solid fa-arrow-trend-up"></i> Balanced growth</li>
-                    <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
-                </ul>
-                <button class="btn btn--primary btn--block" data-open-calc>Estimate Returns</button>
-            </article>
-            <article class="plan" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="plan__name">Smart Growth</h3>
-                <p class="plan__price">$10,000<span>minimum · 2 months</span></p>
-                <ul class="plan__features">
-                    <li><i class="fa-regular fa-clock"></i> 2-month term</li>
-                    <li><i class="fa-solid fa-gauge-high"></i> Accelerated growth</li>
-                    <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
-                </ul>
-                <button class="btn btn--outline btn--block" data-open-calc>Estimate Returns</button>
-            </article>
-            <article class="plan" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="plan__name">Imperial Growth</h3>
-                <p class="plan__price">$25,000<span>minimum · 1 month</span></p>
-                <ul class="plan__features">
-                    <li><i class="fa-regular fa-clock"></i> 1-month term</li>
-                    <li><i class="fa-solid fa-crown"></i> Premium plan</li>
-                    <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
-                </ul>
-                <button class="btn btn--outline btn--block" data-open-calc>Estimate Returns</button>
-            </article>
+            <?php
+                $plans = mutual_fund_plans();
+                // The most popular tier is highlighted — use the 2nd plan when there are several.
+                $featuredIndex = count($plans) >= 2 ? 1 : 0;
+            ?>
+            <?php foreach ($plans as $i => $plan): ?>
+                <?php
+                    $featured = $i === $featuredIndex;
+                    $months = (int) ($plan['lock_in_months'] ?? 0);
+                    $term = $months > 0 ? ($months . '-month term') : 'Flexible term';
+                ?>
+                <article class="plan<?= $featured ? ' plan--featured' : '' ?>" data-aos="fade-up"<?= $i ? ' data-aos-delay="' . ($i * 100) . '"' : '' ?>>
+                    <?php if ($featured): ?><span class="plan__badge">Popular</span><?php endif; ?>
+                    <h3 class="plan__name"><?= e($plan['name']) ?></h3>
+                    <p class="plan__price">$<?= e(number_format((float) $plan['min_deposit'])) ?><span>minimum<?= $months > 0 ? ' · ' . e((string) $months) . ' month' . ($months > 1 ? 's' : '') : '' ?></span></p>
+                    <ul class="plan__features">
+                        <li><i class="fa-regular fa-clock"></i> <?= e($term) ?></li>
+                        <?php if (!empty($plan['description'])): ?>
+                            <li><i class="fa-solid fa-arrow-trend-up"></i> <?= e($plan['description']) ?></li>
+                        <?php endif; ?>
+                        <li><i class="fa-solid fa-user-check"></i> Funds stay client-owned</li>
+                    </ul>
+                    <button class="btn <?= $featured ? 'btn--primary' : 'btn--outline' ?> btn--block" data-open-calc>Estimate Returns</button>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

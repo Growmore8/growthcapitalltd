@@ -95,6 +95,72 @@ if (!function_exists('asset_v')) {
     }
 }
 
+if (!function_exists('mutual_fund_plans')) {
+    /**
+     * Plans shown on the Mutual Funds page.
+     *
+     * Pulled live from the Mutual Funds app's public account-types feed and
+     * cached for 5 minutes, so editing Account Types in the fund admin updates
+     * this page automatically. Falls back to a built-in list if unreachable.
+     *
+     * @return array<int,array{name:string,min_deposit:float,lock_in_months:int,description:string,features:array}>
+     */
+    function mutual_fund_plans(): array
+    {
+        $fallback = [
+            ['name' => 'Capital Growth',     'min_deposit' => 1000,  'lock_in_months' => 4, 'description' => 'Entry-level plan',  'features' => ['Funds stay client-owned']],
+            ['name' => 'Progressive Growth', 'min_deposit' => 2500,  'lock_in_months' => 3, 'description' => 'Balanced growth',    'features' => ['Funds stay client-owned']],
+            ['name' => 'Smart Growth',       'min_deposit' => 10000, 'lock_in_months' => 2, 'description' => 'Accelerated growth', 'features' => ['Funds stay client-owned']],
+            ['name' => 'Imperial Growth',    'min_deposit' => 25000, 'lock_in_months' => 1, 'description' => 'Premium plan',       'features' => ['Funds stay client-owned']],
+        ];
+
+        $url = (string) config('mutualfunds.api_url', 'https://mutualfunds.growthcapitalltd.com/api/account-types');
+        $cacheFile = sys_get_temp_dir() . '/gc_mf_plans.json';
+
+        $readCache = static function () use ($cacheFile): ?array {
+            if (!is_file($cacheFile)) {
+                return null;
+            }
+            $data = json_decode((string) file_get_contents($cacheFile), true);
+
+            return !empty($data) && is_array($data) ? $data : null;
+        };
+
+        // Fresh cache (< 5 min) wins.
+        if (is_file($cacheFile) && (time() - (int) filemtime($cacheFile) < 300)) {
+            if ($cached = $readCache()) {
+                return $cached;
+            }
+        }
+
+        // Fetch the live feed.
+        $plans = null;
+        $ctx = stream_context_create(['http' => ['timeout' => 3, 'ignore_errors' => true]]);
+        $raw = @file_get_contents($url, false, $ctx);
+        if ($raw !== false) {
+            $json = json_decode($raw, true);
+            if (!empty($json['data']) && is_array($json['data'])) {
+                $plans = array_map(static fn ($t) => [
+                    'name' => (string) ($t['name'] ?? ''),
+                    'min_deposit' => (float) ($t['min_deposit'] ?? 0),
+                    'lock_in_months' => (int) ($t['lock_in_months'] ?? 0),
+                    'description' => (string) ($t['description'] ?? ''),
+                    'features' => is_array($t['features'] ?? null) ? $t['features'] : [],
+                ], $json['data']);
+            }
+        }
+
+        if (!empty($plans)) {
+            @file_put_contents($cacheFile, json_encode($plans));
+
+            return $plans;
+        }
+
+        // Live feed failed — use stale cache if we have it, else the built-in list.
+        return $readCache() ?? $fallback;
+    }
+}
+
 if (!function_exists('is_active')) {
     /**
      * Return $class (default 'active') when the current request path matches $path.
