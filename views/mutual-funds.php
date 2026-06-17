@@ -110,7 +110,7 @@ require BASE_PATH . '/views/partials/page-header.php';
             </div>
             <div class="income-plan__cta">
                 <button class="btn btn--light btn--lg" data-open-calc><i class="fa-solid fa-calculator"></i> Project Growth</button>
-                <a class="btn btn--glass btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Start Investing</a>
+                <a class="btn btn--glass btn--lg" href="<?= e(config('links.fund_login', 'https://mutualfunds.growthcapitalltd.com/login')) ?>" target="_blank" rel="noopener">Start Investing</a>
             </div>
         </div>
     </div>

@@ -96,7 +96,7 @@
                             <li><i class="dot dot--invested"></i> Invested</li>
                             <li><i class="dot dot--returns"></i> Est. returns</li>
                         </ul>
-                        <a class="btn btn--primary btn--block" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-rocket"></i> Start Investing</a>
+                        <a class="btn btn--primary btn--block" href="<?= e(config('links.fund_login', 'https://mutualfunds.growthcapitalltd.com/login')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-rocket"></i> Start Investing</a>
                     </div>
                 </div>
                 <p class="sip-disclaimer">For illustration only. Investments are subject to market risks; returns are not guaranteed.</p>
