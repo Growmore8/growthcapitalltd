@@ -6,17 +6,26 @@
         <span class="hero2__grid"></span>
         <?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
         <style>
-        .wc-ball{position:absolute;pointer-events:none;color:#16c784;animation:wcfloat 9s ease-in-out infinite}
-        .wc-ball i{display:block;animation:wcspin 7s linear infinite;filter:drop-shadow(0 4px 14px rgba(22,199,132,.35))}
-        .wc-ball--1{left:6%;top:24%;font-size:30px;opacity:.20}
-        .wc-ball--2{right:9%;top:62%;font-size:48px;opacity:.13;animation-delay:1.5s;animation-duration:12s}
-        .wc-ball--3{left:33%;bottom:14%;font-size:22px;opacity:.16;animation-delay:3s;animation-duration:8s}
-        @keyframes wcfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
+        /* FIFA 2026 energy overlay — speed streaks + glowing football */
+        .wcfx{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+        .wcfx__streak{position:absolute;height:2px;width:42%;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(22,199,132,.55),transparent);transform:rotate(-16deg);filter:blur(.4px);animation:wcstreak 6s linear infinite}
+        .wcfx__streak.s1{top:30%;animation-duration:5.5s}
+        .wcfx__streak.s2{top:50%;width:56%;opacity:.45;animation-duration:8s;animation-delay:1.2s}
+        .wcfx__streak.s3{top:72%;width:34%;opacity:.35;animation-duration:6.5s;animation-delay:2.4s}
+        @keyframes wcstreak{0%{left:-60%}100%{left:120%}}
+        .wcfx__ball{position:absolute;left:3%;bottom:9%;color:#16c784;font-size:50px;filter:drop-shadow(0 0 22px rgba(22,199,132,.55));animation:wcspin 6s linear infinite;opacity:.9}
+        .wcfx__ring{position:absolute;left:2.2%;bottom:7%;width:78px;height:78px;border:2px solid rgba(22,199,132,.4);border-radius:50%;animation:wcpulse 2.6s ease-out infinite}
         @keyframes wcspin{to{transform:rotate(360deg)}}
+        @keyframes wcpulse{0%{transform:scale(.7);opacity:.85}100%{transform:scale(1.7);opacity:0}}
+        @media(max-width:820px){.wcfx__ball,.wcfx__ring{display:none}}
         </style>
-        <span class="wc-ball wc-ball--1"><i class="fa-solid fa-futbol"></i></span>
-        <span class="wc-ball wc-ball--2"><i class="fa-solid fa-futbol"></i></span>
-        <span class="wc-ball wc-ball--3"><i class="fa-solid fa-futbol"></i></span>
+        <div class="wcfx">
+            <span class="wcfx__streak s1"></span>
+            <span class="wcfx__streak s2"></span>
+            <span class="wcfx__streak s3"></span>
+            <span class="wcfx__ring"></span>
+            <span class="wcfx__ball"><i class="fa-solid fa-futbol"></i></span>
+        </div>
         <?php endif; ?>
     </div>
     <div class="container hero2__inner">
