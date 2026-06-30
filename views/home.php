@@ -102,6 +102,51 @@
     </div>
 </section>
 
+<!-- ===================== Live market ticker ===================== -->
+<?php $ticks = [
+    ['EUR/USD','1.0836',0.05],['GBP/USD','1.2674',-0.08],['USD/JPY','151.42',0.12],
+    ['XAU/USD','4,016.6',-0.05],['BTC/USD','67,733',-0.31],['ETH/USD','3,503',-0.26],
+    ['AAPL','281.6',0.40],['TSLA','411.8',1.10],['NAS100','20,114',0.22],['SPX500','5,860',0.18],
+]; ?>
+<div class="mticker" aria-hidden="true">
+    <div class="mticker__track">
+        <?php for ($i = 0; $i < 2; $i++): foreach ($ticks as [$s, $p, $c]): ?>
+        <span class="mtick"><span class="mtick__s"><?= $s ?></span> <span class="mtick__p"><?= $p ?></span> <span class="mtick__c <?= $c >= 0 ? 'up' : 'dn' ?>"><i class="fa-solid fa-caret-<?= $c >= 0 ? 'up' : 'down' ?>"></i> <?= ($c >= 0 ? '+' : '') . $c ?>%</span></span>
+        <?php endforeach; endfor; ?>
+    </div>
+</div>
+<style>
+.mticker{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);padding:11px 0}
+.mticker__track{display:inline-flex;gap:36px;white-space:nowrap;animation:mtickmove 45s linear infinite;will-change:transform}
+.mticker:hover .mticker__track{animation-play-state:paused}
+@keyframes mtickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mtick{font-size:13.5px;font-weight:600;color:#cdd8e8}
+.mtick__s{color:#9fb0c7;font-weight:700;margin-right:4px}
+.mtick__c{margin-left:4px}.mtick__c.up{color:#16c784}.mtick__c.dn{color:#ef4757}
+</style>
+
+<!-- ===================== Value band (spreads / execution) ===================== -->
+<section class="section">
+    <div class="container">
+        <style>
+        .vband{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .vband__item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:18px 20px;transition:transform .25s,border-color .25s}
+        .vband__item:hover{transform:translateY(-4px);border-color:rgba(22,199,132,.5)}
+        .vband__ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:20px;color:#16c784;background:rgba(22,199,132,.12);flex:none}
+        .vband__t{font-size:18px;font-weight:800;line-height:1.1}
+        .vband__s{font-size:12.5px;color:#9fb0c7}
+        @media(max-width:860px){.vband{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:440px){.vband{grid-template-columns:1fr}}
+        </style>
+        <div class="vband">
+            <div class="vband__item" data-aos="fade-up"><span class="vband__ico"><i class="fa-solid fa-bolt"></i></span><div><div class="vband__t">From 0.0 pips</div><div class="vband__s">Raw spreads on majors</div></div></div>
+            <div class="vband__item" data-aos="fade-up" data-aos-delay="100"><span class="vband__ico"><i class="fa-solid fa-gauge-high"></i></span><div><div class="vband__t">Fast execution</div><div class="vband__s">No requotes, no dealing desk</div></div></div>
+            <div class="vband__item" data-aos="fade-up" data-aos-delay="200"><span class="vband__ico"><i class="fa-solid fa-layer-group"></i></span><div><div class="vband__t">180+ markets</div><div class="vband__s">FX, metals, indices, crypto</div></div></div>
+            <div class="vband__item" data-aos="fade-up" data-aos-delay="300"><span class="vband__ico"><i class="fa-solid fa-headset"></i></span><div><div class="vband__t">24/5 support</div><div class="vband__s">Real people, fast replies</div></div></div>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== Trust bar ===================== -->
 <section class="trustbar">
     <div class="container trustbar__inner">
