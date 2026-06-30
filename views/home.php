@@ -6,22 +6,21 @@
         <span class="hero2__grid"></span>
         <?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
         <style>
-        .wc-ball{position:absolute;font-size:28px;opacity:.16;animation:wcfloat 9s ease-in-out infinite;pointer-events:none;user-select:none}
-        .wc-ball--1{left:7%;top:22%}
-        .wc-ball--2{right:10%;top:58%;font-size:42px;opacity:.12;animation-delay:1.5s;animation-duration:11s}
-        .wc-ball--3{left:32%;bottom:12%;font-size:22px;animation-delay:3s;animation-duration:8s}
-        @keyframes wcfloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(180deg)}}
+        .wc-ball{position:absolute;pointer-events:none;color:#16c784;animation:wcfloat 9s ease-in-out infinite}
+        .wc-ball i{display:block;animation:wcspin 7s linear infinite;filter:drop-shadow(0 4px 14px rgba(22,199,132,.35))}
+        .wc-ball--1{left:6%;top:24%;font-size:30px;opacity:.20}
+        .wc-ball--2{right:9%;top:62%;font-size:48px;opacity:.13;animation-delay:1.5s;animation-duration:12s}
+        .wc-ball--3{left:33%;bottom:14%;font-size:22px;opacity:.16;animation-delay:3s;animation-duration:8s}
+        @keyframes wcfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
+        @keyframes wcspin{to{transform:rotate(360deg)}}
         </style>
-        <span class="wc-ball wc-ball--1">⚽</span>
-        <span class="wc-ball wc-ball--2">⚽</span>
-        <span class="wc-ball wc-ball--3">⚽</span>
+        <span class="wc-ball wc-ball--1"><i class="fa-solid fa-futbol"></i></span>
+        <span class="wc-ball wc-ball--2"><i class="fa-solid fa-futbol"></i></span>
+        <span class="wc-ball wc-ball--3"><i class="fa-solid fa-futbol"></i></span>
         <?php endif; ?>
     </div>
     <div class="container hero2__inner">
         <div class="hero2__content">
-            <?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
-            <span class="promo-pill" data-hero="pill" style="background:linear-gradient(110deg,#0b3b32,#16c784);color:#fff;border-color:transparent">⚽ FIFA World Cup 2026 · Trade the tournament brands</span>
-            <?php endif; ?>
             <span class="promo-pill" data-hero="pill"><i class="fa-solid fa-gift"></i> Limited-Time · 100% Deposit Bonus</span>
             <h1 data-hero="title">Trade Smarter.<br><span class="text-accent">Grow Faster.</span></h1>
             <p data-hero="text">Forex, Metals, Indices &amp; Cryptocurrencies on professional platforms — raw spreads from 0.0 pips and lightning-fast execution.</p>

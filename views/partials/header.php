@@ -49,8 +49,8 @@ $pageTitle = $title ?? 'GrowthCapital';
 <style>
 .wc26{position:relative;overflow:hidden;background:linear-gradient(110deg,#0a1730,#0b3b32 55%,#16c784 145%);color:#fff}
 .wc26__inner{display:flex;align-items:center;gap:14px;padding:10px 0;position:relative;z-index:2}
-.wc26__ball{font-size:22px;display:inline-block;animation:wc26roll 3s linear infinite}
-@keyframes wc26roll{0%{transform:translateX(-8px) rotate(0)}50%{transform:translateX(8px) rotate(180deg)}100%{transform:translateX(-8px) rotate(360deg)}}
+.wc26__ball{font-size:20px;display:inline-block;color:#16c784;animation:wc26spin 5s linear infinite}
+@keyframes wc26spin{to{transform:rotate(360deg)}}
 .wc26__text{font-weight:800;font-size:14px;letter-spacing:.2px}
 .wc26__text small{font-weight:500;opacity:.85}
 .wc26__cta{margin-left:auto;background:#f59e0b;color:#fff;font-weight:800;padding:7px 18px;border-radius:999px;text-decoration:none;font-size:13px;box-shadow:0 6px 18px rgba(245,158,11,.45);animation:wc26pulse 2s ease-in-out infinite;white-space:nowrap}
@@ -65,7 +65,7 @@ $pageTitle = $title ?? 'GrowthCapital';
 <div class="wc26" id="wc26bar">
     <span class="wc26__shine"></span>
     <div class="container wc26__inner">
-        <span class="wc26__ball">⚽</span>
+        <span class="wc26__ball"><i class="fa-solid fa-futbol"></i></span>
         <span class="wc26__text">FIFA World Cup 2026 is here <small>— invest in the global brands powering the tournament</small></span>
         <a class="wc26__cta" href="<?= url('markets') ?>">Explore Markets</a>
         <button class="wc26__close" onclick="document.getElementById('wc26bar').remove()" aria-label="Close">✕</button>
