@@ -361,6 +361,36 @@
     </div>
 </section>
 
+<!-- ===================== How to start (4 steps) ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="section__head" data-aos="fade-up">
+            <span class="eyebrow">Get started in minutes</span>
+            <h2>Start Trading in 4 Simple Steps</h2>
+        </div>
+        <style>
+        .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+        .steps4__item{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:26px 20px;transition:transform .25s ease,border-color .25s ease}
+        .steps4__item:hover{transform:translateY(-6px);border-color:rgba(22,199,132,.5)}
+        .steps4__num{position:absolute;top:-14px;left:22px;width:30px;height:30px;border-radius:50%;background:#16c784;color:#04231a;font-weight:800;display:grid;place-items:center;font-size:14px;box-shadow:0 6px 16px rgba(22,199,132,.4)}
+        .steps4__ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:22px;color:#16c784;background:rgba(22,199,132,.12);margin:6px 0 14px}
+        .steps4__item h3{margin:0 0 6px;font-size:17px}
+        .steps4__item p{margin:0;font-size:13.5px;color:#9fb0c7;line-height:1.5}
+        @media(max-width:860px){.steps4{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:460px){.steps4{grid-template-columns:1fr}}
+        </style>
+        <div class="steps4">
+            <div class="steps4__item" data-aos="fade-up"><span class="steps4__num">1</span><span class="steps4__ico"><i class="fa-solid fa-user-plus"></i></span><h3>Register</h3><p>Create your account in minutes with just your email and basic details.</p></div>
+            <div class="steps4__item" data-aos="fade-up" data-aos-delay="100"><span class="steps4__num">2</span><span class="steps4__ico"><i class="fa-solid fa-id-card"></i></span><h3>Verify</h3><p>Complete quick KYC verification to secure and activate your account.</p></div>
+            <div class="steps4__item" data-aos="fade-up" data-aos-delay="200"><span class="steps4__num">3</span><span class="steps4__ico"><i class="fa-solid fa-wallet"></i></span><h3>Fund</h3><p>Deposit instantly via card, bank transfer or your preferred method.</p></div>
+            <div class="steps4__item" data-aos="fade-up" data-aos-delay="300"><span class="steps4__num">4</span><span class="steps4__ico"><i class="fa-solid fa-arrow-trend-up"></i></span><h3>Trade</h3><p>Access global markets and managed funds — start growing right away.</p></div>
+        </div>
+        <div style="text-align:center;margin-top:28px" data-aos="fade-up">
+            <a class="btn btn--primary btn--lg" href="<?= url(config('links.register', '/register')) ?>" target="_blank" rel="noopener">Open an Account <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== CTA with photo ===================== -->
 <section class="cta-photo">
     <div class="container" data-aos="zoom-in">
