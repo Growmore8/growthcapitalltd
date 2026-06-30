@@ -21,6 +21,10 @@
         .wcfx__ring{position:absolute;left:2.2%;bottom:7%;width:78px;height:78px;border:2px solid rgba(22,199,132,.4);border-radius:50%;animation:wcpulse 2.6s ease-out infinite}
         @keyframes wcspin{to{transform:rotate(360deg)}}
         @keyframes wcpulse{0%{transform:scale(.7);opacity:.85}100%{transform:scale(1.7);opacity:0}}
+        /* Optional hero player image — drop a transparent PNG at public/images/wc-player.png */
+        .wcfx__player{position:absolute;right:0;bottom:0;height:94%;max-height:580px;object-fit:contain;object-position:bottom right;opacity:.92;filter:drop-shadow(0 18px 50px rgba(0,0,0,.45));animation:wcrise 1s cubic-bezier(.2,.7,.2,1) both;pointer-events:none}
+        @keyframes wcrise{from{opacity:0;transform:translateY(34px)}to{opacity:.92;transform:translateY(0)}}
+        @media(max-width:980px){.wcfx__ball,.wcfx__ring{display:none}.wcfx__player{opacity:.22;right:-12%;height:80%}}
         @media(max-width:820px){.wcfx__ball,.wcfx__ring{display:none}}
         </style>
         <div class="wcfx">
@@ -31,6 +35,9 @@
             <span class="wcfx__streak s3"></span>
             <span class="wcfx__ring"></span>
             <span class="wcfx__ball"><i class="fa-solid fa-futbol"></i></span>
+            <?php if (is_file(BASE_PATH . '/public/images/wc-player.png')): ?>
+            <img class="wcfx__player" src="<?= asset('images/wc-player.png') ?>" alt="" aria-hidden="true">
+            <?php endif; ?>
         </div>
         <?php endif; ?>
     </div>
