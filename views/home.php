@@ -6,8 +6,12 @@
         <span class="hero2__grid"></span>
         <?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
         <style>
-        /* FIFA 2026 energy overlay — speed streaks + glowing football */
+        /* FIFA 2026 energy overlay — color band + stadium beam + speed streaks + glowing football */
         .wcfx{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+        .wcfx__band{position:absolute;top:-25%;left:-8%;width:55%;height:150%;transform:rotate(13deg);background:linear-gradient(120deg,rgba(22,199,132,.12),rgba(56,130,246,.10));filter:blur(26px);animation:wcband 9s ease-in-out infinite}
+        @keyframes wcband{0%,100%{opacity:.5;transform:rotate(13deg) translateX(0)}50%{opacity:.95;transform:rotate(13deg) translateX(26px)}}
+        .wcfx__beam{position:absolute;top:-45%;width:26%;height:190%;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent 70%);transform:rotate(18deg);filter:blur(10px);animation:wcbeam 7.5s ease-in-out infinite}
+        @keyframes wcbeam{0%{left:-15%;opacity:.25}50%{opacity:.7}100%{left:75%;opacity:.25}}
         .wcfx__streak{position:absolute;height:2px;width:42%;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(22,199,132,.55),transparent);transform:rotate(-16deg);filter:blur(.4px);animation:wcstreak 6s linear infinite}
         .wcfx__streak.s1{top:30%;animation-duration:5.5s}
         .wcfx__streak.s2{top:50%;width:56%;opacity:.45;animation-duration:8s;animation-delay:1.2s}
@@ -20,6 +24,8 @@
         @media(max-width:820px){.wcfx__ball,.wcfx__ring{display:none}}
         </style>
         <div class="wcfx">
+            <span class="wcfx__band"></span>
+            <span class="wcfx__beam"></span>
             <span class="wcfx__streak s1"></span>
             <span class="wcfx__streak s2"></span>
             <span class="wcfx__streak s3"></span>
