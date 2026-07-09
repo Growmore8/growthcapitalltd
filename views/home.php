@@ -102,27 +102,39 @@
     </div>
 </section>
 
-<!-- ===================== Live market ticker ===================== -->
-<?php $ticks = [
-    ['EUR/USD','1.0836',0.05],['GBP/USD','1.2674',-0.08],['USD/JPY','151.42',0.12],
-    ['XAU/USD','4,016.6',-0.05],['BTC/USD','67,733',-0.31],['ETH/USD','3,503',-0.26],
-    ['AAPL','281.6',0.40],['TSLA','411.8',1.10],['NAS100','20,114',0.22],['SPX500','5,860',0.18],
-]; ?>
-<div class="mticker" aria-hidden="true">
-    <div class="mticker__track">
-        <?php for ($i = 0; $i < 2; $i++): foreach ($ticks as [$s, $p, $c]): ?>
-        <span class="mtick"><span class="mtick__s"><?= $s ?></span> <span class="mtick__p"><?= $p ?></span> <span class="mtick__c <?= $c >= 0 ? 'up' : 'dn' ?>"><i class="fa-solid fa-caret-<?= $c >= 0 ? 'up' : 'down' ?>"></i> <?= ($c >= 0 ? '+' : '') . $c ?>%</span></span>
-        <?php endforeach; endfor; ?>
+<!-- ===================== Live market ticker (powered by TradingView) ===================== -->
+<div class="tv-tape">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            { "proName": "SP:SPX",         "title": "S&P 500" },
+            { "proName": "FOREXCOM:NSXUSD", "title": "US 100" },
+            { "proName": "FX:EURUSD",      "title": "EUR/USD" },
+            { "proName": "FX:GBPUSD",      "title": "GBP/USD" },
+            { "proName": "FX:USDJPY",      "title": "USD/JPY" },
+            { "proName": "TVC:GOLD",       "title": "Gold" },
+            { "proName": "BITSTAMP:BTCUSD", "title": "BTC/USD" },
+            { "proName": "BITSTAMP:ETHUSD", "title": "ETH/USD" }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "colorTheme": "light",
+        "locale": "en"
+        }
+        </script>
     </div>
+    <!-- TradingView Widget END -->
 </div>
 <style>
-.mticker{overflow:hidden;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);padding:11px 0}
-.mticker__track{display:inline-flex;gap:36px;white-space:nowrap;animation:mtickmove 45s linear infinite;will-change:transform}
-.mticker:hover .mticker__track{animation-play-state:paused}
-@keyframes mtickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mtick{font-size:13.5px;font-weight:600;color:#cdd8e8}
-.mtick__s{color:#9fb0c7;font-weight:700;margin-right:4px}
-.mtick__c{margin-left:4px}.mtick__c.up{color:#16c784}.mtick__c.dn{color:#ef4757}
+.tv-tape{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.tv-tape .tradingview-widget-copyright{font-size:11px;line-height:1.2;text-align:center;padding:4px 0 6px;color:var(--muted)}
+.tv-tape .tradingview-widget-copyright a,.tv-tape .tradingview-widget-copyright .blue-text{color:var(--muted)!important;text-decoration:none}
+.tv-tape .tradingview-widget-copyright a:hover .blue-text{color:#2962ff!important}
 </style>
 
 <!-- ===================== Value band (spreads / execution) ===================== -->
