@@ -237,6 +237,38 @@
     </div>
 </section>
 
+<!-- ===================== TradingView partner ===================== -->
+<section class="section tvpartner">
+    <div class="container">
+        <div class="tvpartner__card" data-aos="fade-up">
+            <div class="tvpartner__brand">
+                <span class="tvpartner__logo"><i class="fa-solid fa-chart-line"></i> Trading<b>View</b></span>
+                <span class="tvpartner__tag">Official Charting Partner</span>
+            </div>
+            <div class="tvpartner__body">
+                <span class="eyebrow">Advanced charts &amp; market analysis</span>
+                <h2>Powered by TradingView</h2>
+                <p>
+                    GrowthCapital has partnered with <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a>,
+                    a global leader in charting and market analysis trusted by millions of traders. Access real-time market data and
+                    powerful tools &mdash; explore the <a href="https://www.tradingview.com/screener/" target="_blank" rel="noopener">Stock Screener</a>,
+                    stay ahead of market-moving events with the <a href="https://www.tradingview.com/economic-calendar/" target="_blank" rel="noopener">Economic Calendar</a>,
+                    and follow live <a href="https://www.tradingview.com/symbols/SPX/" target="_blank" rel="noopener">S&amp;P&nbsp;500</a> indices,
+                    <a href="https://www.tradingview.com/symbols/USDJPY/" target="_blank" rel="noopener">USD/JPY</a> forex and
+                    <a href="https://www.tradingview.com/symbols/XAUUSD/" target="_blank" rel="noopener">gold</a> commodities with advanced live charting.
+                </p>
+                <div class="tvpartner__chips">
+                    <a href="https://www.tradingview.com/screener/" target="_blank" rel="noopener"><i class="fa-solid fa-magnifying-glass-chart"></i> Stock Screener</a>
+                    <a href="https://www.tradingview.com/economic-calendar/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-days"></i> Economic Calendar</a>
+                    <a href="https://www.tradingview.com/symbols/SPX/" target="_blank" rel="noopener"><i class="fa-solid fa-chart-column"></i> S&amp;P 500</a>
+                    <a href="https://www.tradingview.com/symbols/USDJPY/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-right-arrow-left"></i> USD/JPY</a>
+                    <a href="https://www.tradingview.com/symbols/XAUUSD/" target="_blank" rel="noopener"><i class="fa-solid fa-coins"></i> Gold</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ===================== Trading accounts ===================== -->
 <section class="section">
     <div class="container">
