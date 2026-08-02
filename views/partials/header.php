@@ -44,6 +44,32 @@ $pageTitle = $title ?? 'GrowthCapital';
     </div>
 </div>
 
+<!-- Motorsport 'race pace' banner (evergreen — no expiry) -->
+<style>
+.msbar{position:relative;overflow:hidden;background:linear-gradient(110deg,#0a1730,#0b3b32 55%,#16c784 150%);color:#fff}
+.msbar__inner{display:flex;align-items:center;gap:14px;padding:10px 0;position:relative;z-index:2}
+.msbar__ico{font-size:18px;color:#16c784;animation:msbarwave 2.2s ease-in-out infinite}
+@keyframes msbarwave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.msbar__text{font-weight:800;font-size:14px;letter-spacing:.2px}
+.msbar__text small{font-weight:500;opacity:.85}
+.msbar__cta{margin-left:auto;background:#16c784;color:#04231a;font-weight:800;padding:7px 18px;border-radius:999px;text-decoration:none;font-size:13px;white-space:nowrap}
+.msbar__cta:hover{background:#25ef8a}
+.msbar__shine{position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);transform:translateX(-100%);animation:msbarshine 3.6s ease-in-out infinite}
+@keyframes msbarshine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.msbar__close{color:#fff;opacity:.7;background:none;border:0;font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
+.msbar__close:hover{opacity:1}
+@media(max-width:640px){.msbar__text small{display:none}.msbar__inner{gap:10px}}
+</style>
+<div class="msbar" id="msbar">
+    <span class="msbar__shine"></span>
+    <div class="container msbar__inner">
+        <span class="msbar__ico"><i class="fa-solid fa-flag-checkered"></i></span>
+        <span class="msbar__text">Trade at race pace <small>— 0.0 pip spreads, lightning execution, no dealing desk</small></span>
+        <a class="msbar__cta" href="<?= url('markets') ?>">Start Trading</a>
+        <button class="msbar__close" onclick="document.getElementById('msbar').remove()" aria-label="Close">✕</button>
+    </div>
+</div>
+
 <!-- Main header -->
 <header class="site-header" id="siteHeader">
     <div class="container site-header__inner">
