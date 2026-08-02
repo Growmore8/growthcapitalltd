@@ -6,7 +6,7 @@
         <span class="hero2__glow hero2__glow--2"></span>
         <span class="hero2__grid"></span>
         <style>
-        /* Motorsport energy overlay — speed streaks + apex arc + checkered flag + gauge silhouette */
+        /* Motorsport energy overlay — subtle speed streaks + apex arc */
         .msfx{position:absolute;inset:0;overflow:hidden;pointer-events:none}
         .msfx__streak{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(22,199,132,.6),transparent);filter:blur(.3px);animation:msstreak 3.2s linear infinite}
         .msfx__streak.s1{top:34%;width:48%;animation-duration:2.6s}
@@ -15,16 +15,12 @@
         @keyframes msstreak{0%{left:-70%}100%{left:120%}}
         .msfx__apex{position:absolute;left:-12%;bottom:-32%;width:62%;height:125%;border:2px solid rgba(22,199,132,.16);border-radius:50%;filter:blur(1px);animation:msarc 9s ease-in-out infinite}
         @keyframes msarc{0%,100%{opacity:.4;transform:translateX(0)}50%{opacity:.8;transform:translateX(24px)}}
-        .msfx__flag{position:absolute;left:3%;bottom:10%;color:#16c784;font-size:44px;opacity:.85;filter:drop-shadow(0 0 18px rgba(22,199,132,.5));animation:mswave 2.4s ease-in-out infinite}
-        @keyframes mswave{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
-        /* Big faint speedometer silhouette (Font Awesome — always available, no external load). */
-        .msfx__gauge{position:absolute;right:5%;bottom:1%;font-size:min(42vh,420px);line-height:1;color:#16c784;opacity:.12;filter:drop-shadow(0 0 40px rgba(22,199,132,.4));animation:msrise 1.1s cubic-bezier(.2,.7,.2,1) both}
-        @keyframes msrise{from{opacity:0;transform:translateY(30px)}to{opacity:.12;transform:translateY(0)}}
-        @media(max-width:820px){.msfx__flag{display:none}.msfx__gauge{right:-14%;opacity:.16}}
-        /* Cinematic race-car cover photo — bright, with a left-weighted overlay for text only */
-        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center right/cover no-repeat;opacity:1;animation:msphoto 1.2s ease both}
-        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#08182f 0%,rgba(8,24,47,.92) 26%,rgba(8,24,47,.45) 55%,rgba(8,24,47,.08) 100%),linear-gradient(0deg,rgba(6,20,36,.45),transparent 42%)}
+        /* Cinematic race-car cover photo — bright; overlay weighted to the RIGHT (text side) */
+        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center center/cover no-repeat;opacity:1;animation:msphoto 1.2s ease both}
+        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,24,47,.05) 0%,rgba(8,24,47,.3) 40%,rgba(8,24,47,.88) 70%,#08182f 100%),linear-gradient(0deg,rgba(6,20,36,.4),transparent 40%)}
         @keyframes msphoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
+        /* Layout: floating price cards on the LEFT, headline text on the RIGHT (desktop) */
+        @media(min-width:941px){.hero2__inner{grid-template-columns:.95fr 1.05fr}.hero2__visual{order:1}.hero2__content{order:2}}
         /* refreshed accents for the racing look */
         .hero2 .promo-pill{border-color:rgba(22,199,132,.5);box-shadow:0 0 0 1px rgba(22,199,132,.15),0 8px 26px rgba(22,199,132,.18)}
         .hero2__content h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
@@ -36,8 +32,6 @@
             <span class="msfx__streak s1"></span>
             <span class="msfx__streak s2"></span>
             <span class="msfx__streak s3"></span>
-            <i class="fa-solid fa-flag-checkered msfx__flag" aria-hidden="true"></i>
-            <i class="fa-solid fa-gauge-high msfx__gauge" aria-hidden="true"></i>
         </div>
     </div>
     <div class="container hero2__inner">
