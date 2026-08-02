@@ -4,47 +4,6 @@
         <span class="hero2__glow hero2__glow--1"></span>
         <span class="hero2__glow hero2__glow--2"></span>
         <span class="hero2__grid"></span>
-        <?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
-        <style>
-        /* FIFA 2026 energy overlay — color band + stadium beam + speed streaks + glowing football */
-        .wcfx{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-        .wcfx__band{position:absolute;top:-25%;left:-8%;width:55%;height:150%;transform:rotate(13deg);background:linear-gradient(120deg,rgba(22,199,132,.12),rgba(56,130,246,.10));filter:blur(26px);animation:wcband 9s ease-in-out infinite}
-        @keyframes wcband{0%,100%{opacity:.5;transform:rotate(13deg) translateX(0)}50%{opacity:.95;transform:rotate(13deg) translateX(26px)}}
-        .wcfx__beam{position:absolute;top:-45%;width:26%;height:190%;background:linear-gradient(180deg,rgba(255,255,255,.12),transparent 70%);transform:rotate(18deg);filter:blur(10px);animation:wcbeam 7.5s ease-in-out infinite}
-        @keyframes wcbeam{0%{left:-15%;opacity:.25}50%{opacity:.7}100%{left:75%;opacity:.25}}
-        .wcfx__streak{position:absolute;height:2px;width:42%;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(22,199,132,.55),transparent);transform:rotate(-16deg);filter:blur(.4px);animation:wcstreak 6s linear infinite}
-        .wcfx__streak.s1{top:30%;animation-duration:5.5s}
-        .wcfx__streak.s2{top:50%;width:56%;opacity:.45;animation-duration:8s;animation-delay:1.2s}
-        .wcfx__streak.s3{top:72%;width:34%;opacity:.35;animation-duration:6.5s;animation-delay:2.4s}
-        @keyframes wcstreak{0%{left:-60%}100%{left:120%}}
-        .wcfx__ball{position:absolute;left:3%;bottom:9%;color:#16c784;font-size:50px;filter:drop-shadow(0 0 22px rgba(22,199,132,.55));animation:wcspin 6s linear infinite;opacity:.9}
-        .wcfx__ring{position:absolute;left:2.2%;bottom:7%;width:78px;height:78px;border:2px solid rgba(22,199,132,.4);border-radius:50%;animation:wcpulse 2.6s ease-out infinite}
-        @keyframes wcspin{to{transform:rotate(360deg)}}
-        @keyframes wcpulse{0%{transform:scale(.7);opacity:.85}100%{transform:scale(1.7);opacity:0}}
-        /* Hero player silhouette — Font Awesome athlete (always available, no external load). */
-        .wcfx__player{position:absolute;right:4%;bottom:0;font-size:min(46vh,460px);line-height:1;color:#16c784;opacity:.18;filter:drop-shadow(0 0 44px rgba(22,199,132,.45));animation:wcrise 1.1s cubic-bezier(.2,.7,.2,1) both;pointer-events:none}
-        .wcfx__photo{position:absolute;right:3%;bottom:0;height:90%;max-height:540px;object-fit:contain;object-position:bottom right;opacity:.92;filter:drop-shadow(0 18px 50px rgba(0,0,0,.45));animation:wcrise 1.1s cubic-bezier(.2,.7,.2,1) both;pointer-events:none}
-        @keyframes wcrise{from{opacity:0;transform:translateY(34px)}to{opacity:.18;transform:translateY(0)}}
-        @media(max-width:980px){.wcfx__ball,.wcfx__ring{display:none}.wcfx__player{opacity:.22;right:-12%;height:80%}}
-        @media(max-width:820px){.wcfx__ball,.wcfx__ring{display:none}}
-        </style>
-        <div class="wcfx">
-            <span class="wcfx__band"></span>
-            <span class="wcfx__beam"></span>
-            <span class="wcfx__streak s1"></span>
-            <span class="wcfx__streak s2"></span>
-            <span class="wcfx__streak s3"></span>
-            <span class="wcfx__ring"></span>
-            <span class="wcfx__ball"><i class="fa-solid fa-futbol"></i></span>
-            <?php /* Optional: paste a royalty-free transparent footballer PNG URL to use a real photo instead of the icon silhouette. Leave empty to use the icon. */ ?>
-            <?php $wcPlayer = ''; ?>
-            <?php if (!empty($wcPlayer)): ?>
-            <img class="wcfx__photo" src="<?= $wcPlayer ?>" alt="" aria-hidden="true" onerror="this.remove()">
-            <?php else: ?>
-            <i class="fa-solid fa-person-running wcfx__player" aria-hidden="true"></i>
-            <?php endif; ?>
-        </div>
-        <?php endif; ?>
     </div>
     <div class="container hero2__inner">
         <div class="hero2__content">

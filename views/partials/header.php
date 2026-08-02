@@ -44,35 +44,6 @@ $pageTitle = $title ?? 'GrowthCapital';
     </div>
 </div>
 
-<!-- FIFA World Cup 2026 banner (auto-hides after the final, 19 Jul 2026) -->
-<?php if (time() <= strtotime('2026-07-20 23:59:59')): ?>
-<style>
-.wc26{position:relative;overflow:hidden;background:linear-gradient(110deg,#0a1730,#0b3b32 55%,#16c784 145%);color:#fff}
-.wc26__inner{display:flex;align-items:center;gap:14px;padding:10px 0;position:relative;z-index:2}
-.wc26__ball{font-size:20px;display:inline-block;color:#16c784;animation:wc26spin 5s linear infinite}
-@keyframes wc26spin{to{transform:rotate(360deg)}}
-.wc26__text{font-weight:800;font-size:14px;letter-spacing:.2px}
-.wc26__text small{font-weight:500;opacity:.85}
-.wc26__cta{margin-left:auto;background:#f59e0b;color:#fff;font-weight:800;padding:7px 18px;border-radius:999px;text-decoration:none;font-size:13px;box-shadow:0 6px 18px rgba(245,158,11,.45);animation:wc26pulse 2s ease-in-out infinite;white-space:nowrap}
-.wc26__cta:hover{background:#d97706}
-@keyframes wc26pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.wc26__shine{position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.20) 50%,transparent 70%);transform:translateX(-100%);animation:wc26shine 4.5s ease-in-out infinite}
-@keyframes wc26shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
-.wc26__close{color:#fff;opacity:.7;background:none;border:0;font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
-.wc26__close:hover{opacity:1}
-@media(max-width:640px){.wc26__text small{display:none}.wc26__inner{gap:10px}}
-</style>
-<div class="wc26" id="wc26bar">
-    <span class="wc26__shine"></span>
-    <div class="container wc26__inner">
-        <span class="wc26__ball"><i class="fa-solid fa-futbol"></i></span>
-        <span class="wc26__text">FIFA World Cup 2026 is here <small>— invest in the global brands powering the tournament</small></span>
-        <a class="wc26__cta" href="<?= url('markets') ?>">Explore Markets</a>
-        <button class="wc26__close" onclick="document.getElementById('wc26bar').remove()" aria-label="Close">✕</button>
-    </div>
-</div>
-<?php endif; ?>
-
 <!-- Main header -->
 <header class="site-header" id="siteHeader">
     <div class="container site-header__inner">
