@@ -19,8 +19,9 @@
         .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center center/cover no-repeat;opacity:1;animation:msphoto 1.2s ease both}
         .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,24,47,.05) 0%,rgba(8,24,47,.3) 40%,rgba(8,24,47,.88) 70%,#08182f 100%),linear-gradient(0deg,rgba(6,20,36,.4),transparent 40%)}
         @keyframes msphoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
-        /* Layout: floating price cards on the LEFT, headline text on the RIGHT (desktop) */
-        @media(min-width:941px){.hero2__inner{grid-template-columns:.95fr 1.05fr}.hero2__visual{order:1}.hero2__content{order:2}}
+        /* Clean & minimal: full-bleed car, headline block pinned to the RIGHT */
+        .hero2{min-height:74vh;display:flex;align-items:center}
+        @media(min-width:941px){.hero2__inner{display:block}.hero2__content{max-width:560px;margin-left:auto}}
         /* refreshed accents for the racing look */
         .hero2 .promo-pill{border-color:rgba(22,199,132,.5);box-shadow:0 0 0 1px rgba(22,199,132,.15),0 8px 26px rgba(22,199,132,.18)}
         .hero2__content h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
@@ -50,43 +51,6 @@
             </ul>
         </div>
 
-        <div class="hero2__visual" data-hero="visual">
-            <div class="hero-chart glass" data-hero="chart">
-                <div class="hero-chart__head">
-                    <span class="hero-chart__pair"><span class="live-dot"></span><i class="fa-brands fa-bitcoin"></i> BTC/USD</span>
-                    <span class="hero-chart__chg up" data-chg>+2.41%</span>
-                </div>
-                <div class="hero-chart__val"><span data-tick="67940" data-dec="0" data-prefix="$">$67,940</span></div>
-                <svg class="hero-chart__svg" viewBox="0 0 420 180" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0" stop-color="rgba(22,199,132,.45)"/>
-                            <stop offset="1" stop-color="rgba(22,199,132,0)"/>
-                        </linearGradient>
-                    </defs>
-                    <path class="hero-chart__area" d="M0,140 L40,120 L80,135 L120,95 L160,110 L200,70 L240,85 L280,45 L320,60 L360,30 L420,20 L420,180 L0,180 Z"/>
-                    <path class="hero-chart__line" d="M0,140 L40,120 L80,135 L120,95 L160,110 L200,70 L240,85 L280,45 L320,60 L360,30 L420,20"/>
-                </svg>
-            </div>
-
-            <div class="hero2__cards">
-                <div class="float-card glass float-card--1" data-float="1">
-                    <span class="float-card__pair">EUR/USD</span>
-                    <span class="float-card__val" data-tick="1.0842" data-dec="4">1.0842</span>
-                    <span class="float-card__chg up" data-chg>+0.12%</span>
-                </div>
-                <div class="float-card glass float-card--2" data-float="2">
-                    <span class="float-card__pair"><i class="fa-solid fa-coins"></i> XAU/USD</span>
-                    <span class="float-card__val" data-tick="4018.5" data-dec="1">4,018.5</span>
-                    <span class="float-card__chg up" data-chg>+0.45%</span>
-                </div>
-                <div class="float-card glass float-card--3" data-float="3">
-                    <span class="float-card__pair"><i class="fa-brands fa-ethereum"></i> ETH</span>
-                    <span class="float-card__val" data-tick="3512" data-dec="0">3,512</span>
-                    <span class="float-card__chg up" data-chg>+0.9%</span>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
