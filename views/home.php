@@ -16,9 +16,11 @@
         .msfx__apex{position:absolute;left:-12%;bottom:-32%;width:62%;height:125%;border:2px solid rgba(22,199,132,.16);border-radius:50%;filter:blur(1px);animation:msarc 9s ease-in-out infinite}
         @keyframes msarc{0%,100%{opacity:.4;transform:translateX(0)}50%{opacity:.8;transform:translateX(24px)}}
         /* Cinematic race-car cover photo — bright; overlay weighted to the RIGHT (text side) */
-        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center center/cover no-repeat;opacity:1;animation:msphoto 1.2s ease both}
-        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,24,47,.05) 0%,rgba(8,24,47,.3) 40%,rgba(8,24,47,.88) 70%,#08182f 100%),linear-gradient(0deg,rgba(6,20,36,.4),transparent 40%)}
-        @keyframes msphoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
+        /* Image mirrored (scaleX -1) so the car's cockpit/driver sits on the LEFT clear side.
+           The overlay is written dark-left in code, so after the flip it darkens the RIGHT (text). */
+        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center 40%/cover no-repeat;opacity:1;transform:scaleX(-1);animation:msphoto 1.2s ease both}
+        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#08182f 0%,rgba(8,24,47,.88) 30%,rgba(8,24,47,.34) 62%,rgba(8,24,47,.04) 100%),linear-gradient(0deg,rgba(6,20,36,.4),transparent 40%)}
+        @keyframes msphoto{from{opacity:0;transform:scaleX(-1) scale(1.06)}to{opacity:1;transform:scaleX(-1) scale(1)}}
         /* Clean & minimal: full-bleed car, headline block pinned to the RIGHT */
         .hero2{min-height:74vh;display:flex;align-items:center}
         @media(min-width:941px){.hero2__inner{display:block}.hero2__content{max-width:560px;margin-left:auto}}
