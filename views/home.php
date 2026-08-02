@@ -21,14 +21,15 @@
         .msfx__gauge{position:absolute;right:5%;bottom:1%;font-size:min(42vh,420px);line-height:1;color:#16c784;opacity:.12;filter:drop-shadow(0 0 40px rgba(22,199,132,.4));animation:msrise 1.1s cubic-bezier(.2,.7,.2,1) both}
         @keyframes msrise{from{opacity:0;transform:translateY(30px)}to{opacity:.12;transform:translateY(0)}}
         @media(max-width:820px){.msfx__flag{display:none}.msfx__gauge{right:-14%;opacity:.16}}
-        /* Cinematic race-car cover photo (right-anchored) + legibility overlay */
-        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center right/cover no-repeat;opacity:.6;animation:msphoto 1.2s ease both}
-        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#08182f 5%,rgba(8,24,47,.72) 44%,rgba(8,24,47,.12) 100%),linear-gradient(0deg,rgba(6,20,36,.82),transparent 50%)}
-        @keyframes msphoto{from{opacity:0;transform:scale(1.06)}to{opacity:.6;transform:scale(1)}}
+        /* Cinematic race-car cover photo — bright, with a left-weighted overlay for text only */
+        .hero2__photo{position:absolute;inset:0;background:url('<?= asset('images/hero-race.jpg') ?>') center right/cover no-repeat;opacity:1;animation:msphoto 1.2s ease both}
+        .hero2__photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#08182f 0%,rgba(8,24,47,.92) 26%,rgba(8,24,47,.45) 55%,rgba(8,24,47,.08) 100%),linear-gradient(0deg,rgba(6,20,36,.45),transparent 42%)}
+        @keyframes msphoto{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:scale(1)}}
         /* refreshed accents for the racing look */
         .hero2 .promo-pill{border-color:rgba(22,199,132,.5);box-shadow:0 0 0 1px rgba(22,199,132,.15),0 8px 26px rgba(22,199,132,.18)}
-        .hero2__content h1{text-shadow:0 2px 30px rgba(0,0,0,.35)}
-        @media(max-width:820px){.hero2__photo{opacity:.4}.hero2__photo::after{background:linear-gradient(180deg,rgba(8,24,47,.68),rgba(8,24,47,.93))}}
+        .hero2__content h1{text-shadow:0 2px 30px rgba(0,0,0,.45)}
+        .hero2__content p{text-shadow:0 1px 16px rgba(0,0,0,.4)}
+        @media(max-width:820px){.hero2__photo::after{background:linear-gradient(180deg,rgba(8,24,47,.55),rgba(8,24,47,.9))}}
         </style>
         <div class="msfx">
             <span class="msfx__apex"></span>
